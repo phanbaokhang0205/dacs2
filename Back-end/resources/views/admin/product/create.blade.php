@@ -1,5 +1,16 @@
 @extends('layouts.admin.main')
 
+@section('search')
+    <div class="search">
+        <form action="{{ route('product.find') }}" method="post">
+            @csrf
+            <button class="search" type="submit">
+                <i class='bx bx-search'></i>
+            </button>
+            <input type="text" id="inputSearch" name="search" class="" placeholder="Search products...">
+        </form>
+    </div>
+@endsection
 @section('content')
     <div class="main-content">
         <div class="row-title">

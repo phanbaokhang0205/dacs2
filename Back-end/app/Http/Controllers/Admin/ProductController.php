@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -15,16 +16,38 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(15);
-        return view('admin.product.index',['products'=>$products]);
+        return view('admin.product.index', ['products' => $products]);
     }
+    /**
+     * find the product
+     */
+    public function find(Request $request)
+    {
+        if (!is_numeric($request->search)) {
+            $result = DB::table('brands')
+                ->join('products', 'brands.brandID', '=', 'products.brandID')
+                ->select('brandName', 'productCode', 'productName', 'listPrice')
+                ->orWhere('brandName', 'like', '%' . $request->search . '%')
+                ->orWhere('productCode', 'like', '%' . $request->search . '%')
+                ->orWhere('productName', 'like', '%' . $request->search . '%')
+                ->get();
+        } else {
+            $result = DB::table('brands')
+                ->join('products', 'brands.brandID', '=', 'products.brandID')
+                ->select('brandName', 'productCode', 'productName', 'listPrice')
+                ->where('listPrice', '>', $request->search)
+                ->get();
+        }
 
+        return view('admin.product.find', ['result' => $result]);
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $brands = Brand::all();
-        return view('admin.product.create',['brands'=>$brands]);
+        return view('admin.product.create', ['brands' => $brands]);
     }
 
     /**
@@ -39,7 +62,6 @@ class ProductController extends Controller
         $product->listPrice = $request->listPrice;
         $product->save();
         return redirect()->route('product.index');
-
     }
 
     /**
@@ -57,7 +79,7 @@ class ProductController extends Controller
     {
         $brands = Brand::all();
         $product = Product::find($id);
-        return view('admin.product.edit',['brands'=>$brands,'product'=>$product]);
+        return view('admin.product.edit', ['brands' => $brands, 'product' => $product]);
     }
 
     /**

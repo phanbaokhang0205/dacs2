@@ -14,7 +14,24 @@ class BrandController extends Controller
     public function index()
     {
         $brands = DB::table('brands')->paginate(15);
-        return view('admin.brand.index',['brands'=>$brands]);
+        return view('admin.brand.index', ['brands' => $brands]);
+    }
+
+    public function find(Request $request)
+    {
+        if (!is_numeric($request->search)) {
+            $result = DB::table('brands')
+                ->select('brandID', 'brandName')
+                ->where('brandName', 'like', '%' . $request->search . '%')
+                ->get();
+        } else {
+            $result = DB::table('brands')
+                ->select('brandID', 'brandName')
+                ->where('brandID', 'like', '%' . $request->search . '%')
+                ->get();
+        }
+
+        return view('admin.brand.find', ['result' => $result]);
     }
 
     /**
@@ -31,9 +48,9 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $params = [
-            'brandName'=>$request->brandName,
-            'created_at'=>\Carbon\Carbon::now(),
-            'updated_at'=>\Carbon\Carbon::now()
+            'brandName' => $request->brandName,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
         ];
         DB::table('brands')->insert($params);
         return redirect()->route('brand.index');
@@ -44,8 +61,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand = DB::table('brands')->where('brandID',$id)->first();
-        return view('admin.brand.show',['brand'=>$brand]);
+        $brand = DB::table('brands')->where('brandID', $id)->first();
+        return view('admin.brand.show', ['brand' => $brand]);
     }
 
     /**
@@ -53,8 +70,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = DB::table('brands')->where('brandID',$id)->first();
-        return view('admin.brand.edit',['brand'=>$brand]);
+        $brand = DB::table('brands')->where('brandID', $id)->first();
+        return view('admin.brand.edit', ['brand' => $brand]);
     }
 
     /**
@@ -63,11 +80,11 @@ class BrandController extends Controller
     public function update(Request $request, $id)
     {
         $params = [
-            'brandName'=>$request->brandName,
-            'created_at'=>\Carbon\Carbon::now(),
-            'updated_at'=>\Carbon\Carbon::now()
+            'brandName' => $request->brandName,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
         ];
-        DB::table('brands')->where('brandID',$id)->update($params);
+        DB::table('brands')->where('brandID', $id)->update($params);
         return redirect()->route('brand.index');
     }
 
@@ -76,7 +93,7 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        DB::table('brands')->where('brandID',$id)->delete();
+        DB::table('brands')->where('brandID', $id)->delete();
         return redirect()->route('brand.index');
     }
 }

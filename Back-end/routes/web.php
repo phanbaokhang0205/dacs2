@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -37,8 +38,13 @@ Route::group(['prefix'=>'admin'],function() {
             'product'=>'ProductController'
         ]);
         Route::get('/',[AdminController::class, 'index'])->name('admin.index');
+        Route::post('findProduct',[ProductController::class, 'find'])->name('product.find');
+        Route::post('findBrand',[BrandController::class, 'find'])->name('brand.find');
+
     });
 });
+
+
 
 // Auth
 Auth::routes(['register'=>true]);

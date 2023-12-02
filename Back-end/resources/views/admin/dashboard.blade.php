@@ -1,5 +1,16 @@
 @extends('layouts.admin.main')
 
+@section('search')
+    <div class="search">
+        <form action="">
+            @csrf
+            <button class="search" type="submit">
+                <i class='bx bx-search'></i>
+            </button>
+            <input type="text" id="inputSearch" class="" placeholder="Search dashboard...">
+        </form>
+    </div>
+@endsection
 @section('content')
     <div class="main-content">
         <div class="row-title">
@@ -63,6 +74,33 @@
                     </table>
                 </div>
             </div>
+            {{-- <div class="title row">
+                <div class="col-sm-10">
+                    <h5>List of products</h5>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <th>Brand Name</th>
+                            <th>Product Code</th>
+                            <th>Product Name</th>
+                            <th>List Price</th>
+                        </thead>
+                        <tbody>
+                            @if (!empty($result))
+                                @foreach ($result as $row)
+                                    <tr>
+                                        <td>{{ $row->brandName }}</td>
+                                        <td>{{ $row->productCde }}</td>
+                                        <td>{{ $row->productName }}</td>
+                                        <td>{{ $row->listPrice }}</td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <div></div>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div> --}}
         </div>
 
 

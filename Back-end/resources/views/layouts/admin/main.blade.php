@@ -21,7 +21,13 @@
         @include('layouts.admin.aside')
 
         <main class="main">
-            @include('layouts.admin.header')
+            <div class="header">
+                <button class="btn-menu">
+                    <i class='bx bx-menu bx-md'></i>
+                </button>
+                @yield('search')
+                @include('layouts.admin.header')
+            </div>
 
             @yield('content')
         </main>

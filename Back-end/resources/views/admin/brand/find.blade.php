@@ -14,33 +14,34 @@
     <div class="main-content">
         <div class="row-title">
             <span class="title">
-                Brand details
+                List Brands
             </span>
         </div>
         <div class="row row-brands">
             <div class="col-sm-10">
-                <table class="table">
+                <table class="table table-bordered table-sm">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Brand Name</th>
-                            <th>Action</th>
-                        </tr>
+                        <th>ID</th>
+                        <th>Brand Name</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
+                        @foreach ($result as $row)
                             <tr>
-                                <td>{{ $brand->brandID }}</td>
-                                <td>{{ $brand->brandName }}</td>
+                                <td>{{ $row->brandID }}</td>
+                                <td>{{ $row->brandName }}</td>
                                 <td class="d-flex">
-                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit">Edit</a>
-                                    <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete d-inline-block"
+                                    <a href="{{ route('brand.show', $row->brandID) }}" class="btn-show">Show</a>
+                                    <a href="{{ route('brand.edit', $row->brandID) }}" class="btn-edit">Edit</a>
+                                    <form action="{{ route('brand.destroy', $row->brandID) }}" class="delete"
                                         method="POST">
                                         @csrf
-                                        <input type="hidden" name="_method" value="delete">
+                                        @method('DELETE')
                                         <input type="submit" value="Delete" class="btn-delete">
                                     </form>
                                 </td>
                             </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

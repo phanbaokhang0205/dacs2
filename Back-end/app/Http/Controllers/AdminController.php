@@ -18,6 +18,7 @@ class AdminController extends Controller
         return view('admin.dashboard',['quantity'=>$quantity]);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      */
