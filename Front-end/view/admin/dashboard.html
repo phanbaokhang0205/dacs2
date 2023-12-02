@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- Style  -->
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- aside -->
+        <aside>
+            <div class="navigation">
+
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="icon">
+                                    <i class='bx bx-car'></i>
+                                </span>
+                                <span class="title">
+                                    Admin
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon">
+                                    <i class='bx bx-home'></i>
+                                </span>
+                                <span class="title">
+                                    Dash board
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <button class="a" onclick="toggleSubMenu('accountSubMenu')">
+                                <span class="icon">
+                                    <i class='bx bx-user'></i>
+                                </span>
+                                <span class="title">
+                                    Manage Account
+                                    <i class='bx bx-chevron-right bx-md'></i>
+                                </span>
+
+                            </button>
+                            <div class="submenu" id="accountSubMenu">
+                                <a href="" class="sub-item">All Accounts</a>
+                                <a href="" class="sub-item">Add Accounts</a>
+                                <a href="" class="sub-item">Delete Account</a>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="a" onclick="toggleSubMenu('productSubMenu')">
+                                <span class="icon">
+                                    <i class='bx bxs-car'></i>
+                                </span>
+                                <span class="title">
+                                    Manage Products
+                                    <i class='bx bx-chevron-right bx-md'></i>
+                                </span>
+                            </button>
+                            <div class="submenu" id="productSubMenu">
+                                <a href="" class="sub-item">All Products</a>
+                                <a href="" class="sub-item">Add Products</a>
+                                <a href="" class="sub-item">Delete Products</a>
+                                <a href="" class="sub-item">Edit Products</a>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="a" onclick="toggleSubMenu('brandSubMenu')">
+                                <span class="icon">
+                                    <i class='bx bx-cart-alt'></i>
+                                </span>
+                                <span class="title">
+                                    Manage Brand
+                                    <i class='bx bx-chevron-right bx-md'></i>
+                                </span>
+                            </button>
+                            <div class="submenu" id="brandSubMenu">
+                                <a href="" class="sub-item">All Brand</a>
+                                <a href="" class="sub-item">Add Brand</a>
+                                <a href="" class="sub-item">Delete Brand</a>
+                                <a href="" class="sub-item">Edit Brand</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- yeild(content) -->
+        <main class="main">
+            <div class="header">
+                <button class="btn-menu">
+                    <i class='bx bx-menu bx-md'></i>
+                </button>
+                <div class="search">
+                    <form action="">
+                        <button class="search">
+                            <i class='bx bx-search'></i>
+                        </button>
+                        <input type="text" id="inputSearch" class="" placeholder="Search here...">
+                    </form>
+                </div>
+                <div class="account">
+                    <div class="admin_profile">
+                        <div class="name">Username</div>
+                        <div class="img"><img src="" alt=""><i class='bx bxs-user-circle bx-md'></i></div>
+                        <div class="opt">
+                            <div class="btn-dropdown">
+                                <button class="down">
+                                    <i class='bx bxs-chevron-down'></i>
+                                </button>
+                            </div>
+                            <div class="content-dropdown">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="row-title">
+                    <span class="title">
+                        Dash Board
+                    </span>
+                </div>
+                <div class="row-content">
+                    <div class="row-1">
+                        <div class="total-income bg-info">
+                            <div class="title">
+                                Total Income
+                            </div>
+                            <div class="amount">
+                                $ 579,000
+                            </div>
+                        </div>
+                        <div class="total-profit bg-warning">
+                            <div class="title">
+                                Total Profit
+                            </div>
+                            <div class="amount">
+                                $ 579,000
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-2">
+                        <div class="oders bg-success">
+                            <div class="title">
+                                Orders
+                            </div>
+                            <div class="amount">
+                                $ 579,000
+                            </div>
+                        </div>
+                        <div class="products bg-danger">
+                            <div class="title">
+                                Products
+                            </div>
+                            <div class="amount">
+                                $ 579,000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </main>
+    </div>
+
+
+    </div>
+
+    <script src="../../js/admin.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

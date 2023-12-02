@@ -1,0 +1,82 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class BrandController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $brands = DB::table('brands')->paginate(15);
+        return view('admin.brand.index',['brands'=>$brands]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.brand.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $params = [
+            'brandName'=>$request->brandName,
+            'created_at'=>\Carbon\Carbon::now(),
+            'updated_at'=>\Carbon\Carbon::now()
+        ];
+        DB::table('brands')->insert($params);
+        return redirect()->route('brand.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        $brand = DB::table('brands')->where('brandID',$id)->first();
+        return view('admin.brand.show',['brand'=>$brand]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        $brand = DB::table('brands')->where('brandID',$id)->first();
+        return view('admin.brand.edit',['brand'=>$brand]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $params = [
+            'brandName'=>$request->brandName,
+            'created_at'=>\Carbon\Carbon::now(),
+            'updated_at'=>\Carbon\Carbon::now()
+        ];
+        DB::table('brands')->where('brandID',$id)->update($params);
+        return redirect()->route('brand.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        DB::table('brands')->where('brandID',$id)->delete();
+        return redirect()->route('brand.index');
+    }
+}

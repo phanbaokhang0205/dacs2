@@ -1,0 +1,226 @@
+ @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
+
+
+ *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Inter" sans-serif;
+ }
+
+.container-login, .container-register {
+    /* min-height: calc(100vh- 40px *2);
+    background: #000;
+    display: grid;
+    grid-template-columns: 50% 50%; */
+    display: flex;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.login-left{
+    width: 65%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-header {
+    width: 50%;
+    margin: 25px 0;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-with-email{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.login-with-gg,
+.login-with-email {
+    width: 50%;
+}
+.login-with-gg a,
+button.signin {
+    border: 1px solid #a7a7a7;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 100px;
+    padding: .6rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+}
+.login-with-gg a:hover {
+    color: #000;
+    border: 1px solid #000;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.login-with-gg .text {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: 35px 0;
+}
+.login-with-gg .text::before {
+    content: 'or Sign in with Email';
+    padding: 0 10px;
+    position: absolute;
+    top: -13px;
+    left: 148px;
+    background: #fff;
+    z-index: 2;
+}
+
+.login-form-footer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    color: #a7a7a7;
+    margin-top: 20px;
+}
+
+.pass-forgot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-with-email .input-field{
+    border: 1px solid #a7a7a7;
+    padding: .6rem 1.5rem;
+    width: 100%;
+    outline: none;
+    transition: all .3s;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.login-with-email .input-field:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+.input-field.focus {
+    border: 1px solid #000;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.login-with-email label[for="email"],
+.login-with-email label[for="password"]{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    
+}
+.checkboxLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a7a7a7;
+}
+.checkboxLabel.checked {
+    color: #000;
+}
+input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    accent-color: #131086;
+}
+
+button.signin {
+    padding: 17px 0;
+    margin-top: 30px 0;
+    color: #fff;
+    background: #000;
+}
+button.signin:hover {
+    background: #a7a7a7;
+}
+
+
+.login-right {
+    width: 35%;
+}
+
+
+/* responsive */
+@media (max-width:1350px){
+    .container-login, .container-register {
+        width: 100%;
+        height: 60%;
+    }
+    .login-left{
+        width: 60%;
+    }
+    .login-right {
+        width: 40%;
+    }
+    .login-right img {
+        width: 100%;
+        height: 100%;
+    }
+    .login-with-gg .text::before {
+        top: -14px;
+        left: 77px;
+    }
+}
+@media (max-width:844px){
+
+   .login-with-gg .text::before {
+    left: 40px;
+   }
+    .login-header {
+        margin: 20px 0;
+        font-size: 1.2rem;
+    }
+}
+@media (max-width:768px){
+    * {
+        padding: 0;
+        margin: 0;
+    }
+   .login-right {
+    display: none;
+   }
+   .login-left {
+    width: 100%;
+   }
+   .login-with-gg .text::before {
+    left: 122px;
+}
+}
+
+@media (max-width:600px){
+
+   .login-with-gg .text::before {
+    left: 77px;
+}
+}
+
+
+/* register form */
+.name-username {
+    display: flex;
+    gap: 15px;
+}
+.name-username label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}

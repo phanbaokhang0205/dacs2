@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green1: #64c5b1;
+    --green2 : #144339;
+    --white: #fff;
+    --gray: #f3f4f3;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.navigation {
+    width: 300px;
+    height: 100vh;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: .5s;
+    overflow-x: hidden;
+    transition: .5s;
+}
+.navigation.active {
+    width: 70px;
+}
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+}
+.navigation ul li {
+    position: relative;
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.navigation ul li:hover {
+    background: var(--green1);
+}
+.navigation ul li:hover .title {
+    color: var(--white);
+}
+.navigation ul li:hover .icon {
+    color: var(--white);
+}
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+
+}
+.navigation ul li:nth-child(1):hover {
+    background: var(--white);
+}
+.navigation ul li:nth-child(1):hover .icon {
+    color: var(--green1);
+}
+.navigation ul li:nth-child(1):hover .title {
+    color: var(--green1);
+}
+.navigation ul li a {
+    color: var(--green2);
+    text-decoration: none;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.navigation ul li button.a {
+    position: relative;
+    border: none;
+    background: transparent;
+    color: var(--green2);
+    text-decoration: none;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation .icon {
+    display: block;
+    min-width: 60px;
+    text-align: center;
+    color: var(--green1);
+}
+.navigation .icon i {
+    font-size: 30px;
+}
+.navigation .title {
+    display: flex;
+    font-size: 20px;
+    min-width: 60px;
+    width: 100%;
+    justify-content: space-between;
+    white-space: nowrap;
+    color: var(--green1);
+    
+}
+.navigation li .submenu {
+    display: none;
+    width: 100%;
+    background: var(--gray);
+    margin: 0;
+}
+.navigation li .submenu.show {
+    display: block;
+}
+.navigation li .submenu a {
+    min-width: 60px;
+    width: 100%;
+    height: auto;
+    color: var(--green1);
+    font-size: 20px;
+    padding: 10px 75px;
+    white-space: nowrap;
+
+}
+.navigation li .submenu .sub-item:hover {
+    background: var(--green1);
+    color: var(--gray);
+}
+.navigation {
+    overflow-y: scroll; /* Hiển thị thanh cuộn dọc */
+}
+  
+  /* Tùy chỉnh kiểu dáng của thanh cuộn dọc */
+.navigation::-webkit-scrollbar {
+    width: 10px; /* Chiều rộng của thanh cuộn */
+}
+  
+.navigation::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Màu nền của vùng chứa thanh cuộn */
+}
+  
+.navigation::-webkit-scrollbar-thumb {
+    background-color: var(--green1); /* Màu của thanh cuộn */
+    border-radius: 4px; /* Đường viền cong của thanh cuộn */
+}
+  
+.navigation::-webkit-scrollbar-thumb:hover {
+    background-color: var(--green2); /* Màu của thanh cuộn khi di chuột qua */
+}
+.main {
+    width: calc(100% - 300px);
+    height: 150vh;
+    background: var(--gray);
+    transition: .5s;
+}
+.main.active {
+    width: calc(100% - 70px);
+}
+main .header {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: var(--white);
+
+}
+
+main .header .search {
+    position: relative;
+}
+main .header button.btn-menu {
+    border: none;
+    background: transparent;
+    color: var(--green1);
+    
+}
+main .header button.search {
+    border: none;
+    background: transparent;
+    color: var(--green1);
+    position: absolute;
+    bottom: 2px;
+    left: 12px;
+    font-size: 20px;
+
+}
+main .header #inputSearch {
+    border: 1px solid var(--green1);
+    border-radius: 20px;
+    padding: 5px 20px 5px 40px;
+    width: 300px;
+    outline: none;
+}
+
+main .header .account .admin_profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .header .account .admin_profile button.down {
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+}
+
+main .main-content {
+    position: relative;
+    z-index: 1;
+
+}
+
+
+main .main-content .row-title {
+    height: 100px;
+    color: var(--white);
+    padding: 20px;
+}
+
+main .main-content .row-title span {
+    font-size: 25px;   
+    font-weight: 500;
+    
+}
+main .main-content::before {
+    width: 100%;
+    height: 120px;
+    background: #64c5b1;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+
+main .main-content .row-content {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    background: var(--white);
+    width: 90%;
+    border-radius: 10px;
+}
+
+main .main-content .row-content .row-1,
+main .main-content .row-content .row-2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: 0 30px;
+}
+
+.total-income,
+.total-profit,
+.oders,
+.products {
+    width: 50%;
+    height: 200px;
+    padding: 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 7px 25px 0 rgba(0, 0, 0, 0.08);
+}
+.total-income,
+.oders {
+    margin-right: 30px;
+}
+
+.row-content .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.row-content .amount {
+    font-size: 30px;
+    font-weight: 700;
+}
+
