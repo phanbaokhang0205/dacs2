@@ -48,6 +48,8 @@ header:hover{
 .menu > li{
     padding: 0 12px;
     position: relative;
+    display: inline-block;
+    line-height: 30px;
 }
 .menu > li a{
     font-size: 20px;
@@ -63,17 +65,39 @@ header:hover{
 }
 .sub-menu {
     position: absolute;
-    width: 150px;
-    border: 1px solid #ccc;
-    padding: 10px 0 10px 20px;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    width: 180px;
     display: none;
     z-index: 1;
     background-color: #fff;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    float: left;
 }
+.sub-menu li:hover {
+    background-color: #b03c3c;
+}
+.menu .sub-menu li a:hover {
+   color: #fff;
+   transition-delay: 0.2s;
+   transition: ease 0.2s;
+}
+.sub-menu li{
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+}
+.sub-menu li:last-child {
+    border-bottom: none;
+ }
 .sub-menu  li a{
     padding: 6px 10px ;
     font-weight: normal;
     font-size: 15px;
+    line-height: normal;
 }  
 .arrow {
     width: 0;
@@ -81,18 +105,51 @@ header:hover{
     display: inline-block;
     vertical-align: middle;
     margin-left: 5px;
-  }
-  .arrow-down {
+}
+.arrow-down {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-top: 7px solid #120707;
-  }
+}
 .other{
     flex: 1;
     display: flex;
 }
 .other > li{
     padding: 0 12px;
+    position: relative;
+}
+.other > li a{
+    font-weight: bold;
+    display: block;
+    line-height: 20px;
+    text-decoration: none;
+    color: #000;
+}
+.other li:hover .sub-menu{
+    display: block;
+    top: 25px;
+    right: 3px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.other .sub-menu{
+    position: absolute;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    border: 1px solid #ccc;
+    display: none;
+    z-index: 1;
+}
+.other .sub-menu li:hover {
+    background-color: #b03c3c;
+}
+.other .sub-menu li a:hover {
+    color: #fff;
+    transition-delay: 0.2s;
+    transition: ease 0.2s;
 }
 .other li::after{
     content: "";
