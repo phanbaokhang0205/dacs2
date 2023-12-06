@@ -44,8 +44,20 @@
                         <input type="text" name="productName" id="productName" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="productImage">Select Image:</label>
+                        <input type="file" name="productImage" id="productImage" class="form-control-file">
+                    </div>
+                    <div class="form-group">
                         <label for="listPrice">List Price:</label>
                         <input type="text" name="listPrice" id="listPrice" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="discountPercent">Discount Percent:</label>
+                        <input type="text" name="discountPercent" id="discountPercent" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" name="description" id="description" class="form-control summernote">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create Product">
@@ -54,4 +66,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 240,
+                minHeight: null,
+                maxHeight: null,
+                focus: fasle
+            });
+        });
+    </script>
 @endsection

@@ -35,8 +35,8 @@
 
                     </button>
                     <div class="submenu" id="accountSubMenu">
-                        <a href="" class="sub-item">List Accounts</a>
-                        <a href="" class="sub-item">Add Accounts</a>
+                        <a href="{{ route('user.index') }}" class="sub-item">List Accounts</a>
+                        <a href="{{ route('user.create') }}" class="sub-item">Add Accounts</a>
                     </div>
                 </li>
                 <li>

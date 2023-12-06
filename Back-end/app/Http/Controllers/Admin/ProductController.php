@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(15);
-        return view('admin.product.index', ['products' => $products]);
+        $brands = Brand::whereIn('brandID', $products->pluck('brandID'))->get();
+        return view('admin.product.index', ['products' => $products, 'brands'=>$brands]);
     }
     /**
      * find the product
@@ -35,7 +36,8 @@ class ProductController extends Controller
             $result = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
                 ->select('brandName', 'productCode', 'productName', 'listPrice')
-                ->where('listPrice', '>', $request->search)
+                ->where('listPrice', 'like', '%' . $request->search . '%')
+                ->orWhere('listPrice', '>', $request->search)
                 ->get();
         }
 

@@ -34,7 +34,13 @@
                             <tr>
                                 <td>{{ $product->productCode }}</td>
                                 <td>{{ $product->productName }}</td>
-                                <td>{{ $product->brandID }}</td>
+                                <td>
+                                    @foreach ($brands as $brand)
+                                        @if ($brand->brandID === $product->brandID)
+                                            {{ $brand->brandName }}
+                                        @endif
+                                    @endforeach    
+                                </td>
                                 <td>{{ $product->listPrice }}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit">Edit</a>

@@ -14,6 +14,9 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    {{-- summernote --}}
+    <link rel="stylesheet" href="{{ asset('summernote/dist/summernote-bs4.min.css') }}">
+    <script src="{{ asset('summernote/dist/summernote-bs4.min.js') }}"></script>
 </head>
 
 <body>

@@ -253,7 +253,6 @@ main .main-content .row-content {
 main .main-content .row-content .row-1,
 main .main-content .row-content .row-2 {
     width: 100%;
-    display: flex;
     align-items: center;
     color: var(--white);
     padding: 0 30px;

@@ -19,13 +19,14 @@
             </span>
         </div>
         <div class="row-content">
-            {{-- <div class="row-1">
-                <div class="total-income bg-info">
-                    <div class="title">
-                        Total Income
+            <div class="row-1">
+                <div class="total-income bg-info d-flex ">
+                    <div class="icon">
+                        <i class='bx bx-user'></i>
                     </div>
-                    <div class="amount">
-                        $ 579,000
+                    <div class="content">
+                        <p class="amount">222</p>
+                        <p class="title">Users</p>
                     </div>
                 </div>
                 <div class="total-profit bg-warning">
@@ -54,8 +55,8 @@
                         $ 579,000
                     </div>
                 </div>
-            </div> --}}
-            <div class="title row">
+            </div>
+            {{-- <div class="title row">
                 <div class="col-sm-8">
                     <h5>Statistic of products</h5>
                     <table class="table table-bordered table-sm">
@@ -70,33 +71,6 @@
                                     <td>{{ $row->quantity }}</td>
                                 </tr>
                             @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            {{-- <div class="title row">
-                <div class="col-sm-10">
-                    <h5>List of products</h5>
-                    <table class="table table-bordered table-sm">
-                        <thead>
-                            <th>Brand Name</th>
-                            <th>Product Code</th>
-                            <th>Product Name</th>
-                            <th>List Price</th>
-                        </thead>
-                        <tbody>
-                            @if (!empty($result))
-                                @foreach ($result as $row)
-                                    <tr>
-                                        <td>{{ $row->brandName }}</td>
-                                        <td>{{ $row->productCde }}</td>
-                                        <td>{{ $row->productName }}</td>
-                                        <td>{{ $row->listPrice }}</td>
-                                    </tr>
-                                @endforeach
-                            @else
-                                <div></div>
-                            @endif
                         </tbody>
                     </table>
                 </div>
