@@ -14,9 +14,8 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-    {{-- summernote --}}
-    <link rel="stylesheet" href="{{ asset('summernote/dist/summernote-bs4.min.css') }}">
-    <script src="{{ asset('summernote/dist/summernote-bs4.min.js') }}"></script>
+    {{-- ckeditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -50,6 +49,7 @@
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
     </div>
+    @yield('js-custom')
 </body>
 
 </html>

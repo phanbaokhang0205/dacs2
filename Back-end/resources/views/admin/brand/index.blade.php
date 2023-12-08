@@ -11,15 +11,15 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content main-content-brand">
         <div class="row-title">
             <span class="title">
                 List Brands
             </span>
         </div>
-        <div class="row row-brands">
+        <div class="row row-brand">
             <div class="col-sm-10">
-                <table class="table">
+                <table class="table table-hover table-brand">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -32,14 +32,13 @@
                             <tr>
                                 <td>{{ $brand->brandID }}</td>
                                 <td>{{ $brand->brandName }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('brand.show', $brand->brandID) }}" class="btn-show">Show</a>
-                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit">Edit</a>
+                                <td class="d-flex aglin-item-center">
+                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
                                     <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" value="Delete" class="btn-delete">
+                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
                                     </form>
                                 </td>
                             </tr>

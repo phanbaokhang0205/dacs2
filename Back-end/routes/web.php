@@ -42,7 +42,7 @@ Route::group(['prefix'=>'admin'],function() {
         Route::post('findProduct',[ProductController::class, 'find'])->name('product.find');
         Route::post('findBrand',[BrandController::class, 'find'])->name('brand.find');
         Route::post('findUser',[UserController::class, 'find'])->name('user.find');
-
+        
     });
 });
 

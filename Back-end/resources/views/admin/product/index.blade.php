@@ -11,15 +11,15 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content main-content-product">
         <div class="row-title">
             <span class="title">
                 List Products
             </span>
         </div>
-        <div class="row row-brands">
-            <div class="col-sm-10">
-                <table class="table table-hover table-border">
+        <div class="row row-product">
+            <div class="col-sm-12">
+                <table class="table table-hover table-products">
                     <thead>
                         <tr>
                             <th>Code</th>
@@ -42,13 +42,13 @@
                                     @endforeach    
                                 </td>
                                 <td>{{ $product->listPrice }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit">Edit</a>
+                                <td class="d-flex gap-2">
+                                    <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
                                     <form action="{{ route('product.destroy', $product->productID) }}" class="delete"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" value="Delete" class="btn-delete">
+                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
                                     </form>
                                 </td>
                             </tr>

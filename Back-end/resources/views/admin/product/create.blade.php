@@ -57,7 +57,8 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <input type="text" name="description" id="description" class="form-control summernote">
+                        <textarea name="description" id="description" class="form-control"></textarea>
+
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create Product">
@@ -66,14 +67,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js-custom')
     <script>
-        $(document).ready(function() {
-            $('.summernote').summernote({
-                height: 240,
-                minHeight: null,
-                maxHeight: null,
-                focus: fasle
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
             });
-        });
     </script>
 @endsection

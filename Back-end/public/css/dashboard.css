@@ -144,7 +144,7 @@ body {
 }
   
 .navigation::-webkit-scrollbar-track {
-    background-color: transparent; /* Màu nền của vùng chứa thanh cuộn */
+    background-color: #fff; /* Màu nền của vùng chứa thanh cuộn */
 }
   
 .navigation::-webkit-scrollbar-thumb {
@@ -165,7 +165,7 @@ body {
     width: calc(100% - 70px);
 }
 main .header {
-    padding: 20px 20px;
+    padding: 30px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -213,74 +213,121 @@ main .header .account .admin_profile button.down {
     font-size: 22px;
 }
 
-main .main-content {
-    position: relative;
-    z-index: 1;
-
-}
 
 
 main .main-content .row-title {
     height: 100px;
     color: var(--white);
     padding: 20px;
+    overflow: hidden;
+    background: var(--green1);
 }
 
 main .main-content .row-title span {
     font-size: 25px;   
     font-weight: 500;
     
-}
-main .main-content::before {
-    width: 100%;
-    height: 120px;
-    background: #64c5b1;
-    content: '';
-    position: absolute;
-    z-index: -1;
-}
-
-
-main .main-content .row-content {
-    position: absolute;
-    top: 80px;
-    right: 40px;
-    background: var(--white);
-    width: 90%;
-    border-radius: 10px;
-}
+}   
 
 main .main-content .row-content .row-1,
 main .main-content .row-content .row-2 {
     width: 100%;
+    display: flex;
     align-items: center;
     color: var(--white);
     padding: 0 30px;
+    gap: 50px;
 }
-
-.total-income,
-.total-profit,
-.oders,
-.products {
+.total-users i {
+    color: salmon;
+}
+.total-brands i {
+    color: orange;
+}
+.total-orders i {
+    color: royalblue;
+}
+.total-products i {
+    color: seagreen;
+}
+.total-users {
+    border-bottom: 5px solid salmon;
+}
+.total-products {
+    border-bottom: 5px solid seagreen;
+}
+.total-brands {
+    border-bottom: 5px solid orange;
+}
+.total-orders {
+    border-bottom: 5px solid royalblue;
+}
+.total-users,
+.total-products,
+.total-brands,
+.total-orders {
+    color: #000;
+    background: rgb(252, 252, 252);
     width: 50%;
-    height: 200px;
+    height: 120px;
     padding: 20px;
     margin: 20px 0;
-    border: none;
     border-radius: 10px;
     box-shadow: 0px 7px 25px 0 rgba(0, 0, 0, 0.08);
+    display: flex;
 }
-.total-income,
-.oders {
-    margin-right: 30px;
+.row-content .icon i {
+    font-size: 5rem;
 }
-
-.row-content .title {
-    font-size: 20px;
+.row-content .content {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+.row-content .content .amount {
+    font-size: 2.5rem;
+    line-height: 10px;
     font-weight: bold;
 }
-.row-content .amount {
-    font-size: 30px;
-    font-weight: 700;
+.row-content .content .title {
+    font-size: 1.2rem;
 }
 
+
+a.btn-edit {
+    color: green;
+}
+a.btn-edit:hover {
+    color: rgb(0, 194, 0);
+}
+button.btn-delete {
+    border: none;
+    background: transparent;
+    color: red;
+
+}
+button.btn-delete:hover {
+    color: rgb(255, 57, 57);
+}
+
+
+/* css user */
+.main-content-user .row-user,
+.main-content-product .row-product,
+.main-content-brand .row-brand {
+    margin-top: 20px;
+}
+
+.main-content-user .row-user table,
+.main-content-product .row-product table,
+.main-content-brand .row-brand table {
+    margin: auto;
+    margin-bottom: 30px;
+    width: 80%;
+    box-shadow: 10px 7px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.main-content-user .row-user table thead,
+.main-content-product .row-product table thead
+.main-content-brand .row-brand table thead {
+    border-bottom: 2px solid #000;
+}
