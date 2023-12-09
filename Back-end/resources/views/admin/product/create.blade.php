@@ -27,7 +27,7 @@
         </div>
         <div class="row row-brands">
             <div class="col-sm-10">
-                <form action="{{ route('product.store') }}" method="post">
+                <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="brandID">Brand:</label>
@@ -62,7 +62,6 @@
                     <div class="form-group">
                         <label for="description">Description:</label>
                         <textarea name="description" id="description" class="form-control"></textarea>
-
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create Product">

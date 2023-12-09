@@ -336,3 +336,10 @@ button.btn-delete:hover {
     height: 200px;
 }
 /* end ckEditor */
+
+.create_form_product > td{
+    height: 100px;
+}
+.create_form_product img {
+    height: 100%;
+}

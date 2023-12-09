@@ -19,7 +19,7 @@
         </div>
         <div class="row row-brands">
             <div class="col-sm-10">
-                <form action="{{ route('product.update', $product->productID) }}" method="post">
+                <form action="{{ route('product.update', $product->productID) }}" method="post"  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -42,8 +42,20 @@
                         <input type="text" name="productName" id="productName" class="form-control" value="{{ $product->productName }}">
                     </div>
                     <div class="form-group">
+                        <label for="productImage">Select Image:</label>
+                        <input type="file" name="productImage" id="productImage" class="form-control-file" value="{{ $product->productImage }}">
+                    </div>
+                    <div class="form-group">
                         <label for="listPrice">List Price:</label>
                         <input type="text" name="listPrice" id="listPrice" class="form-control" value="{{ $product->listPrice }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="discountPercent">Discount Percent:</label>
+                        <input type="text" name="discountPercent" id="discountPercent" class="form-control" value="{{ $product->discountPercent }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea name="description" id="description" class="form-control" value="{{ $product->description }}"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Save">
@@ -52,4 +64,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js-custom')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection

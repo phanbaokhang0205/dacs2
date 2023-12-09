@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(15);
+        $products = Product::paginate(5);
         $brands = Brand::whereIn('brandID', $products->pluck('brandID'))->get();
         return view('admin.product.index', ['products' => $products, 'brands' => $brands]);
     }
@@ -58,7 +58,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $des = 'public/img';
+        $des = 'img';
         $imgname = $request->file('productImage')->getClientOriginalName();
         $product = new Product();
         $product->brandID = $request->brandID;
@@ -95,12 +95,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $des = 'img';
+        $imgname = $request->file('productImage')->getClientOriginalName();
         $product = Product::find($id);
         $product->brandID = $request->brandID;
         $product->productCode = $request->productCode;
         $product->productName = $request->productName;
+        $product->productImage = $imgname; // Sửa dòng này để gán tên file ảnh thay vì $request->$imgname
+        $product->listPrice = $request->listPrice;
+        $product->description = $request->description;
         $product->listPrice = $request->listPrice;
         $product->save();
+        $request->file('productImage')->move($des, $imgname);
         return redirect()->route('product.index');
     }
 

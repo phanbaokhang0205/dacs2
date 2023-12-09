@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
             'productName'=>'required',
             'listPrice'=>'required|numeric',
             'discountPercent'=>'numeric',
-            'productImage'=>'image|max:150'
+            'productImage'=>'required|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -38,8 +38,9 @@ class ProductRequest extends FormRequest
             'listPrice.required'=>'Vui lòng nhập giá sản phẩm!',
             'listPrice.numeric'=>'Giá sản phẩm phải kiểu số!',
             'discountPercent.numeric'=>'Phần trăm khấu trừ sản phẩm phải là kiểu số!',
-            'productImage.image'=>'Không phải là file ảnh!',
-            'productImage.max'=>'Kích thước file không vượt quá 150KB!'
+            'productImage.required'=>'Vui lòng chọn ảnh sản phẩm!',
+            'productImage.mimes'=>'Không phải là file ảnh!',
+            'productImage.max'=>'Kích thước file không vượt quá 2048KB!'
         ];
     }
 }

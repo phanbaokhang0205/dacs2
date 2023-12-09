@@ -32,8 +32,8 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            <tr>
-                                <td>{{ $product->productImage }}</td>
+                            <tr class="create_form_product">
+                                <td><img src="{{ asset('img/' . $product->productImage) }}" alt="Product Image" ></td>
                                 <td>{{ $product->productCode }}</td>
                                 <td>{{ $product->productName }}</td>
                                 <td>
@@ -43,7 +43,7 @@
                                         @endif
                                     @endforeach    
                                 </td>
-                                <td>{{ $product->listPrice }}</td>
+                                <td>${{ $product->listPrice }}</td>
                                 <td class="d-flex gap-2">
                                     <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
                                     <form action="{{ route('product.destroy', $product->productID) }}" class="delete"
