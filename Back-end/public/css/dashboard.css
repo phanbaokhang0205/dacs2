@@ -326,8 +326,6 @@ button.btn-delete:hover {
     width: 80%;
     box-shadow: 10px 7px 15px 0px rgba(0, 0, 0, 0.1);
 }
-.main-content-user .row-user table thead,
-.main-content-product .row-product table thead
-.main-content-brand .row-brand table thead {
+.main-content .row table>thead {
     border-bottom: 2px solid #000;
 }

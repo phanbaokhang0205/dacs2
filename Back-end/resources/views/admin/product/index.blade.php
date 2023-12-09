@@ -19,7 +19,7 @@
         </div>
         <div class="row row-product">
             <div class="col-sm-12">
-                <table class="table table-hover table-products">
+                <table class="table table-hover table-product">
                     <thead>
                         <tr>
                             <th>Code</th>

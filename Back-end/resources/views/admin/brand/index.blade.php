@@ -18,7 +18,7 @@
             </span>
         </div>
         <div class="row row-brand">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 <table class="table table-hover table-brand">
                     <thead>
                         <tr>

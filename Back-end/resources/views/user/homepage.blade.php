@@ -21,5 +21,3 @@
     </div>
 </div>
 @endsection --}}
-
-<h1>DDay la trang chu</h1>
