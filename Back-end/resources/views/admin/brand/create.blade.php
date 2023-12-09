@@ -28,6 +28,10 @@
                         <label for="brandName">Brand Name</label>
                         <input type="text" name="brandName" id="brandName" class="form-control">
                     </div>
+                    {{-- Hien thi thong bao loi --}}
+                    @if ($errors->has('brandName'))
+                        <p>{{ $errors->first('brandName') }}</p>
+                    @endif
                     <div class="form-group">
                         <input type="submit" value="Create Brand">
                     </div>

@@ -21,6 +21,10 @@
                 Add Product
             </span>
         </div>
+        {{-- Hien thi noi dung loi --}}
+        <div class="card-body">
+            @include('admin.product.error')
+        </div>
         <div class="row row-brands">
             <div class="col-sm-10">
                 <form action="{{ route('product.store') }}" method="post">

@@ -22,6 +22,7 @@
                 <table class="table table-hover table-product">
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Code</th>
                             <th>Name</th>
                             <th>Brand</th>
@@ -32,6 +33,7 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr>
+                                <td>{{ $product->productImage }}</td>
                                 <td>{{ $product->productCode }}</td>
                                 <td>{{ $product->productName }}</td>
                                 <td>
