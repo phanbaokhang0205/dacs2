@@ -14,6 +14,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct() {
+        $this->middleware('AdminRole');
+    }
+    
+
     public function index()
     {
         $products = Product::paginate(5);
