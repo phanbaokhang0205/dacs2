@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- Link icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="SH-mode.css">
+</head>
+
+<body>
+    <header class="container-fluid">
+        <!-- place navbar here -->
+
+
+        <!-- nav__pc -->
+        <nav class="nav__pc fixed-top">
+            <h1 class="logo "><span>GARA</span>JE</h1>
+
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="../../home/home.html">Trang Chủ</a>
+                    </li>
+                    <li>
+                        <a href="../../gioithieu/gioiThieu.html">Giới Thiệu</a>
+                    </li>
+                    <li>
+                        <a href="../../sanpham/sanPham.html">Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="../../lienhe/lienHe.html">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <label for="nav__mobile-input" class="nav__bars-btn" style="cursor: pointer;">
+                <i class='bx bx-menu'></i>
+            </label>
+            <!-- Overlayout -->
+            <input type="checkbox" name="" class="nav__input" id="nav__mobile-input" style="display: none;">
+
+            <label for="nav__mobile-input" class="nav__overlay"></label>
+
+            <nav class="nav__mobile">
+                <label for="nav__mobile-input" class="nav__mobile-close" style="cursor: pointer;">
+                    <i class='bx bx-x'></i>
+                </label>
+                <h1 class="logo-mobile"><span>GARA</span>JE</h1>
+                <hr style="color: #fff;">
+                <div class="links-mobile">
+                    <ul>
+                        <li>
+                            <a href="../../home/home.html" class="nav__mobile-link">Trang Chủ</a>
+                        </li>
+                        <li>
+                            <a href="../../gioithieu/gioiThieu.html" class="nav__mobile-link">Giới Thiệu</a>
+                        </li>
+                        <li>
+                            <a href="../../sanpham/sanPham.html" class="nav__mobile-link">Sản Phẩm</a>
+                        </li>
+                        <li>
+                            <a href="../../lienhe/lienHe.html" class="nav__mobile-link">Liên hệ</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </nav>
+
+
+
+    </header>
+
+
+    <main>
+
+        <div class="container-fluid top-title">
+            <img src="/img/xe2.jpg" alt="" class="img-fluid">
+            <div class="content-header">
+                <div class="title">
+                    <i class='bx bx-car mb-5'></i>
+                    <h1 class="pb-4">Sản phẩm</h1>
+                    <a href="/home/home.html">Trang chủ / </a>
+                    <a class="gt" href="sanPham.html">Sản phẩm</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thong tin sản phẩm -->
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-6 img">
+                    <img src="/img/FreeGo-Mat-Red-SMK-004.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 desr">
+                    <h1>FREEGO S</h1>
+                    <table class="thongTin">
+                        <tr>
+                            <td>
+                                <b>Giá bán</b>
+                            </td>
+                            <td style="color: red; font-size: 1.3rem;"> 34.069.000₫</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tình trạng:</b></td>
+                            <td>Còn hàng</td>
+                        </tr>
+                        <tr>
+                            <td><b>Mã SP:</b></td>
+                            <td>No.007</td>
+                        </tr>
+                        <tr>
+                            <td><b>Hãng:</b></td>
+                            <td>Yamaha</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Freego là một mẫu xe tay ga của Yamaha, được giới thiệu lần đầu tiên vào năm 2017 tại
+                                thị trường Philippines và sau đó được mở rộng ra các thị trường khác trên thế giới.
+                            </td>
+                        </tr>
+                        <tr class="them-mua">
+                            <td>
+                                <div class="themvaoGio mt-4 mb-3">
+                                    <div class="cong-tru-btn">
+                                        <button id="tru" onclick="f_tru()">-</button>
+                                        <span id="soLuong">1</span>
+                                        <button id="cong" onclick="f_cong()">+</button>
+                                    </div>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="muaHang">
+                                    <i class='bx bx-cart'></i>
+                                    <span>Thêm vào giỏ</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+            <!-- Thong số kỹ thuật -->
+            <div class="row row-kyThuat mt-5">
+                <div class="title">
+                    <h1>Thông số kỹ thuật</h1>
+                </div>
+                <table class="thongSo">
+                    <tr>
+                        <td>Khối lượng bản thân</td>
+                        <td>116 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Dài x Rộng x Cao</td>
+                        <td>1.950 mm x 669 mm x 1.100 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Khoảng cách trục bánh xe
+                        </td>
+                        <td>1.304 mm
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Độ cao yên</td>
+                        <td>765 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Khoảng sáng gầm xe</td>
+                        <td>130 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Dung tích bình xăng</td>
+                        <td>5,6 lít
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kích cỡ lớp trước/ sau
+                        </td>
+                        <td>Lốp trước 80/90-16M/C 43P
+                            Lốp sau 100/90-14M/C 57P</td>
+                    </tr>
+                    <tr>
+                        <td>Phuộc trước</td>
+                        <td>Ống lồng, giảm chấn thủy lực
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phuộc sau
+                        </td>
+                        <td>Phuộc đơn
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Loại động cơ
+                        </td>
+                        <td>4 kỳ, 4 van, làm mát bằng dung dịch
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Công suất tối đa
+                        </td>
+                        <td>8,2kW/8500 vòng/phút
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dung tích nhớt máy
+                        </td>
+                        <td>Sau khi xả 0,8 L
+                            Sau khi rã máy 0,9 L</td>
+                    </tr>
+                    <tr>
+                        <td>Mức tiêu thụ nhiên liệu
+                        </td>
+                        <td>2,16 lít/100km
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Loại truyền động
+                        </td>
+                        <td>Tự động, vô cấp
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hệ thống khởi động
+                        </td>
+                        <td>Điện</td>
+                    </tr>
+                    <tr>
+                        <td>Moment cực đại
+                        </td>
+                        <td>11,7 N.m/5000 vòng/phút
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dung tích xy-lanh
+                        </td>
+                        <td>124,8 cc
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Đường kính x Hành trình pít tông
+                        </td>
+                        <td>53,5 x 55,5 mm
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tỷ số nén
+                        </td>
+                        <td>11,5:1
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Đánh giá -->
+            <div class="row row-danhGia mt-5">
+                <div class="title">
+                    <h1>Đánh giá</h1>
+                </div>
+                <div class="form-danhgia">
+
+                    <p><strong>Đánh giá của bạn</strong></p>
+                    <small onclick="danhGia_s1()" id="s1" class="sao-1">&#9733; </small>
+                    <small onclick="danhGia_s2()" id="s2" class="sao-2">&#9733; &#9733;</small>
+                    <small onclick="danhGia_s3()" id="s3" class="sao-3">&#9733; &#9733; &#9733;</small>
+                    <small onclick="danhGia_s4()" id="s4" class="sao-4">&#9733; &#9733; &#9733; &#9733; </small>
+                    <small onclick="danhGia_s5()" id="s5" class="sao-5">&#9733; &#9733; &#9733; &#9733;
+                        &#9733;</small>
+
+                    <p class="mt-3"><strong>Nhận xét của bạn:</strong></p>
+                    <textarea cols="10" rows="5" style="resize: none; width: 100%"></textarea>
+
+                    <div class="ten-email mt-4 ">
+                        <div class="ten">
+                            <p><strong>Tên:</strong></p>
+                            <input type="text">
+                        </div>
+                        <div class="email">
+                            <p><strong>Email:</strong></p>
+                            <input type="email">
+                        </div>
+                    </div>
+
+                    <div class="luuthongtin mt-3">
+                        <input id="luu" type="checkbox">
+                        <label style="cursor: pointer;" for="luu" class="mx-3 ">Lưu tên thông tin trên.</label>
+                    </div>
+
+                    <button class="gui mt-4">
+                        Gửi đi
+                    </button>
+                </div>
+            </div>
+            <!-- Sản phẩm liên quann -->
+            <div class="row row-lienQuan mt-5">
+                <div class="title">
+                    <h1>Sản phẩm liên quan</h1>
+                </div>
+                <div class="noiDung pt-3">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="vespa card text-center">
+                                <div class="icon-heart">
+                                    <i class='bx bxs-heart'></i>
+                                </div>
+                                <img class="card-img-top" src="/img/vario.jpg" alt="Title">
+                                <div class="card-body">
+                                    <h4 class="card-title">Honda VARIO 160</h4>
+                                    <p class="card-text">56.490.000₫</p>
+                                    <div class="btn-xemThem">
+                                        <a class="muaNgay" href="../chitiet/Vario.html" role="button">Mua ngay</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="airblade card text-center">
+                                <div class="icon-heart">
+                                    <i class='bx bxs-heart'></i>
+                                </div>
+                                <img class="card-img-top" src="/img/lead.png" alt="Title">
+                                <div class="card-body">
+                                    <h4 class="card-title">LEAD 125cc</h4>
+                                    <p class="card-text">Từ 40.290.000 VNĐ</p>
+                                    <div class="btn-muangay">
+                                        <a class="muaNgay" href="../chitiet/lead.html" role="button">Mua ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="vario card text-center">
+                                <div class="icon-heart">
+                                    <i class='bx bxs-heart'></i>
+                                </div>
+                                <img class="card-img-top" src="/img/New-Grande-Pearl-White-004.png" alt="Title">
+                                <div class="card-body">
+                                    <h4 class="card-title">GRANDE</h4>
+                                    <p class="card-text">Từ 50.564.000 VNĐ</p>
+                                    <div class="btn-muangay">
+                                        <a class="muaNgay" href="../chitiet/grande.html" role="button">Mua ngay</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer>
+        <!-- place footer here -->
+        <div class="footer container-fluid">
+            <div class="content container">
+                <div class=" row-1 row mb-3">
+                    <div class="facebook col-lg-3">
+                        <p>Facebook</p>
+                        <i class='bx bxl-facebook-circle'></i>
+                    </div>
+                    <div class="youtube col-lg-3">
+                        <p>Youtube</p>
+                        <i class=' bx bxl-youtube'></i>
+                    </div>
+                    <div class="twitter col-lg-3">
+                        <p>Twitter</p>
+                        <i class=' bx bxl-twitter'></i>
+                    </div>
+                    <div class="ins col-lg-3">
+                        <p>Instagram</p>
+                        <i class=' bx bxl-instagram-alt'></i>
+                    </div>
+                </div>
+
+                <div class="row row-2  mb-3">
+                    <div class="col-lg-3 col-sm-12">
+                        <h1 class="logo "><span>GARA</span>JE</h1>
+                        <p class="moTa">
+                            GARAJE có cung cấp cho quý khách dịch vụ mua xe máy mới hoặc cũ uy tín và chất lượng trên
+                            toàn quốc. Một hôm lang thang trên mạng và may mắn bắt gặp một chiếc xe đúng loại mình đang
+                            tìm kiếm, nhìn ngoại...
+                        </p>
+                        <div class="address row">
+                            <div class="address-item">
+                                <i class='bx bx-building'></i>
+                                <p>Trường ĐH CNTT & TT Việt Hàn.</p>
+                            </div>
+                            <div class="address-item">
+                                <i class='bx bx-map'></i>
+                                <p>470 Đường Trần Đại Nghĩa, Quận Ngũ Hành Sơn, TP Đà Nẵng.</p>
+                            </div>
+                            <div class="  address-item">
+                                <i class='bx bxs-phone'></i>
+                                <p>0793351522</p>
+                            </div>
+                            <div class="address-item">
+                                <i class='bx bxs-envelope'></i>
+                                <p>khangpb.22it2@vku.udn.vn</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="lienKet-content col-lg-3 col-sm-12">
+                        <h3 class="lienKet">
+                            Liên kết nhanh
+                        </h3>
+                        <ul class="links">
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="hoTro-content col-lg-3 col-sm-12">
+                        <h3 class="hoTro">
+                            Hỗ trợ khách hàng
+                        </h3>
+                        <ul class="links">
+                            <li><a href="#">Kinh nghiệm mua hàng</a></li>
+                            <li><a href="#">Hướng dẫn mua hàng</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Hình thức thanh toán</a></li>
+                    </div>
+                    <div class="tinMoi-content col-lg-3 col-sm-12">
+                        <h3 class="tinMoi">
+                            Bản tin
+                        </h3>
+                        <div class="news">
+                            <div class="row row-text">
+                                <p>Bạn muốn là người sớm nhất nhận khuyến mãi đặc biệt? Đăng ký ngay.</p>
+                            </div>
+                            <div class="row row-dk">
+                                <input type="text" placeholder="abc@gmail.com">
+                                <button type="submit">Đăng ký</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyrights text-center">
+                <p>Copyrights © 2023 <span class="logo">GARA</span>JE.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- script -->
+    <script src="chitiet.js"></script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

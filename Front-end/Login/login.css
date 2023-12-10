@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url(/img/bg-3.jpg) no-repeat; */
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+}
+
+.nav__pc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+}
+
+.logo span,
+.logo-mobile span {
+    color: rgb(252, 175, 11);
+}
+
+
+.logo,
+.logo-mobile {
+    color: white;
+}
+
+
+
+.links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.links ul li {
+    font-size: 18px;
+    list-style-type: none;
+}
+
+.links ul a {
+    position: relative;
+    margin-left: 40px;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/*
+chèn thêm 1 nội dung vào phía sau phần tử a 
+*/
+.links ul a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);
+    /*scaleX(): tăng hoặc giảm width của một phần tử.
+        0 lần: giảm width = 0
+    */
+    transition: 0.5s ease;
+}
+
+.links ul a:hover::after {
+    transform: scaleX(1);
+    /*
+        1 lần : tăng width lên gấp  1 lần
+    */
+
+}
+
+/*Mobile navbar*/
+.nav__bars-btn {
+    font-size: 45px;
+    color: #fff;
+    display: none;
+}
+
+
+/*overlay*/
+.nav__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+}
+
+.nav__input:checked~.nav__overlay,
+.nav__input:checked~.nav__mobile {
+    display: block;
+    transform: translateX(0%);
+}
+
+
+
+
+/*nav-mobile*/
+.nav__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background: rgb(55, 75, 49);
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    border-top-left-radius: 20px;
+}
+.nav__mobile .logo-mobile{
+    font-size: 2.5rem;
+    padding: 10px 20px;
+}
+.nav__mobile-close {
+    font-size: 2.5rem;
+    color: #fff;
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+}
+
+.nav__mobile .links-mobile {
+    
+    font-size: 1.4rem;
+}
+.nav__mobile .links-mobile li{
+    margin: 25px 0;
+    text-align: center;
+    list-style-type: none;
+}
+.nav__mobile .nav__mobile-link {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+.links-mobile ul a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    bottom: -6px;
+    left: 0;
+    transform: scaleX(0);
+    /*scaleX(): tăng hoặc giảm width của một phần tử.
+        0 lần: giảm width = 0
+    */
+    transition: 0.5s ease;
+}
+.links-mobile ul a:hover::after{
+    transform: scaleX(1);
+
+}
+
+
+
+
+
+/* Main */
+.wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    width: 400px;
+    height: 440px;
+    border: rgb(252, 175, 11) solid 3px;
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wrapper .form-login {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-login h3 {
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+
+
+/*
+* input:focus~label : khi click vào input 
+thì css bên dưới sẽ áp dụng cho label 
+
+*  input:valid~label : người dùng phải nhập kiểu input PHÙ HỢP 
+thì css bên dưới mới áp dụng cho label
+*/
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0px 35px 0px 5px;
+
+}
+
+.input-box .icon {
+    color: #fff;
+    position: absolute;
+    right: 8px;
+    font-size: 1.2rem;
+    line-height: 50px;
+}
+
+.remember-forgot {
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    margin: -15px 0 15px;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin: 3px;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.button {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    background: rgb(252, 175, 11);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.register {
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 15px;
+}
+
+.register p a {
+    color: rgb(252, 175, 11);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+/*
+    Breakpoint
+*/
+/* Mobile: width < 600 */
+@media only screen and (max-width: 599px) {
+
+    .wrapper {
+        width: 300px;
+        height: 440px;
+        font-size: 14px;
+    }
+
+    .nav__pc {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 40px
+    }
+
+    .nav__bars-btn {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .form-login h3 {
+        font-size: 1.6rem;
+    }
+
+
+}
+
+
+/* Tablelt: width >= 600px and width < 1024px */
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+    .wrapper {
+        width: 400px;
+        height: 500px;
+        font-size: 18px;
+    }
+
+    .logo {
+        font-size: 2.6rem
+    }
+
+    .nav__pc {
+        padding: 20px;
+    }
+
+    .nav__bars-btn {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .form-login h3 {
+        font-size: 2.5rem;
+    }
+
+
+
+
+}

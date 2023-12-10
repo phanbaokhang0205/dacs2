@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="cong">Cộng</button>
+<button class="tru">Trừ</button>
+<span class="number">0</span>
+<br>
+<button class="cong">Cộng</button>
+<button class="tru">Trừ</button>
+<span class="number">0</span>
+
+<script>
+  const congButtons = document.querySelectorAll('.cong');
+  const truButtons = document.querySelectorAll('.tru');
+  const numberSpans = document.querySelectorAll('.number');
+
+  congButtons.forEach((congButton, i) => {
+    const truButton = truButtons[i];
+    const numberSpan = numberSpans[i];
+    let number = 0;
+
+    congButton.addEventListener('click', () => {
+      number++;
+      numberSpan.textContent = number;
+    });
+
+    truButton.addEventListener('click', () => {
+      number--;
+      numberSpan.textContent = number;
+    });
+  });
+</script>
+</body>
+</html>

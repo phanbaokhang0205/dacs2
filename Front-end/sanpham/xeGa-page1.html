@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- Link icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="sanPham.css">
+</head>
+
+<body>
+    <header class="container-fluid">
+        <!-- place navbar here -->
+
+
+        <!-- nav__pc -->
+        <nav class="nav__pc fixed-top">
+            <h1 class="logo "><span>GARA</span>JE</h1>
+
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="../home/home.html">Trang Chủ</a>
+                    </li>
+                    <li>
+                        <a href="../gioithieu/gioiThieu.html">Giới Thiệu</a>
+                    </li>
+                    <li>
+                        <a href="../sanpham/sanPham.html">Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="../lienhe/lienHe.html">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- cart -->
+            <div class="cart-btn">
+                <a href="cart.html">
+                    <i class='bx bx-cart'></i>
+                </a>
+            </div>
+
+            <label for="nav__mobile-input" class="nav__bars-btn" style="cursor: pointer;">
+                <i class='bx bx-menu'></i>
+            </label>
+            <!-- Overlayout -->
+            <input type="checkbox" name="" class="nav__input" id="nav__mobile-input" style="display: none;">
+
+            <label for="nav__mobile-input" class="nav__overlay"></label>
+
+            <nav class="nav__mobile">
+                <label for="nav__mobile-input" class="nav__mobile-close" style="cursor: pointer;">
+                    <i class='bx bx-x'></i>
+                </label>
+                <h1 class="logo-mobile"><span>GARA</span>JE</h1>
+                <hr style="color: #fff;">
+                <div class="links-mobile">
+                    <ul>
+                        <li>
+                            <a href="#" class="nav__mobile-link">Trang Chủ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__mobile-link">Giới Thiệu</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__mobile-link">Sản Phẩm</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__mobile-link">Liên hệ</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <!-- Overlayout -->
+            <input type="checkbox" name="" class="side__input" id="side__mobile-input" style="display: none;">
+
+            <label for="side__mobile-input" class="side__overlay"></label>
+
+            <nav class="side__mobile">
+                <aside class="timkiem mb-3">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <i class='bx bx-search-alt-2'></i>
+                </aside>
+                <aside class="danhmucsanpham mb-3">
+                    <div class="content">
+                        <div class="title">danh mục sản phẩm</div>
+                        <div class="memu-danhmucsanpham">
+                            <ul class="menu">
+                                <li><a href="sanPham.html"
+                                        >Xe
+                                        số</a></li>
+                                <li><a href="xeGa-page1.html" style="color: #000;font-weight: 700;font-size: 25px;letter-spacing: 2px;">Xe tay ga</a></li>
+                                <li><a href="xeCon-page1.html">Xe tay côn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <aside class="sanpham mb-3">
+                    <div class="content">
+                        <div class="title">Sản phẩm</div>
+                        <div class="menu-sanpham">
+                            <ul class="menu">
+                                <li>
+                                    <a href="chitiet/Air-blade.html">
+                                        <img width="90px" height="70px" src="/img/ab-2023.png" alt="">
+                                        <div class="product-content">
+                                            <span>Air-Blade 2023<br>42.790.000₫</span>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chitiet/ex.html">
+                                        <img width="90px" height="70px" src="/img/ex-limit.png" alt="">
+                                        <div class="product-content">
+                                            <span>Exciter 150 RC<br>44.800.000₫</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chitiet/future.html">
+                                        <img width="90px" height="70px" src="/img/future.png" alt="">
+                                        <div class="product-content">
+                                            <span>Future 125 FI<br>31.090.000₫</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chitiet/cup.html">
+                                        <img width="90px" height="70px" src="/img/cup.png" alt="">
+                                        <div class="product-content">
+                                            <span>Super Cub C125<br>28.700.000₫</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chitiet/wave.html">
+                                        <img width="90px" height="70px" src="/img/wave.png" alt="">
+                                        <div class="product-content">
+                                            <span>Wave RSX FI 110<br>22.140.000₫</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <aside class="baivietmoi mb-5">
+                    <div class="content">
+                        <div class="title">Bài viết mới</div>
+                        <ul class="menu">
+                            <li>
+                                <a
+                                    href="https://www.24h.com.vn/xe-may-xe-dap/honda-bat-ngo-tung-khuyen-mai-cho-loat-dong-xe-ga-sh-c748a1479423.html">
+                                    <img width="90px" height="70px"
+                                        src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-28/255x170/sh1--1--1687947231-77-width740height555_anh_cat_3_2.jpg"
+                                        alt="">
+                                    <div class="tintuc-content">
+                                        <p>Honda bất ngờ tung khuyến ...</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.24h.com.vn/xe-may-xe-dap/sieu-pham-moto-guzzi-v100-mandello-se-ban-tai-viet-nam-tu-thang-8-2023-c748a1480244.html">
+                                    <img width="90px" height="70px"
+                                        src="https://icdn.24h.com.vn/upload/3-2023/images/2023-07-01/255x170/20230701_112405_0000-1688185481-277-width740height555_anh_cat_3_2.jpg"
+                                        alt="">
+                                    <div class="tintuc-content">
+                                        <p>Siêu phẩm Moto Guzzi ...</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.24h.com.vn/xe-may-xe-dap/bang-gia-honda-lead-dau-thang-7-2023-giam-hon-3-trieu-dong-c748a1480154.html">
+                                    <img width="90px" height="70px"
+                                        src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/lead3--1--1688133669-864-width740height555_anh_cat_3_2.jpg"
+                                        alt="">
+                                    <div class="tintuc-content">
+                                        <p>Bảng giá Honda LEAD ...</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.24h.com.vn/xe-may-xe-dap/xe-may-co-hiem-co-kho-tim-cua-dan-choi-sai-thanh-c748a1479864.html">
+                                    <img width="90px" height="70px"
+                                        src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/adt1688066319-tp-img-4105-1388_anh_cat_3_2.jpg"
+                                        alt="">
+                                    <div class="tintuc-content">
+                                        <p>Xe máy cổ 'hiếm có khó ...</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.24h.com.vn/xe-may-xe-dap/phat-me-bo-doi-2024-triumph-speed-400-va-scrambler-400-x-c748a1479596.html">
+                                    <img width="90px" height="70px"
+                                        src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-29/255x170/trium1--1--1688007655-398-width740height555_anh_cat_3_2.jpg"
+                                        alt="">
+                                    <div class="tintuc-content">
+                                        <p>Phát mê bộ đôi 2024 Triumph ...</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </nav>
+        </nav>
+
+
+
+    </header>
+
+
+
+    <main>
+        <div class="container-fluid top-title">
+            <img src="/img/xe2.jpg" alt="" class="img-fluid">
+            <div class="content-header">
+                <div class="title">
+                    <i class='bx bx-car mb-5'></i>
+                    <h1 class="pb-4">Sản phẩm</h1>
+                    <a href="/home/home.html">Trang chủ / </a>
+                    <a class="gt" href="sanPham.html">Sản phẩm</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container content mt-5 mb-5" id="menu">
+            <div class="shop-sidebar__mobile">
+                <label for="side__mobile-input" class="side__filter-btn" style="cursor: pointer;">
+                    <div class="icon">
+                        <i class='bx bx-filter-alt'></i>
+                    </div>
+                    <p style=" text-transform: uppercase; font-weight: 500;">Lọc</p>
+                </label>
+
+            </div>
+            <div class="row row-wrapper">
+
+                <!-- Bảng danh mục -->
+                <div class="col-lg-3">
+                    <div class="shop-sidebar__PC">
+                        <aside class="timkiem mb-3">
+                            <input type="text" placeholder="Tìm kiếm">
+                            <i class='bx bx-search-alt-2'></i>
+                        </aside>
+                        <aside class="danhmucsanpham mb-3">
+                            <div class="content">
+                                <div class="title">danh mục sản phẩm</div>
+                                <div class="memu-danhmucsanpham">
+                                    <ul class="menu">
+                                        <li><a href="sanPham.html">Xe số</a></li>
+                                        <li><a href="xeGa-page1.html" style="color: #000;font-weight: 700;
+                                                font-size: 25px;
+                                                letter-spacing: 2px;">Xe tay ga</a></li>
+                                        <li><a href="xeCon-page1.html">Xe tay côn</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="sanpham mb-3">
+                            <div class="content">
+                                <div class="title">Sản phẩm</div>
+                                <div class="menu-sanpham">
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="chitiet/Air-blade.html">
+                                                <img width="90px" height="70px" src="/img/ab-2023.png" alt="">
+                                                <div class="product-content">
+                                                    <span>Air-Blade 2023<br>42.790.000₫</span>
+                                                </div>
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="chitiet/ex.html">
+                                                <img width="90px" height="70px" src="/img/ex-limit.png" alt="">
+                                                <div class="product-content">
+                                                    <span>Exciter 150 RC<br>44.800.000₫</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="chitiet/future.html">
+                                                <img width="90px" height="70px" src="/img/future.png" alt="">
+                                                <div class="product-content">
+                                                    <span>Future 125 FI<br>31.090.000₫</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="chitiet/cup.html">
+                                                <img width="90px" height="70px" src="/img/cup.png" alt="">
+                                                <div class="product-content">
+                                                    <span>Super Cub C125<br>28.700.000₫</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="chitiet/wave.html">
+                                                <img width="90px" height="70px" src="/img/wave.png" alt="">
+                                                <div class="product-content">
+                                                    <span>Wave RSX FI 110<br>22.140.000₫</span>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="baivietmoi mb-5">
+                            <div class="content">
+                                <div class="title">Bài viết mới</div>
+                                <ul class="menu">
+                                    <li>
+                                        <a
+                                            href="https://www.24h.com.vn/xe-may-xe-dap/honda-bat-ngo-tung-khuyen-mai-cho-loat-dong-xe-ga-sh-c748a1479423.html">
+                                            <img width="90px" height="70px"
+                                                src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-28/255x170/sh1--1--1687947231-77-width740height555_anh_cat_3_2.jpg"
+                                                alt="">
+                                            <div class="tintuc-content">
+                                                <p>Honda bất ngờ tung khuyến ...</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.24h.com.vn/xe-may-xe-dap/sieu-pham-moto-guzzi-v100-mandello-se-ban-tai-viet-nam-tu-thang-8-2023-c748a1480244.html">
+                                            <img width="90px" height="70px"
+                                                src="https://icdn.24h.com.vn/upload/3-2023/images/2023-07-01/255x170/20230701_112405_0000-1688185481-277-width740height555_anh_cat_3_2.jpg"
+                                                alt="">
+                                            <div class="tintuc-content">
+                                                <p>Siêu phẩm Moto Guzzi ...</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.24h.com.vn/xe-may-xe-dap/bang-gia-honda-lead-dau-thang-7-2023-giam-hon-3-trieu-dong-c748a1480154.html">
+                                            <img width="90px" height="70px"
+                                                src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/lead3--1--1688133669-864-width740height555_anh_cat_3_2.jpg"
+                                                alt="">
+                                            <div class="tintuc-content">
+                                                <p>Bảng giá Honda LEAD ...</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.24h.com.vn/xe-may-xe-dap/xe-may-co-hiem-co-kho-tim-cua-dan-choi-sai-thanh-c748a1479864.html">
+                                            <img width="90px" height="70px"
+                                                src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/adt1688066319-tp-img-4105-1388_anh_cat_3_2.jpg"
+                                                alt="">
+                                            <div class="tintuc-content">
+                                                <p>Xe máy cổ 'hiếm có khó ...</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.24h.com.vn/xe-may-xe-dap/phat-me-bo-doi-2024-triumph-speed-400-va-scrambler-400-x-c748a1479596.html">
+                                            <img width="90px" height="70px"
+                                                src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-29/255x170/trium1--1--1688007655-398-width740height555_anh_cat_3_2.jpg"
+                                                alt="">
+                                            <div class="tintuc-content">
+                                                <p>Phát mê bộ đôi 2024 Triumph ...</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+
+                </div>
+
+
+                <!-- bảng sản phẩm -->
+                <div class="sanPham col-lg-9">
+
+                    <!-- Xe tay ga -->
+                    <div id="xe_ga" class="dsxeSo">
+
+                        <!-- page-1 -->
+                        <div class="page-1" id="ga-1">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="FreeGo card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/Sh-1.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Sh Mode 2023 </h4>
+                                            <p class="card-text">Từ 75.172.500 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/SH-mode.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="Grande card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/shi2.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">SH350i</h4>
+                                            <p class="card-text">Từ 150.990.000 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/sh350i.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="shmode card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/airblade.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Air Blade 125/160</h4>
+                                            <p class="card-text">Từ 42.790.000 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/Air-blade.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="vision card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/sh160i.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">SH160i/125i</h4>
+                                            <p class="card-text">Từ 75.290.000 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/update.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="shmode card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/freego2.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">FREEGO S</h4>
+                                            <p class="card-text">Từ 34.069.000 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/freego.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="vision card text-center">
+                                        <div class="icon-heart">
+                                            <i class='bx bxs-heart'></i>
+                                        </div>
+                                        <img class="card-img-top" src="/img/grande2.png" alt="Title">
+                                        <div class="card-body">
+                                            <h4 class="card-title">GRANDE </h4>
+                                            <p class="card-text">Từ 50.564.000 VNĐ</p>
+                                            <div class="btn-muangay">
+                                                <a class="muaNgay" href="chitiet/grande.html" role="button">Mua
+                                                    ngay</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- opt-page 1 2-->
+                    <div class=" page-container mt-3 mb-3">
+                        <div class="page-number" style="border: 2px solid rgb(252, 175, 11);
+                        background: rgb(252, 175, 11);
+                        color: #fff;">
+                            <a href="xeGa-page1.html" role="button">1</a>
+                        </div>
+                        <div class="page-number">
+                            <a href="xeGa-page2.html" role="button">2</a>
+                        </div>
+                        <div class="page-number">
+                            <a href="xeGa-page2.html" role="button">></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <footer>
+        <!-- place footer here -->
+        <div class="footer container-fluid">
+            <div class="content container">
+                <div class=" row-1 row mb-3">
+                    <div class="facebook col-lg-3">
+                        <p>Facebook</p>
+                        <i class='bx bxl-facebook-circle'></i>
+                    </div>
+                    <div class="youtube col-lg-3">
+                        <p>Youtube</p>
+                        <i class=' bx bxl-youtube'></i>
+                    </div>
+                    <div class="twitter col-lg-3">
+                        <p>Twitter</p>
+                        <i class=' bx bxl-twitter'></i>
+                    </div>
+                    <div class="ins col-lg-3">
+                        <p>Instagram</p>
+                        <i class=' bx bxl-instagram-alt'></i>
+                    </div>
+                </div>
+
+                <div class="row row-2  mb-3">
+                    <div class="col-lg-3 col-sm-12">
+                        <h1 class="logo "><span>GARA</span>JE</h1>
+                        <p class="moTa">
+                            GARAJE có cung cấp cho quý khách dịch vụ mua xe máy mới hoặc cũ uy tín và chất lượng trên
+                            toàn quốc. Một hôm lang thang trên mạng và may mắn bắt gặp một chiếc xe đúng loại mình đang
+                            tìm kiếm, nhìn ngoại...
+                        </p>
+                        <div class="address row">
+                            <div class="address-item">
+                                <i class='bx bx-building'></i>
+                                <p>Trường ĐH CNTT & TT Việt Hàn.</p>
+                            </div>
+                            <div class="address-item">
+                                <i class='bx bx-map'></i>
+                                <p>470 Đường Trần Đại Nghĩa, Quận Ngũ Hành Sơn, TP Đà Nẵng.</p>
+                            </div>
+                            <div class="  address-item">
+                                <i class='bx bxs-phone'></i>
+                                <p>0793351522</p>
+                            </div>
+                            <div class="address-item">
+                                <i class='bx bxs-envelope'></i>
+                                <p>khangpb.22it2@vku.udn.vn</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="lienKet-content col-lg-3 col-sm-12">
+                        <h3 class="lienKet">
+                            Liên kết nhanh
+                        </h3>
+                        <ul class="links">
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="hoTro-content col-lg-3 col-sm-12">
+                        <h3 class="hoTro">
+                            Hỗ trợ khách hàng
+                        </h3>
+                        <ul class="links">
+                            <li><a href="#">Kinh nghiệm mua hàng</a></li>
+                            <li><a href="#">Hướng dẫn mua hàng</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Hình thức thanh toán</a></li>
+                    </div>
+                    <div class="tinMoi-content col-lg-3 col-sm-12">
+                        <h3 class="tinMoi">
+                            Bản tin
+                        </h3>
+                        <div class="news">
+                            <div class="row row-text">
+                                <p>Bạn muốn là người sớm nhất nhận khuyến mãi đặc biệt? Đăng ký ngay.</p>
+                            </div>
+                            <div class="row row-dk">
+                                <input type="text" placeholder="abc@gmail.com">
+                                <button type="submit">Đăng ký</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyrights text-center">
+                <p>Copyrights © 2023 <span class="logo">GARA</span>JE.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- script -->
+    <script src="sanPham.js"></script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
