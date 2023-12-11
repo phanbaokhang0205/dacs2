@@ -19,7 +19,8 @@
         </div>
         <div class="row row-brands">
             <div class="col-sm-10">
-                <form action="{{ route('product.update', $product->productID) }}" method="post"  enctype="multipart/form-data">
+                <form action="{{ route('product.update', $product->productID) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -35,23 +36,42 @@
                     </div>
                     <div class="form-group">
                         <label for="productCode">Code:</label>
-                        <input type="text" name="productCode" id="productCode" class="form-control" value="{{ $product->productCode }}">
+                        <input type="text" name="productCode" id="productCode" class="form-control"
+                            value="{{ $product->productCode }}">
                     </div>
                     <div class="form-group">
                         <label for="productName">Name:</label>
-                        <input type="text" name="productName" id="productName" class="form-control" value="{{ $product->productName }}">
+                        <input type="text" name="productName" id="productName" class="form-control"
+                            value="{{ $product->productName }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="gearBox">Gear Box:</label>
+                        <select name="gearBox" id="gearBox" class="form-control">
+                            <option value="motorcycle" {{ $product->gearBox == "motorcycle" ? 'selected' : '' }}>
+                                Motorcycle
+                            </option>
+                            <option value="scooter" {{ $product->gearBox == "scooter" ? 'selected' : '' }}>
+                                Scooter
+                            </option>
+                            <option value="manual" {{ $product->gearBox == "manual" ? 'selected' : '' }}>
+                                Manual
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="productImage">Select Image:</label>
-                        <input type="file" name="productImage" id="productImage" class="form-control-file" value="{{ $product->productImage }}">
+                        <input type="file" name="productImage" id="productImage" class="form-control-file"
+                            value="{{ $product->productImage }}">
                     </div>
                     <div class="form-group">
                         <label for="listPrice">List Price:</label>
-                        <input type="text" name="listPrice" id="listPrice" class="form-control" value="{{ $product->listPrice }}">
+                        <input type="text" name="listPrice" id="listPrice" class="form-control"
+                            value="{{ $product->listPrice }}">
                     </div>
                     <div class="form-group">
                         <label for="discountPercent">Discount Percent:</label>
-                        <input type="text" name="discountPercent" id="discountPercent" class="form-control" value="{{ $product->discountPercent }}">
+                        <input type="text" name="discountPercent" id="discountPercent" class="form-control"
+                            value="{{ $product->discountPercent }}">
                     </div>
                     <div class="form-group">
                         <label for="description">Description:</label>

@@ -21,18 +21,19 @@
             <div class="col-sm-12">
                 <table class="table table-hover table-product">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>Image</th>
                             <th>Code</th>
                             <th>Name</th>
                             <th>Brand</th>
+                            <th>Gear Box</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            <tr class="create_form_product">
+                            <tr class="create_form_product align-middle text-center">
                                 <td><img src="{{ asset('img/' . $product->productImage) }}" alt="Product Image" ></td>
                                 <td>{{ $product->productCode }}</td>
                                 <td>{{ $product->productName }}</td>
@@ -43,8 +44,11 @@
                                         @endif
                                     @endforeach    
                                 </td>
+                                <td>
+                                    {{ $product->gearBox }}
+                                </td>
                                 <td>${{ $product->listPrice }}</td>
-                                <td class="d-flex gap-2">
+                                <td class="d-flex gap-2 align-items-center">
                                     <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
                                     <form action="{{ route('product.destroy', $product->productID) }}" class="delete"
                                         method="POST">

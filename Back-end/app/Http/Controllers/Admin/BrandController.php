@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BrandRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,7 @@ class BrandController extends Controller
 
     public function index()
     {
-        $brands = DB::table('brands')->paginate(5);
+        $brands = Brand::paginate(5);
         return view('admin.brand.index', ['brands' => $brands]);
     }
 
