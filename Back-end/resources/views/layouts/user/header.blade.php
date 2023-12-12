@@ -4,24 +4,28 @@
 
     <!-- nav__pc -->
     <nav class="nav__pc fixed-top">
-        <h1 class="logo "><span>GARA</span>JE</h1>
+        <a href="{{ route('homepage') }}" style="text-decoration: none">
+            <h1 class="logo "><span>GARA</span>JE</h1>
+        </a>
 
         <div class="links">
             <ul class="">
                 <li>
-                    <a href="../home/home.html">Trang Chủ</a>
+                    <a href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li>
-                    <a href="../gioithieu/gioiThieu.html">Giới Thiệu</a>
+                    <a href="{{ route('intro') }}">Intro</a>
                 </li>
                 <li>
-                    <a href="../sanpham/sanPham.html">Sản Phẩm</a>
+                    <a href="{{ route('products') }}">Products</a>
                 </li>
                 <li>
-                    <a href="../lienhe/lienHe.html">Liên hệ</a>
+                    <a href="{{ route('contact') }} ">Contact</a>
                 </li>
+                
                 <!-- Authentication Links -->
-                @guest
+                <li class="profile_user">
+                    @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -46,6 +50,9 @@
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+                            @if (Auth::user()->typeuser === 'admin')
+                                <a class="text-dark" href="{{ route('admin.index') }}">Dashboard</a>
+                            @endif
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -53,6 +60,7 @@
                         </div>
                     </li>
                 @endguest
+                </li>
             </ul>
         </div>
 

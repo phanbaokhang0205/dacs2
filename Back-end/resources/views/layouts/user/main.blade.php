@@ -16,6 +16,10 @@
 
     <!-- Link css -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/intro.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/detail_product.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 
     {{-- Link js --}}
     <script src="{{ asset('js/home.js') }}"></script>

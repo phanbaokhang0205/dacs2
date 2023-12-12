@@ -71,11 +71,11 @@
         </div>
 
         <!-- Sản phẩm bán chạy -->
-        <h1 class="sanpham-h1 container mb-5">Sản phẩm mới nhất</h1>
+        <h1 class="sanpham-h1 container mb-5">Lastest Products</h1>
 
         <div class="banChay container mb-3">
             <div class="row">
-                @foreach ($products as $product)
+                @foreach ($lastestProducts as $product)
                     <div class="col-lg-3 col-sm-6 mt-3">
                         <div class="sp sh-mode card text-center">
                             <div class="cart-title">
@@ -115,81 +115,37 @@
 
         <!-- Sản phẩm của chung toi -->
         <div id="menu" class="title-sanPham container mb-3">
-            <h1 class="sanpham-h1 ">Sản phẩm</h1>
+            <h1 class="sanpham-h1 ">Products</h1>
         </div>
 
         <!-- Menu -->
         <div class="menu-xe container">
             <a id="1" class="button-xeSo" href="#menu" onclick="displaySo()"
-                style="background-color: rgb(252, 175, 11);">Xe số</a>
-            <a id="2" class="button-xeGa" href="#menu" onclick="displayGa()">Xe tay ga</a>
-            <a id="3" class="button-xetayCon" href="#menu" onclick="displayCon()">Xe tay côn</a>
+                style="background-color: rgb(252, 175, 11);">Motorcycle</a>
+            <a id="2" class="button-xeGa" href="#menu" onclick="displayGa()">Scooter</a>
+            <a id="3" class="button-xetayCon" href="#menu" onclick="displayCon()">Manual</a>
+            <a id="4" class="button-xetayDien" href="#menu" onclick="displayDien()">Electric</a>
         </div>
 
         <!-- Xe so -->
 
         <div id="xe_1" class="xeSo container">
             <div class="row">
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/blade.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Blade 2023</h4>
-                        <p class="card-text">Từ 19.250.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/future.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/future.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Future 125 FI</h4>
-                        <p class="card-text">Từ 31.090.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/wave.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/wave.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Wave RSX FI 110</h4>
-                        <p class="card-text">Từ 22.140.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/update.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/Sirius-Black-Drum-002.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">SIRIUS FI</h4>
-                        <p class="card-text">Từ 21.500.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/cup.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/cup.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Super Cub C125</h4>
-                        <p class="card-text">Từ 28.700.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeSo">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/update.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/Sirius-Black-Drum-002.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">SIRIUS FI</h4>
-                        <p class="card-text">Từ 21.500.000 VNĐ</p>
-                    </div>
-                </div>
+                @foreach ($products as $product)
+                    @if ($product->gearBox === 'motorcycle')
+                        <div class="col-lg-3 col-sm-6 sanpham_xeSo">
+                            <div class="button-xem">
+                                <a class="btn-a" href="../sanpham/chitiet/blade.html" role="button">Xem thêm</a>
+                            </div>
+                            <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
+                                alt="Title">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $product->productName }}</h4>
+                                <p class="card-text">$ {{ $product->listPrice }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
 
@@ -197,66 +153,23 @@
 
         <div id="xe_2" class="xeGa container" style="display: none;">
             <div class="row">
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
+                @foreach ($products as $product)
+                    @if ($product->gearBox === 'scooter')
+                        <div class="col-lg-3 col-sm-6 sanpham_xeGa">
 
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/freego.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/FreeGo-Mat-Red-SMK-004.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">FREEGO S </h4>
-                        <p class="card-text">Từ 34.700.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
+                            <div class="button-xem">
+                                <a class="btn-a" href="../sanpham/chitiet/freego.html" role="button">Xem thêm</a>
+                            </div>
+                            <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
+                                alt="Title">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $product->productName }}</h4>
+                                <p class="card-text">$ {{ $product->listPrice }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
 
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/grande.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/New-Grande-Pearl-White-004.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">GRANDE BLUE CORE HYBRID</h4>
-                        <p class="card-text">Từ 50.000.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/SH-mode.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/shmode.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Sh Mode 125cc</h4>
-                        <p class="card-text">Từ 58.190.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/update.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid mt-5" src="/img/vision.jpg" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Vision</h4>
-                        <p class="card-text">Từ 31.690.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/Vario.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/vario.jpg" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Honda VARIO 160</h4>
-                        <p class="card-text">Từ 56.490.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xeGa">
-
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/Air-blade.html" role="button">Xem thêm</a>
-                    </div> <img class="card-img-top img-fluid" src="/img/airblade.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Air Blade 125/160</h4>
-                        <p class="card-text">Từ 42.790.000 VNĐ</p>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -264,60 +177,46 @@
 
         <div id="xe_3" class="xetayCon container " style="display: none;">
             <div class="row">
-                <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/winer.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="/img/win-23.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">Winner X</h4>
-                        <p class="card-text">Từ 50.060.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/ex.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="/img/ex.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">EXCITER 155 VVA</h4>
-                        <p class="card-text">Từ 52.500.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/update.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="/img/ex-limit.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">EXCITER 150 RC</h4>
-                        <p class="card-text">Từ 44.800.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/cbr.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="/img/cbr.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">CBR150R</h4>
-                        <p class="card-text">Từ 73.290.000 VNĐ</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
-                    <div class="button-xem">
-                        <a class="btn-a" href="../sanpham/chitiet/update.html" role="button">Xem thêm</a>
-                    </div>
-                    <img class="card-img-top img-fluid" src="/img/cb.png" alt="Title">
-                    <div class="card-body">
-                        <h4 class="card-title">CB150R The Streetster</h4>
-                        <p class="card-text">Từ 105.500.000 VNĐ</p>
-                    </div>
-                </div>
+                @foreach ($products as $product)
+                    @if ($product->gearBox === 'manual')
+                        <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
+                            <div class="button-xem">
+                                <a class="btn-a" href="../sanpham/chitiet/winer.html" role="button">Xem thêm</a>
+                            </div>
+                            <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
+                                alt="Title">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $product->productName }}</h4>
+                                <p class="card-text">$ {{ $product->listPrice }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
 
+        {{-- xe dien --}}
+        <div id="xe_4" class="xetayDien container " style="display: none;">
+            <div class="row">
+                @foreach ($products as $product)
+                    @if ($product->gearBox === 'electric')
+                        <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
+                            <div class="button-xem">
+                                <a class="btn-a" href="../sanpham/chitiet/winer.html" role="button">Xem thêm</a>
+                            </div>
+                            <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
+                                alt="Title">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $product->productName }}</h4>
+                                <p class="card-text">$ {{ $product->listPrice }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
 
+            </div>
+        </div>
 
 
         <!-- Tin tức -->

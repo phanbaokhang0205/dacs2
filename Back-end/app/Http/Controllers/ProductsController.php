@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class HomepageController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,15 @@ class HomepageController extends Controller
     public function index()
     {
         $products = Product::all();
+        $paginate = Product::paginate(6);
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
-        $users = User::all();
         return view(
-            'user.homepage',
+            'user.products',
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
-                'users' => $users
+                'paginate' => $paginate
             ]
         );
     }

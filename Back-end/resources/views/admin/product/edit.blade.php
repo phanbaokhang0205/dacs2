@@ -56,6 +56,9 @@
                             <option value="manual" {{ $product->gearBox == "manual" ? 'selected' : '' }}>
                                 Manual
                             </option>
+                            <option value="electric" {{ $product->gearBox == "electric" ? 'selected' : '' }}>
+                                Electric
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -59,6 +59,9 @@
                                 <option value="manual">
                                     Manual
                                 </option>
+                                <option value="electric">
+                                    Electric
+                                </option>
                             </select>
                     </div>
                     <div class="form-group">
