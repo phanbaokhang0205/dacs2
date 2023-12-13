@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
+use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +36,19 @@ Route::get('/contact', function () {
 Route::get('/intro', function () {
     return view('user.intro');
 })->name('intro');
+Route::get('/detail_product/{id?}', function ($id) {
+    $product = Product::find($id);
+    $brands = Brand::all();
+    $products = Product::where('gearBox', $product->gearBox)
+        ->whereNotIn('productID', [$id])
+        ->take(3)
+        ->get();
+    return view('user.detail_product', [
+        'product' => $product,
+        'brands' => $brands,
+        'products' => $products
+    ]);
+})->name('detail_product');
 
 //Login
 Route::post('/login', [UserController::class, 'login'])->name('login');

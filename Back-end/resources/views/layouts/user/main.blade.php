@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/detail_product.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 
-    {{-- Link js --}}
-    <script src="{{ asset('js/home.js') }}"></script>
+
 
 </head>
 
@@ -42,6 +41,36 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script>
+        // Lắng nghe sự kiện click trên các thẻ a
+        document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(
+            element) {
+            element.addEventListener('click', function() {
+                // Lấy ID của thẻ a được click
+                var clickedId = this.id;
+
+                // Lặp qua tất cả các thẻ a và thay đổi màu sắc tương ứng
+                document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien')
+                    .forEach(function(aElement) {
+                        if (aElement.id === clickedId) {
+                            aElement.style.backgroundColor = 'rgb(252, 175, 11)';
+                        } else {
+                            aElement.style.backgroundColor = '#fff';
+                        }
+                    });
+
+                // Lặp qua tất cả các phần tử xe và hiển thị/ẩn tương ứng
+                document.querySelectorAll('.xeSo, .xeGa, .xetayCon, .xetayDien').forEach(function(
+                xeElement) {
+                    if (xeElement.id === 'xe_' + clickedId) {
+                        xeElement.style.display = 'block';
+                    } else {
+                        xeElement.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 

@@ -102,7 +102,8 @@
                                 @endif
 
                                 <div class="btn-xemThem">
-                                    <a class="muaNgay" href="/sanpham/chitiet/SH-mode.html" role="button">Xem thêm</a>
+                                    <a class="muaNgay" href="{{ route('detail_product', $product->productID) }}"
+                                        role="button">Xem thêm</a>
                                 </div>
                             </div>
 
@@ -120,11 +121,10 @@
 
         <!-- Menu -->
         <div class="menu-xe container">
-            <a id="1" class="button-xeSo" href="#menu" onclick="displaySo()"
-                style="background-color: rgb(252, 175, 11);">Motorcycle</a>
-            <a id="2" class="button-xeGa" href="#menu" onclick="displayGa()">Scooter</a>
-            <a id="3" class="button-xetayCon" href="#menu" onclick="displayCon()">Manual</a>
-            <a id="4" class="button-xetayDien" href="#menu" onclick="displayDien()">Electric</a>
+            <a id="1" class="button-xeSo" href="#menu" style="background-color: rgb(252, 175, 11);">Motorcycle</a>
+            <a id="2" class="button-xeGa" href="#menu">Scooter</a>
+            <a id="3" class="button-xetayCon" href="#menu">Manual</a>
+            <a id="4" class="button-xetayDien" href="#menu">Electric</a>
         </div>
 
         <!-- Xe so -->
@@ -135,7 +135,8 @@
                     @if ($product->gearBox === 'motorcycle')
                         <div class="col-lg-3 col-sm-6 sanpham_xeSo">
                             <div class="button-xem">
-                                <a class="btn-a" href="../sanpham/chitiet/blade.html" role="button">Xem thêm</a>
+                                <a class="btn-a" href="{{ route('detail_product', $product->productID) }}"
+                                    role="button">Xem thêm</a>
                             </div>
                             <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
                                 alt="Title">
@@ -158,7 +159,7 @@
                         <div class="col-lg-3 col-sm-6 sanpham_xeGa">
 
                             <div class="button-xem">
-                                <a class="btn-a" href="../sanpham/chitiet/freego.html" role="button">Xem thêm</a>
+                                <a class="btn-a" href="{{ route('detail_product', $product->productID) }}" role="button">Xem thêm</a>
                             </div>
                             <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
                                 alt="Title">
@@ -181,7 +182,7 @@
                     @if ($product->gearBox === 'manual')
                         <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
                             <div class="button-xem">
-                                <a class="btn-a" href="../sanpham/chitiet/winer.html" role="button">Xem thêm</a>
+                                <a class="btn-a" href="{{ route('detail_product', $product->productID) }}" role="button">Xem thêm</a>
                             </div>
                             <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
                                 alt="Title">
@@ -203,7 +204,7 @@
                     @if ($product->gearBox === 'electric')
                         <div class="col-lg-3 col-sm-6 sanpham_xetayCon">
                             <div class="button-xem">
-                                <a class="btn-a" href="../sanpham/chitiet/winer.html" role="button">Xem thêm</a>
+                                <a class="btn-a" href="{{ route('detail_product', $product->productID) }}" role="button">Xem thêm</a>
                             </div>
                             <img class="card-img-top img-fluid" src="{{ asset('img/' . $product->productImage) }}"
                                 alt="Title">
