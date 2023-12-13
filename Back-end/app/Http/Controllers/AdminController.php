@@ -17,9 +17,9 @@ class AdminController extends Controller
     
     public function index()
     {
-        $sql = "select * from v_quantity";
-        $quantity = DB::select($sql);
-        return view('admin.dashboard',['quantity'=>$quantity]);
+        // $sql = "select * from v_quantity";
+        // $quantity = DB::select($sql);
+        return view('admin.dashboard');
     }
 
     

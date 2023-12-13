@@ -21,21 +21,21 @@
                     <a href="../lienhe/lienHe.html">Liên hệ</a>
                 </li>
                 <!-- Authentication Links -->
-                @guest
+                    @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
+                    <li>
+                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                    <li>
+                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
                     @endif
-                @else
+                    @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:rgb(252, 175, 11)" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
@@ -52,7 +52,7 @@
                             </form>
                         </div>
                     </li>
-                @endguest
+                    @endguest
             </ul>
         </div>
 
