@@ -3,7 +3,7 @@
     <main>
         <!-- gt -->
         <div class="container-fluid top-title">
-            <img src="" alt="" class="img-fluid">
+            <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid">
             <div class="content-header">
                 <div class="title">
                     <i class='bx bx-home mb-5'></i>

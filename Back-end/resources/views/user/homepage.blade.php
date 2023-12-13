@@ -36,14 +36,14 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="https://recmiennam.com/wp-content/uploads/2018/01/hinh-nen-sieu-xe-moto-25.jpg"
+                        <img src="{{ asset('img/slide6.jpg') }}"
                             class="w-100 d-block" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('/img/slide2.avif') }}" class="w-100 d-block" alt="Second slide">
+                        <img src="{{ asset('/img/slide8.jpg') }}" class="w-100 d-block" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('/img/slide3.jpg') }}" class="w-100 d-block" alt="Third slide">
+                        <img src="{{ asset('/img/slide9.jpg') }}" class="w-100 d-block" alt="Third slide">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
@@ -121,7 +121,7 @@
 
         <!-- Menu -->
         <div class="menu-xe container">
-            <a id="1" class="button-xeSo" href="#menu" style="background-color: rgb(252, 175, 11);">Motorcycle</a>
+            <a id="1"  href="#menu" style="background-color: rgb(252, 175, 11);">Motorcycle</a>
             <a id="2" class="button-xeGa" href="#menu">Scooter</a>
             <a id="3" class="button-xetayCon" href="#menu">Manual</a>
             <a id="4" class="button-xetayDien" href="#menu">Electric</a>
@@ -285,4 +285,36 @@
         </div>
 
     </main>
+@endsection
+@section('js')
+<script>
+    // Lắng nghe sự kiện click trên các thẻ a
+    document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(
+        element) {
+        element.addEventListener('click', function() {
+            // Lấy ID của thẻ a được click
+            var clickedId = this.id;
+
+            // Lặp qua tất cả các thẻ a và thay đổi màu sắc tương ứng
+            document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien')
+                .forEach(function(aElement) {
+                    if (aElement.id === clickedId) {
+                        aElement.style.backgroundColor = 'rgb(252, 175, 11)';
+                    } else {
+                        aElement.style.backgroundColor = '#fff';
+                    }
+                });
+
+            // Lặp qua tất cả các phần tử xe và hiển thị/ẩn tương ứng
+            document.querySelectorAll('.xeSo, .xeGa, .xetayCon, .xetayDien').forEach(function(
+            xeElement) {
+                if (xeElement.id === 'xe_' + clickedId) {
+                    xeElement.style.display = 'block';
+                } else {
+                    xeElement.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 @endsection

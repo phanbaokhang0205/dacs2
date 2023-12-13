@@ -3,7 +3,7 @@
     <main>
 
         <div class="container-fluid top-title">
-            <img src="" alt="" class="img-fluid">
+            <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid">
             <div class="content-header">
                 <div class="title">
                     <i class='bx bx-car mb-5'></i>
@@ -39,11 +39,11 @@
                                 <div class="title" id="menu">danh mục sản phẩm</div>
                                 <div class="memu-danhmucsanpham">
                                     <ul class="menu">
-                                        <li><a href="#menu"
-                                                style="color: #000;font-weight: 700;font-size: 25px;letter-spacing: 2px;">Xe
-                                                số</a></li>
-                                        <li><a href="#menu">Xe tay ga</a></li>
-                                        <li><a href="#menu">Xe tay côn</a></li>
+                                        <li><a id="1" class="button-xeSo" href="#menu"
+                                                style="color: #000;font-weight: 700;font-size: 25px;">Motorcycle</a></li>
+                                        <li><a id="2" class="button-xeGa" href="#menu">Scooter</a></li>
+                                        <li><a id="3" class="button-xetayCon" href="#menu">Manual</a></li>
+                                        <li><a id="4" class="button-xetayDien" href="#menu">Electric</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
 
 
                     <!-- Xe số -->
-                    <div id="xe_so" class="dsxeSo">
+                    <div id="xe_1" class="xeSo">
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
@@ -154,11 +154,12 @@
                                                 <i class='bx bxs-heart'></i>
                                             </div>
                                             <i class='bx bx-cart'></i>
-                                            <img width="100%" height="300px" class="IMG card-img-top" src="{{ asset('img/' . $product->productImage) }}"
-                                                alt="Title">
+                                            <img width="100%" height="300px" class="IMG card-img-top"
+                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
                                             <div class="card-body">
                                                 <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$ {{ $product->listPrice }}</span>
+                                                <p class="card-text"><span class="PRICE">$
+                                                        {{ $product->listPrice }}</span>
                                                 </p>
                                                 <div class="btn-muangay">
                                                     <a class="muaNgay" href="" role="button">Mua ngay</a>
@@ -175,7 +176,7 @@
                     </div>
 
                     <!-- Xe ga -->
-                    <div id="xe_ga" class="dsxeGa">
+                    <div id="xe_2" class="xeGa" style="display: none;">
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
@@ -186,11 +187,12 @@
                                                 <i class='bx bxs-heart'></i>
                                             </div>
                                             <i class='bx bx-cart'></i>
-                                            <img width="100%" height="300px" class="IMG card-img-top" src="{{ asset('img/' . $product->productImage) }}"
-                                                alt="Title">
+                                            <img width="100%" height="300px" class="IMG card-img-top"
+                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
                                             <div class="card-body">
                                                 <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$ {{ $product->listPrice }}</span>
+                                                <p class="card-text"><span class="PRICE">$
+                                                        {{ $product->listPrice }}</span>
                                                 </p>
                                                 <div class="btn-muangay">
                                                     <a class="muaNgay" href="" role="button">Mua ngay</a>
@@ -207,7 +209,7 @@
                     </div>
 
                     <!-- Xe tay côn -->
-                    <div id="xe_con" class="dsxeCon">
+                    <div id="xe_3" class="xetayCon" style="display: none;">
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
@@ -218,14 +220,48 @@
                                                 <i class='bx bxs-heart'></i>
                                             </div>
                                             <i class='bx bx-cart'></i>
-                                            <img width="100%" height="300px" class="IMG card-img-top" src="{{ asset('img/' . $product->productImage) }}"
-                                                alt="Title">
+                                            <img width="100%" height="300px" class="IMG card-img-top"
+                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
                                             <div class="card-body">
                                                 <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$ {{ $product->listPrice }}</span>
+                                                <p class="card-text"><span class="PRICE">$
+                                                        {{ $product->listPrice }}</span>
                                                 </p>
                                                 <div class="btn-muangay">
-                                                    <a class="muaNgay" href="" role="button">Mua ngay</a>
+                                                    <a class="muaNgay" href="" role="button">Add to cart</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+
+                        </div>
+
+                    </div>
+
+                    <!-- Xe tay dien -->
+                    <div id="xe_4" class="xetayDien" style="display: none;">
+                        <!-- page-1 -->
+                        <div class="row">
+                            @foreach ($products as $product)
+                                @if ($product->gearBox === 'electric')
+                                    <div class="col-lg-6 pb-3">
+                                        <div class="blade card text-center">
+                                            <div class="icon-heart">
+                                                <i class='bx bxs-heart'></i>
+                                            </div>
+                                            <i class='bx bx-cart'></i>
+                                            <img width="100%" height="300px" class="IMG card-img-top"
+                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
+                                            <div class="card-body">
+                                                <h4 class="NAME card-title">{{ $product->productName }}</h4>
+                                                <p class="card-text"><span class="PRICE">$
+                                                        {{ $product->listPrice }}</span>
+                                                </p>
+                                                <div class="btn-muangay">
+                                                    <a class="muaNgay" href="" role="button">Add to cart</a>
                                                 </div>
                                             </div>
 
@@ -253,7 +289,7 @@
         <label for="cart__mobile-input" class="cart__overlay"></label>
 
         <!-- cart -->
-        <div class="cart-wrapper">
+        {{-- <div class="cart-wrapper">
             <table class="cart container">
                 <thead>
                     <tr>
@@ -268,35 +304,35 @@
                 <tbody>
 
                     <!-- <tr>
-                                                <td style="width: 100%;">
-                                                    <img src="/img/blade-2023.png" alt="" class="image">
-                                                    <p class="info">
-                                                        <span class="name">BLADE 2023</span>
-                                                        <span style="color: rgba(0,0,0,0.5);">
-                                                            <br>Tình trạng: Còn hàng<br>
-                                                            Mã SP: No.010<br>
-                                                            Hãng: Honda<br>
-                                                        </span>
-                                                    </p>
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="price">19.250.000</span>₫
-                                                </td>
-                                                <td>
-                                                    <div class="cong-tru-btn">
-                                                        <button class="tru">-</button>
-                                                        <span class="num">1</span>
-                                                        <button class="cong">+</button>
-                                                    </div>
+                                                    <td style="width: 100%;">
+                                                        <img src="/img/blade-2023.png" alt="" class="image">
+                                                        <p class="info">
+                                                            <span class="name">BLADE 2023</span>
+                                                            <span style="color: rgba(0,0,0,0.5);">
+                                                                <br>Tình trạng: Còn hàng<br>
+                                                                Mã SP: No.010<br>
+                                                                Hãng: Honda<br>
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span class="price">19.250.000</span>₫
+                                                    </td>
+                                                    <td>
+                                                        <div class="cong-tru-btn">
+                                                            <button class="tru">-</button>
+                                                            <span class="num">1</span>
+                                                            <button class="cong">+</button>
+                                                        </div>
 
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="price2">19.250.000</span>₫
-                                                </td>
-                                                <td class="text-center">
-                                                    <button class="del">Xóa</button>
-                                                </td>
-                                            </tr> -->
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span class="price2">19.250.000</span>₫
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button class="del">Xóa</button>
+                                                    </td>
+                                                </tr> -->
 
                 </tbody>
             </table>
@@ -305,9 +341,45 @@
                 <b>Tổng tiền: <span class="total">0</span><sup>₫</sup></b>
             </div>
 
-        </div>
+        </div> --}}
 
     </main>
     <!-- script -->
-    <script src="sanpham.js"></script>
+    
+@endsection
+@section('js')
+<script>
+    // Lắng nghe sự kiện click trên các thẻ a
+    document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(
+        element) {
+        element.addEventListener('click', function() {
+            // Lấy ID của thẻ a được click
+            var clickedId = this.id;
+
+            // Lặp qua tất cả các thẻ a và thay đổi màu sắc tương ứng
+            document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien')
+                .forEach(function(aElement) {
+                    if (aElement.id === clickedId) {
+                        aElement.style.color = '#000';
+                        aElement.style.fontSize = '25px';
+                        aElement.style.fontWeight = '700';
+                    } else {
+                        aElement.style.color = 'gray';
+                        aElement.style.fontSize = '16px';
+                        aElement.style.fontWeight = 'normal';
+                    }
+                });
+
+            // Lặp qua tất cả các phần tử xe và hiển thị/ẩn tương ứng
+            document.querySelectorAll('.xeSo, .xeGa, .xetayCon, .xetayDien').forEach(function(
+            xeElement) {
+                if (xeElement.id === 'xe_' + clickedId) {
+                    xeElement.style.display = 'block';
+                } else {
+                    xeElement.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 @endsection

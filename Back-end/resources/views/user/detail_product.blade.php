@@ -3,7 +3,7 @@
     <main>
 
         <div class="container-fluid top-title">
-            <img src="/img/xe2.jpg" alt="" class="img-fluid">
+            <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid">
             <div class="content-header">
                 <div class="title">
                     <i class='bx bx-car mb-5'></i>
@@ -50,8 +50,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                Description
-                                {{ $product->description }}
+                                {{ strip_tags($product->description)}}
                             </td>
                         </tr>
                         <tr class="them-mua">
