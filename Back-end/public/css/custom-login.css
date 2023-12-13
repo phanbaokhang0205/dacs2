@@ -1,0 +1,11 @@
+
+#app {
+    background: linear-gradient(to bottom, #3ea1d3, #b8f1ff);
+}
+.card{
+    backdrop-filter: blur(20px);
+    background: linear-gradient(to bottom, #3ea1d3, #b8f1ff);
+}
+body{
+    background: #b8f1ff 
+}
