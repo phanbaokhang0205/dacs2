@@ -1,30 +1,28 @@
-function displaySo() {
-    document.getElementById('xe_1').style.display = "block";
-    document.getElementById('xe_2').style.display = "none";
-    document.getElementById('xe_3').style.display = "none";
-    document.getElementById('1').style.backgroundColor = "rgb(252, 175, 11)";
-    document.getElementById('2').style.backgroundColor = "#fff";
-    document.getElementById('3').style.backgroundColor = "#fff";
-
-}
-
-function displayGa() {
-    document.getElementById('xe_2').style.display = "block";
-    document.getElementById('xe_1').style.display = "none";
-    document.getElementById('xe_3').style.display = "none";
-    document.getElementById('2').style.backgroundColor = "rgb(252, 175, 11)";
-    document.getElementById('1').style.backgroundColor = "#fff";
-    document.getElementById('3').style.backgroundColor = "#fff";
-}
-
-function displayCon() {
-    document.getElementById('xe_3').style.display = "block";
-    document.getElementById('xe_1').style.display = "none";
-    document.getElementById('xe_2').style.display = "none";
-    document.getElementById('3').style.backgroundColor = "rgb(252, 175, 11)";
-    document.getElementById('2').style.backgroundColor = "#fff";
-    document.getElementById('1').style.backgroundColor = "#fff";
-}
+// Lắng nghe sự kiện click trên các thẻ a
+document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(element) {
+    element.addEventListener('click', function() {
+      // Lấy ID của thẻ a được click
+      var clickedId = this.id;
+  
+      // Lặp qua tất cả các thẻ a và thay đổi màu sắc tương ứng
+      document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(aElement) {
+        if (aElement.id === clickedId) {
+          aElement.style.backgroundColor = 'rgb(252, 175, 11)';
+        } else {
+          aElement.style.backgroundColor = '#fff';
+        }
+      });
+  
+      // Lặp qua tất cả các phần tử xe và hiển thị/ẩn tương ứng
+      document.querySelectorAll('.xeSo, .xeGa, .xetayCon, .xetayDien').forEach(function(xeElement) {
+        if (xeElement.id === 'xe_' + clickedId) {
+          xeElement.style.display = 'block';
+        } else {
+          xeElement.style.display = 'none';
+        }
+      });
+    });
+  });
 
 //trais tim
 const myIcons = document.querySelectorAll('.icon-heart');

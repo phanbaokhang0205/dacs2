@@ -1,0 +1,230 @@
+
+
+/*                                      
+        
+***********************************************************************
+Main
+***********************************************************************
+
+*/
+.top-title {
+    width: 100%;
+    height: 80vh;
+    padding: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.top-title i {
+    font-size: 100px;
+    color: rgb(252, 175, 11);
+}
+
+.top-title img {
+    width: 100%;
+    height: 80vh;
+}
+
+.top-title a {
+    text-decoration: none;
+    color: white;
+}
+
+.top-title a:hover {
+    color: rgb(252, 175, 11);
+}
+
+.top-title a.gt {
+    color: rgb(252, 175, 11);
+}
+
+.top-title::before {
+    content: '';
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1;
+}
+
+.top-title .content-header {
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/**
+    giới thiệu,
+    dịch vụ
+*/
+.row-gt img {
+    border-radius: 20px;
+}
+
+.dichVu {
+    margin-top: 100px;
+}
+
+.row-gt p,
+.row-dn p,
+.row-dv p {
+    color: rgb(109, 109, 109);
+}
+
+.row-dv {
+    display: flex;
+    text-align: center;
+
+}
+
+.row-dv i {
+    font-size: 5rem;
+}
+
+/***
+su menh va tam nhin
+*/
+.row-sm_tn {
+    display: flex;
+    align-items: center;
+}
+
+.row-sm_tn img {
+    border-radius: 50px;
+}
+
+.row-sm_tn img.a {
+    height: 270px;
+}
+
+/**
+    đội ngũ
+*/
+.row-dn .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-dn img {
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+/*
+***********************************************************************
+    Breakpoint intro
+***********************************************************************
+*/
+
+/* Mobile: width < 600 */
+@media only screen and (max-width: 599px) {
+
+    /***/
+
+    main .title-content h1 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    main .title-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    /**
+    giới thiệu,
+    dịch vụ
+*/
+    .row-gt img {
+        margin-bottom: 20px;
+    }
+
+    .row-dv i {
+        font-size: 5rem;
+    }
+
+    /**
+    đội ngũ
+*/
+    .row-dn .col-lg-6 {
+        width: 50%;
+        text-align: center;
+    }
+
+    .row-dn img {
+        width: 100%;
+    }
+
+
+}
+
+
+/* Tablelt: width >= 600px and width < 1024px */
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+
+    /***/
+
+    main .title-content h1 {
+        font-size: 3.5em;
+        margin: 0;
+    }
+
+    main .title-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    /**
+    giới thiệu,
+    dịch vụ
+*/
+    .row-gt img {
+        margin-bottom: 20px;
+    }
+
+    .row-dv i {
+        font-size: 5rem;
+    }
+
+    /**
+    đội ngũ
+*/
+    .row-dn .col-lg-6 {
+        width: 50%;
+        text-align: center;
+    }
+
+    .row-dn img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .row-sm_tn img.b {
+        width: 100%;
+    }
+
+    .row-sm_tn img.a {
+        width: 70%;
+        margin-left: 70px;
+    }
+
+
+}

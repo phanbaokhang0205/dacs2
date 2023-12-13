@@ -48,6 +48,23 @@
                         <input type="text" name="productName" id="productName" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="gearBox">Gear Box:</label>
+                            <select name="gearBox" id="gearBox" class="form-control">
+                                <option value="motorcycle">
+                                    Motorcycle
+                                </option>
+                                <option value="scooter">
+                                    Scooter
+                                </option>
+                                <option value="manual">
+                                    Manual
+                                </option>
+                                <option value="electric">
+                                    Electric
+                                </option>
+                            </select>
+                    </div>
+                    <div class="form-group">
                         <label for="productImage">Select Image:</label>
                         <input type="file" name="productImage" id="productImage" class="form-control-file">
                     </div>

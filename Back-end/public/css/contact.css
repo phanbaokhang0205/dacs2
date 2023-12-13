@@ -1,0 +1,70 @@
+/*                                      
+        
+***********************************************************************
+Main
+***********************************************************************
+
+*/
+.top-title {
+    width: 100%;
+    height: 80vh;
+    padding: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.top-title i {
+    font-size: 100px;
+    color: rgb(252, 175, 11);
+}
+
+.top-title img {
+    width: 100%;
+    height: 80vh;
+}
+
+.top-title a {
+    text-decoration: none;
+    color: white;
+}
+
+.top-title a:hover {
+    color: rgb(252, 175, 11);
+}
+
+.top-title a.gt {
+    color: rgb(252, 175, 11);
+}
+
+.top-title::before {
+    content: '';
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1;
+}
+
+.top-title .content-header {
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.row_lienHe i {
+    font-size: 3.5rem;  
+}
+
+.form_lienHe input {
+    width: 100%;
+}

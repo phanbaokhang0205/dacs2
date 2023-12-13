@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::paginate(5);
+        $products = Product::orderBy('created_at', 'desc')->paginate(5);
         $brands = Brand::whereIn('brandID', $products->pluck('brandID'))->get();
         return view('admin.product.index', ['products' => $products, 'brands' => $brands]);
     }
@@ -54,8 +54,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $products = Product::all();
         $brands = Brand::all();
-        return view('admin.product.create', ['brands' => $brands]);
+        return view('admin.product.create', ['brands' => $brands,'products'=>$products]);
     }
 
     /**
@@ -69,8 +70,10 @@ class ProductController extends Controller
         $product->brandID = $request->brandID;
         $product->productCode = $request->productCode;
         $product->productName = $request->productName;
+        $product->gearBox = $request->gearBox;
         $product->productImage = $imgname; // Sửa dòng này để gán tên file ảnh thay vì $request->$imgname
         $product->description = $request->description;
+        $product->discountPercent = $request->discountPercent;
         $product->listPrice = $request->listPrice;
         $product->save();
         $request->file('productImage')->move($des, $imgname);
@@ -108,7 +111,9 @@ class ProductController extends Controller
         $product->productName = $request->productName;
         $product->productImage = $imgname; // Sửa dòng này để gán tên file ảnh thay vì $request->$imgname
         $product->listPrice = $request->listPrice;
+        $product->gearBox = $request->gearBox;
         $product->description = $request->description;
+        $product->discountPercent = $request->discountPercent;
         $product->listPrice = $request->listPrice;
         $product->save();
         $request->file('productImage')->move($des, $imgname);

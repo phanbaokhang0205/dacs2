@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
             'productName'=>'required',
             'listPrice'=>'required|numeric',
             'discountPercent'=>'numeric',
+            'gearBox'=>'required',
             'productImage'=>'required|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
@@ -40,6 +41,7 @@ class ProductRequest extends FormRequest
             'discountPercent.numeric'=>'Phần trăm khấu trừ sản phẩm phải là kiểu số!',
             'productImage.required'=>'Vui lòng chọn ảnh sản phẩm!',
             'productImage.mimes'=>'Không phải là file ảnh!',
+            'gearBox.required'=>'Vui lòng nhập loại hộp số xe!',
             'productImage.max'=>'Kích thước file không vượt quá 2048KB!'
         ];
     }
