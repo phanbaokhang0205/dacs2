@@ -18,12 +18,15 @@ class HomepageController extends Controller
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
         $users = User::all();
+        $dssp = Product::get();
+
         return view(
             'user.homepage',
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
-                'users' => $users
+                'users' => $users,
+                'dssp' => $dssp
             ]
         );
     }

@@ -25,18 +25,18 @@
                 <div class="col-lg-3 col-sm-12">
                     <h1 class="logo "><span>GARA</span>JE</h1>
                     <p class="moTa">
-                        GARAJE có cung cấp cho quý khách dịch vụ mua xe máy mới hoặc cũ uy tín và chất lượng trên
-                        toàn quốc. Một hôm lang thang trên mạng và may mắn bắt gặp một chiếc xe đúng loại mình đang
-                        tìm kiếm, nhìn ngoại...
+                        GARAJE provides customers with reputable and quality new or used motorbike buying services
+                        nationwide. One day I was wandering around the internet and was lucky enough to come across a
+                        car that was exactly the type I was looking for. It looked...
                     </p>
                     <div class="address row">
                         <div class="address-item">
                             <i class='bx bx-building'></i>
-                            <p>Trường ĐH CNTT & TT Việt Hàn.</p>
+                            <p>Vietnam-Korea University of Information and Communication Technology.</p>
                         </div>
                         <div class="address-item">
                             <i class='bx bx-map'></i>
-                            <p>470 Đường Trần Đại Nghĩa, Quận Ngũ Hành Sơn, TP Đà Nẵng.</p>
+                            <p>470 Tran Dai Nghia Street, Ngu Hanh Son District, Da Nang City.</p>
                         </div>
                         <div class="  address-item">
                             <i class='bx bxs-phone'></i>
@@ -52,36 +52,36 @@
 
                 <div class="lienKet-content col-lg-3 col-sm-12">
                     <h3 class="lienKet">
-                        Liên kết nhanh
+                        Links
                     </h3>
                     <ul class="links">
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Sản phẩm</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Intro</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
 
                 </div>
                 <div class="hoTro-content col-lg-3 col-sm-12">
                     <h3 class="hoTro">
-                        Hỗ trợ khách hàng
+                        Customer support
                     </h3>
                     <ul class="links">
-                        <li><a href="#">Kinh nghiệm mua hàng</a></li>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-                        <li><a href="#">Hình thức thanh toán</a></li>
+                        <li><a href="#">Purchasing experience</a></li>
+                        <li><a href="#">Shopping guide</a></li>
+                        <li><a href="#">Return policy</a></li>
+                        <li><a href="#">Payments</a></li>
                 </div>
                 <div class="tinMoi-content col-lg-3 col-sm-12">
                     <h3 class="tinMoi">
-                        Bản tin
+                        News
                     </h3>
                     <div class="news">
                         <div class="row row-text">
-                            <p>Bạn muốn là người sớm nhất nhận khuyến mãi đặc biệt? Đăng ký ngay.</p>
+                            <p>Do you want to be the first to receive special promotions? Register now.</p>
                         </div>
                         <div class="row row-dk">
                             <input type="text" placeholder="abc@gmail.com">
-                            <button type="submit">Đăng ký</button>
+                            <button type="submit">Register</button>
                         </div>
                     </div>
 

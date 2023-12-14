@@ -1,4 +1,4 @@
-@extends('layouts.user.main')
+{{-- @extends('layouts.user.main')
 @section('content')
     <main>
 
@@ -30,14 +30,13 @@
                 <!-- Bảng danh mục -->
                 <div class="col-lg-3">
                     <div class="shop-sidebar__PC">
-                        <aside class="timkiem mb-3">
-                            <form action="" method="post">
-                                <aside class="timkiem mb-3">
-                                    <input type="text" placeholder="Search">
-                                    <i class='bx bx-search-alt-2'></i>
-                                </aside>
-                            </form>
-                        </aside>
+                        <form action="{{ route('find') }}" method="post">
+                            @csrf
+                            <aside class="timkiem mb-3">
+                                <input type="text" placeholder="Search">
+                                <i class='bx bx-search-alt-2'></i>
+                            </aside>
+                        </form>
                         <aside class="danhmucsanpham mb-3">
                             <div class="content">
                                 <div class="title" id="menu">Menu</div>
@@ -363,4 +362,4 @@
             });
         });
     </script>
-@endsection
+@endsection --}}

@@ -54,7 +54,8 @@ header {
 
 
 
-.links ul {
+.links ul,
+.login_register ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,12 +63,14 @@ header {
     margin: 0;
 }
 
-.links ul li {
+.links ul li,
+.login_register ul li {
     font-size: 18px;
     list-style-type: none;
 }
 
-.links ul a {
+.links ul a,
+.login_register ul a {
     position: relative;
     margin-left: 40px;
     font-weight: 500;
@@ -79,7 +82,8 @@ header {
 /*
 chèn thêm 1 nội dung vào phía sau phần tử a 
 */
-.links ul a::after {
+.links ul a::after,
+.login_register a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -94,7 +98,8 @@ chèn thêm 1 nội dung vào phía sau phần tử a
     transition: 0.5s ease;
 }
 
-.links ul a:hover::after {
+.links ul a:hover::after,
+.login_register ul a:hover::after {
     transform: scaleX(1);
     /*
         1 lần : tăng width lên gấp  1 lần

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductsController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,44 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+// admin
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
+        Route::resources([
+            'brand' => 'BrandController',
+            'product' => 'ProductController',
+            'user' => 'UserController'
+        ]);
+        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+        Route::post('findProduct', [ProductController::class, 'find'])->name('product.find');
+        Route::post('findBrand', [BrandController::class, 'find'])->name('brand.find');
+        Route::post('findUser', [UserController::class, 'find'])->name('user.find');
+    });
+});
+
+
+
+//Login
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register,', [UserController::class, 'postRegister']);
+
+// Auth
+Auth::routes(['register' => true]);
+Route::get('laythongtin', function () {
+    if (Auth::check()) {
+        echo "<pre>";
+        // print_r(Auth::user());
+        $user = Auth::user();
+        print_r($user->email);
+        echo "</pre>";
+    } else {
+        echo "Ban chua dang nhap he thong !";
+    }
+});
+Auth::routes();
+
 
 // User
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -50,39 +90,8 @@ Route::get('/detail_product/{id?}', function ($id) {
     ]);
 })->name('detail_product');
 
-//Login
-Route::post('/login', [UserController::class, 'login'])->name('login');
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register,', [UserController::class, 'postRegister']);
 
-// admin
-Route::group(['prefix' => 'admin'], function () {
-    Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
-        Route::resources([
-            'brand' => 'BrandController',
-            'product' => 'ProductController',
-            'user' => 'UserController'
-        ]);
-        Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-        Route::post('findProduct', [ProductController::class, 'find'])->name('product.find');
-        Route::post('findBrand', [BrandController::class, 'find'])->name('brand.find');
-        Route::post('findUser', [UserController::class, 'find'])->name('user.find');
-    });
-});
-
-
-
-// Auth
-Auth::routes(['register' => true]);
-Route::get('laythongtin', function () {
-    if (Auth::check()) {
-        echo "<pre>";
-        // print_r(Auth::user());
-        $user = Auth::user();
-        print_r($user->email);
-        echo "</pre>";
-    } else {
-        echo "Ban chua dang nhap he thong !";
-    }
-});
-Auth::routes();
+// Cart
+Route::post('/addcart/{id}',[CartController::class, 'addcart'])->name('addcart');
+Route::get('/updatecart',[CartController::class, 'updatecart'])->name('updatecart');
+Route::get('/listcart',[CartController::class, 'listcart'])->name('listcart');

@@ -3,13 +3,13 @@
     <main>
 
         <div class="container-fluid top-title">
-            <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid">
+            <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid" width="100%">
             <div class="content-header">
                 <div class="title">
                     <i class='bx bx-car mb-5'></i>
-                    <h1 class="pb-4">Sản phẩm</h1>
-                    <a href="{{ route('homepage') }}">Trang chủ / </a>
-                    <a class="gt" href="{{ route('products') }}">Sản phẩm</a>
+                    <h1 class="pb-4">Products</h1>
+                    <a href="{{ route('homepage') }}">Homepage / </a>
+                    <a class="gt" href="{{ route('products') }}">Product</a>
                 </div>
             </div>
         </div>
@@ -19,11 +19,11 @@
         <div class="container ">
             <div class="row">
                 <div class="col-lg-6 img">
-                    <img src="{{ asset('img/' . $product->productImage) }}" alt="" class="img-fluid">
+                    <img src="{{ asset('img/' . $product->productImage) }}" alt="" class="img-fluid" width="100%">
                 </div>
                 <div class="col-lg-6 desr">
                     <h1>{{ $product->productName }}</h1>
-                    <table class="thongTin">
+                    <table width="100%" class="thongTin">
                         <tr>
                             <td>
                                 <b>Price:</b>
@@ -48,30 +48,30 @@
                                 @endforeach
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2">
-                                {{ strip_tags($product->description)}}
-                            </td>
-                        </tr>
-                        <tr class="them-mua">
-                            <td>
-                                <div class="themvaoGio mt-4 mb-3">
-                                    <div class="cong-tru-btn">
-                                        <button id="tru" onclick="f_tru()">-</button>
-                                        <span id="soLuong">1</span>
-                                        <button id="cong" onclick="f_cong()">+</button>
-                                    </div>
-
-                                </div>
-                            </td>
-                            <td>
-                                <div class="muaHang">
-                                    <i class='bx bx-cart'></i>
-                                    <span>Add to cart</span>
-                                </div>
-                            </td>
-                        </tr>
                     </table>
+
+                    <p class="mt-5">
+                        {{ strip_tags($product->description) }}
+                    </p>
+                    <div class="them-mua">
+                        <div class="themvaoGio mt-4 mb-3">
+                            <div class="cong-tru-btn">
+                                <button id="tru" onclick="f_tru()">-</button>
+                                <span class="d-inline-block bg-light"
+                                    style="width: 35px; height: 35px; line-height: 35px; text-align: center;"
+                                    id="soLuong">1</span>
+                                <button id="cong" onclick="f_cong()">+</button>
+                            </div>
+
+                        </div>
+                        <form action="{{ route('addcart', $product->productID) }}" method="post" class="form_cart">
+                            @csrf
+                            <button type="submit" class="muaHang">
+                                <i class='bx bx-cart'></i>
+                                <span>Add to cart</span>
+                            </button>
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -235,20 +235,20 @@
                 <div class="noiDung pt-3">
                     <div class="row">
                         @foreach ($products as $item)
-                            @if (($product->gearBox === $item->gearBox))
+                            @if ($product->gearBox === $item->gearBox)
                                 <div class="col-lg-4">
                                     <div class="vespa card text-center">
                                         <div class="icon-heart">
                                             <i class='bx bxs-heart'></i>
                                         </div>
                                         <img class="card-img-top" src="{{ asset('img/' . $item->productImage) }}"
-                                            alt="Title">
+                                            alt="Title" style="width: 100%; height: 250px;">
                                         <div class="card-body">
                                             <h4 class="card-title">{{ $item->productName }}</h4>
                                             <p class="card-text">$ {{ $item->listPrice }}</p>
                                             <div class="btn-xemThem">
                                                 <a class="muaNgay" href="{{ route('detail_product', $item->productID) }}"
-                                                    role="button">Mua ngay</a>
+                                                    role="button">Buy now</a>
 
                                             </div>
                                         </div>

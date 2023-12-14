@@ -121,7 +121,7 @@
 
         <!-- Menu -->
         <div class="menu-xe container">
-            <a id="1"  href="#menu" style="background-color: rgb(252, 175, 11);">Motorcycle</a>
+            <a id="1" class="button-xeSo" href="#menu" style="background-color: rgb(252, 175, 11);">Motorcycle</a>
             <a id="2" class="button-xeGa" href="#menu">Scooter</a>
             <a id="3" class="button-xetayCon" href="#menu">Manual</a>
             <a id="4" class="button-xetayDien" href="#menu">Electric</a>

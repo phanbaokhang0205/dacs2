@@ -22,10 +22,35 @@
                 <li>
                     <a href="{{ route('contact') }} ">Contact</a>
                 </li>
-                
-                <!-- Authentication Links -->
-                <li class="profile_user">
-                    @guest
+                {{-- Cart --}}
+                <li class="cart">
+                    <a class="d-flex align-items-center gap-3" href="{{ route('listcart') }}">
+                        <i class='bx bx-cart bx-md'></i>
+                        @php
+                            $qty = 0;
+                            $cart = Session::get('cart');
+                        @endphp
+                        @if (!empty($cart))
+                            @foreach ($cart as $key => $item)
+                                @php
+                                    $qty += $item['qty'];
+                                @endphp
+                            @endforeach
+                            <span>Quantity: {{ $qty }}</span>
+                        @endif
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+        <div class="login_register text-white">
+
+            <!-- Authentication Links -->
+            <ul class="profile_user">
+                @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -41,7 +66,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            Welcome, {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -51,7 +76,7 @@
                                 {{ __('Logout') }}
                             </a>
                             @if (Auth::user()->typeuser === 'admin')
-                                <a class="text-dark" href="{{ route('admin.index') }}">Dashboard</a>
+                                <a class="text-dark" href="{{ route('admin.index') }}" target="_blank">Dashboard</a>
                             @endif
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -60,7 +85,6 @@
                         </div>
                     </li>
                 @endguest
-                </li>
             </ul>
         </div>
 
@@ -81,16 +105,16 @@
             <div class="links-mobile">
                 <ul>
                     <li>
-                        <a href="#" class="nav__mobile-link">Trang Chủ</a>
+                        <a href="{{ route('homepage') }}" class="nav__mobile-link">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="nav__mobile-link">Giới Thiệu</a>
+                        <a href="{{ route('intro') }}" class="nav__mobile-link">Intro</a>
                     </li>
                     <li>
-                        <a href="#" class="nav__mobile-link">Sản Phẩm</a>
+                        <a href="{{ route('products') }}" class="nav__mobile-link">Products</a>
                     </li>
                     <li>
-                        <a href="#" class="nav__mobile-link">Liên hệ</a>
+                        <a href="{{ route('contact') }}" class="nav__mobile-link">Contact</a>
                     </li>
 
                 </ul>
