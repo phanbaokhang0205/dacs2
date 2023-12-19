@@ -1,4 +1,4 @@
-{{-- @extends('layouts.user.main')
+@extends('layouts.user.main')
 @section('content')
     <main>
 
@@ -30,23 +30,28 @@
                 <!-- Bảng danh mục -->
                 <div class="col-lg-3">
                     <div class="shop-sidebar__PC">
-                        <form action="{{ route('find') }}" method="post">
-                            @csrf
-                            <aside class="timkiem mb-3">
-                                <input type="text" placeholder="Search">
-                                <i class='bx bx-search-alt-2'></i>
-                            </aside>
-                        </form>
+                        <aside class="timkiem mb-3">
+                            <form action="" method="post">
+                                <aside class="timkiem mb-3">
+                                    <input type="text" placeholder="Search">
+                                    <i class='bx bx-search-alt-2'></i>
+                                </aside>
+                            </form>
+                        </aside>
                         <aside class="danhmucsanpham mb-3">
                             <div class="content">
                                 <div class="title" id="menu">Menu</div>
                                 <div class="memu-danhmucsanpham">
                                     <ul class="menu">
-                                        <li><a id="1" class="button-xeSo" href="#menu"
-                                                style="color: #000;font-weight: 700;font-size: 25px;">Motorcycle</a></li>
-                                        <li><a id="2" class="button-xeGa" href="#menu">Scooter</a></li>
-                                        <li><a id="3" class="button-xetayCon" href="#menu">Manual</a></li>
-                                        <li><a id="4" class="button-xetayDien" href="#menu">Electric</a></li>
+                                        <li><a id="1" class="button-xeSo"
+                                                href="{{ route('products') }}#menu">Motorcycle</a></li>
+                                        <li><a id="2" class="button-xeGa"
+                                                href="{{ route('scooter') }}#menu" style="color: #000;font-weight: 700;font-size: 25px;">Scooter</a></li>
+                                        <li><a id="3" class="button-xetayCon"
+                                                href="{{ route('manual') }}#menu">Manual</a></li>
+                                        <li><a id="4" class="button-xetayDien"
+                                                href="{{ route('electric') }}#menu">Electric</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -143,54 +148,14 @@
 
                 <!-- bảng sản phẩm -->
                 <div class="sanPham col-lg-9">
-
-                    @if (Session::has('success'))
+                    @if (session('success'))
                         <div class="alert alert-success">
-                            {{ Session::get('success') }}
+                            {{ session('success') }}
                         </div>
                     @endif
-                    <!-- Xe số -->
-                    <div id="xe_1" class="xeSo">
-                        <!-- page-1 -->
-                        <div class="row">
-                            @foreach ($products as $product)
-                                @if ($product->gearBox === 'motorcycle')
-                                    <div class="col-lg-6 pb-3">
-                                        <div class="blade card text-center">
-                                            <div class="icon-heart">
-                                                <i class='bx bxs-heart'></i>
-                                            </div>
-                                            <form action="{{ route('addcart', $product->productID) }}" method="post"
-                                                class="form_cart">
-                                                @csrf
-                                                <button class="muaNgay" type="submit"><i
-                                                        class='bx bx-cart'></i></button>
-                                            </form>
-                                            <img width="100%" height="300px" class="IMG card-img-top"
-                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
-                                            <div class="card-body">
-                                                <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$
-                                                        {{ $product->listPrice }}</span>
-                                                </p>
-                                                <div class="btn-muangay">
-                                                    <a class="btn-a"
-                                                        href="{{ route('detail_product', $product->productID) }}"
-                                                        role="button">Xem thêm</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-
-                        </div>
-
-                    </div>
 
                     <!-- Xe ga -->
-                    <div id="xe_2" class="xeGa" style="display: none;">
+                    <div id="xe_2" class="xeGa">
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
@@ -229,87 +194,6 @@
 
                     </div>
 
-                    <!-- Xe tay côn -->
-                    <div id="xe_3" class="xetayCon" style="display: none;">
-                        <!-- page-1 -->
-                        <div class="row">
-                            @foreach ($products as $product)
-                                @if ($product->gearBox === 'manual')
-                                    <div class="col-lg-6 pb-3">
-                                        <div class="blade card text-center">
-                                            <div class="icon-heart">
-                                                <i class='bx bxs-heart'></i>
-                                            </div>
-                                            <form action="{{ route('addcart', $product->productID) }}" method="post"
-                                                class="form_cart">
-                                                @csrf
-                                                <button class="muaNgay" type="submit"><i
-                                                        class='bx bx-cart'></i></button>
-                                            </form>
-                                            <img width="100%" height="300px" class="IMG card-img-top"
-                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
-                                            <div class="card-body">
-                                                <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$
-                                                        {{ $product->listPrice }}</span>
-                                                </p>
-                                                <div class="btn-muangay">
-                                                    <a class="btn-a"
-                                                        href="{{ route('detail_product', $product->productID) }}"
-                                                        role="button">Xem thêm</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-                    <!-- Xe tay dien -->
-                    <div id="xe_4" class="xetayDien" style="display: none;">
-                        <!-- page-1 -->
-                        <div class="row">
-                            @foreach ($products as $product)
-                                @if ($product->gearBox === 'electric')
-                                    <div class="col-lg-6 pb-3">
-                                        <div class="blade card text-center">
-                                            <div class="icon-heart">
-                                                <i class='bx bxs-heart'></i>
-                                            </div>
-                                            <form action="{{ route('addcart', $product->productID) }}" method="post"
-                                                class="form_cart">
-                                                @csrf
-                                                <button class="muaNgay" type="submit"><i
-                                                        class='bx bx-cart'></i></button>
-                                            </form>
-                                            <img width="100%" height="300px" class="IMG card-img-top"
-                                                src="{{ asset('img/' . $product->productImage) }}" alt="Title">
-                                            <div class="card-body">
-                                                <h4 class="NAME card-title">{{ $product->productName }}</h4>
-                                                <p class="card-text"><span class="PRICE">$
-                                                        {{ $product->listPrice }}</span>
-                                                </p>
-                                                <div class="btn-muangay">
-                                                    <a class="btn-a"
-                                                        href="{{ route('detail_product', $product->productID) }}"
-                                                        role="button">Xem thêm</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-
                     <!-- opt-page 1 2-->
                     <div class="d-flex justify-content-center text-center">{{ $paginate->links() }}</div>
 
@@ -328,7 +212,7 @@
     </main>
 @endsection
 @section('js')
-    <script>
+    {{-- <script>
         // Lắng nghe sự kiện click trên các thẻ a
         document.querySelectorAll('.button-xeSo, .button-xeGa, .button-xetayCon, .button-xetayDien').forEach(function(
             element) {
@@ -361,5 +245,5 @@
                 });
             });
         });
-    </script>
-@endsection --}}
+    </script> --}}
+@endsection

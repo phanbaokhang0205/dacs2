@@ -120,8 +120,13 @@ aside.timkiem input {
     border-bottom-left-radius: 10px;
     outline: none;
 }
-
-aside.timkiem i {
+aside.timkiem button.search {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    height: 31px;
+}
+aside.timkiem i.bx-search-alt-2 {
     color: #fff;
     background: rgb(252, 175, 11);
     font-size: 30px;

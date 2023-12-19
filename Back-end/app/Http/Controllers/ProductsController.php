@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -27,51 +28,91 @@ class ProductsController extends Controller
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function index2()
     {
-        //
+        $products = Product::all();
+        $paginate = Product::paginate(6);
+        $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $brands = Brand::all();
+        return view(
+            'user.products_scooter',
+            [
+                'lastestProducts' => $lastestProducts,
+                'brands' => $brands, 'products' => $products,
+                'paginate' => $paginate
+            ]
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function index3()
     {
-        //
+        $products = Product::all();
+        $paginate = Product::paginate(6);
+        $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $brands = Brand::all();
+        return view(
+            'user.products_manual',
+            [
+                'lastestProducts' => $lastestProducts,
+                'brands' => $brands, 'products' => $products,
+                'paginate' => $paginate
+            ]
+        );
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function index4()
     {
-        //
+        $products = Product::all();
+        $paginate = Product::paginate(6);
+        $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $brands = Brand::all();
+        return view(
+            'user.products_electric',
+            [
+                'lastestProducts' => $lastestProducts,
+                'brands' => $brands, 'products' => $products,
+                'paginate' => $paginate
+            ]
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function findUserProduct(Request $request)
     {
-        //
+        $paginate = Product::paginate(6);
+        $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
+        if (!is_numeric($request->search)) {
+            $result_user = DB::table('brands')
+                ->join('products', 'brands.brandID', '=', 'products.brandID')
+                ->select('productID','productImage','productName', 'gearBox', 'listPrice')
+                ->orWhere('productName', 'like', '%' . $request->search . '%')
+                ->orWhere('gearBox', 'like', '%' . $request->search . '%')
+                ->get();
+        } else {
+            $result_user = DB::table('brands')
+                ->join('products', 'brands.brandID', '=', 'products.brandID')
+                ->select('productName', 'gearBox', 'listPrice')
+                ->where('listPrice', 'like', '%' . $request->search . '%')
+                ->orWhere('listPrice', '>', $request->search)
+                ->get();
+        }
+
+        return view('user.products_find', [
+            'result' => $result_user,
+            'lastestProducts' => $lastestProducts,
+            'paginate' => $paginate
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function deleteProduct(Request $request)
     {
-        //
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Book successfully deleted.');
+        }
     }
 }

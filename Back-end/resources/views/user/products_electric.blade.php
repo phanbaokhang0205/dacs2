@@ -31,17 +31,10 @@
                 <div class="col-lg-3">
                     <div class="shop-sidebar__PC">
                         <aside class="timkiem mb-3">
-                            <form action="{{ route('user.product.find') }}" method="post">
-                                @csrf
+                            <form action="" method="post">
                                 <aside class="timkiem mb-3">
-                                    {{-- <input type="text" placeholder="Search">
-                                    <i class='bx bx-search-alt-2'></i> --}}
-                                    <input type="text" id="inputSearch" name="search" class=""
-                                        placeholder="Search products ...">
-                                    <button class="search" type="submit">
-                                        <i class='bx bx-search-alt-2'></i>
-                                    </button>
-                                    
+                                    <input type="text" placeholder="Search">
+                                    <i class='bx bx-search-alt-2'></i>
                                 </aside>
                             </form>
                         </aside>
@@ -50,14 +43,12 @@
                                 <div class="title" id="menu">Menu</div>
                                 <div class="memu-danhmucsanpham">
                                     <ul class="menu">
-                                        <li><a id="1" class="button-xeSo" href="{{ route('products') }}#menu"
-                                                style="color: #000;font-weight: 700;font-size: 25px;">Motorcycle</a></li>
-                                        <li><a id="2" class="button-xeGa"
-                                                href="{{ route('scooter') }}#menu">Scooter</a></li>
-                                        <li><a id="3" class="button-xetayCon"
-                                                href="{{ route('manual') }}#menu">Manual</a></li>
+                                        <li><a id="1" class="button-xeSo" href="{{ route('products') }}#menu">Motorcycle</a></li>
+                                        <li><a id="2" class="button-xeGa" href="{{ route('scooter') }}#menu">Scooter</a></li>
+                                        <li><a id="3" class="button-xetayCon" href="{{ route('manual') }}#menu">Manual</a></li>
                                         <li><a id="4" class="button-xetayDien"
-                                                href="{{ route('electric') }}#menu">Electric</a></li>
+                                                href="{{ route('electric') }}#menu"style="color: #000;font-weight: 700;font-size: 25px;">Electric</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -159,12 +150,14 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <!-- Xe số -->
-                    <div id="xe_1" class="xeSo">
+
+
+                    <!-- Xe tay dien -->
+                    <div id="xe_4" class="xetayDien">
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
-                                @if ($product->gearBox === 'motorcycle')
+                                @if ($product->gearBox === 'electric')
                                     <div class="col-lg-6 pb-3">
                                         <div class="blade card text-center">
                                             <div class="icon-heart">

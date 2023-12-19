@@ -36,3 +36,16 @@
 .cart_page .btn-update:hover input {
     background: rgb(252, 175, 11) ;
 }
+
+.btn.btn-outline-danger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+}
+.btn.btn-outline-danger i {
+    position: absolute;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

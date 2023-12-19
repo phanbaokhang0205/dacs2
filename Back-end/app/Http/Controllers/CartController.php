@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
+
     public function addcart($key)
     {
         if (!empty($key)) {
             $this->additemcart($key, 1);
-            Session::flash('success', 'Thêm vào giỏ hàng thành công!');
-            return redirect()->route('products');
+            // Session::flash('success', 'Thêm vào giỏ hàng thành công!');
+            return redirect()->back()->with('success','Added product to cart successfully!');
         }
     }
 
@@ -55,6 +56,7 @@ class CartController extends Controller
         $total = $cost * $quantity;
         $item = array(
             'name' => $products[$key]['name'],
+            'img' => $products[$key]['img'],
             'cost' => $cost,
             'qty' => $quantity,
             'total' => $total
@@ -100,21 +102,4 @@ class CartController extends Controller
         return $subtotal_f;
     }
 
-    // public function removeitemcart($key)
-    // {
-    //     $cart = Session::get('cart');
-    //     if (isset($cart[$key])) {
-    //         unset($cart[$key]);
-    //         $cart = array_values($cart); // Định lại chỉ số của mảng
-    //         Session::put('cart', $cart);
-    //         Session::flash('success', 'Xóa sản phẩm khỏi giỏ hàng thành công!');
-    //     }
-    //     return redirect()->route('listcart');
-    // }
-
-    // public function destroy($id)
-    // {
-    //     $this->removeitemcart($id);
-    //     return redirect()->route('listcart');
-    // }   
 }

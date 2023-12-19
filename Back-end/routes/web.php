@@ -4,7 +4,6 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
@@ -90,8 +89,15 @@ Route::get('/detail_product/{id?}', function ($id) {
     ]);
 })->name('detail_product');
 
+// Products
+Route::get('/scooter', [ProductsController::class, 'index2'])->name('scooter');
+Route::get('/manual', [ProductsController::class, 'index3'])->name('manual');
+Route::get('/electric', [ProductsController::class, 'index4'])->name('electric');
+Route::post('/findUserProduct', [ProductsController::class, 'findUserProduct'])->name('user.product.find');
+
 
 // Cart
 Route::post('/addcart/{id}',[CartController::class, 'addcart'])->name('addcart');
-Route::get('/updatecart',[CartController::class, 'updatecart'])->name('updatecart');
+Route::post('/updatecart',[CartController::class, 'updatecart'])->name('updatecart');
 Route::get('/listcart',[CartController::class, 'listcart'])->name('listcart');
+Route::delete('/delete-cart-product', [ProductsController::class, 'deleteProduct'])->name('delete.cart.product');
