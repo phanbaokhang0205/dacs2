@@ -62,10 +62,10 @@
         <div class="container mt-5 mb-5">
             <div class=" row">
                 <div class="ab col-md-6 col-sm-6">
-                    <img src="/img/slide2.avif" alt="">
+                    <img src="{{ asset('img/poster-1.png') }}" alt="">
                 </div>
                 <div class="ex col-md-6 col-sm-6">
-                    <img src="/img/slide3.jpg" alt="">
+                    <img src="{{ asset('img/poster-2.jpg') }}" alt="">
                 </div>
             </div>
         </div>

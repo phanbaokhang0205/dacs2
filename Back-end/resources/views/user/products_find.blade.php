@@ -34,7 +34,7 @@
                             <form action="{{ route('product.find') }}" method="post">
                                 @csrf
                                 <aside class="timkiem mb-3">
-                                    <input type="text" id="inputSearch" name="search" class=""
+                                    <input type="text" id="inputUserSearch" name="search" class=""
                                         placeholder="Search products ...">
                                     <button class="search" type="submit">
                                         <i class='bx bx-search-alt-2'></i>

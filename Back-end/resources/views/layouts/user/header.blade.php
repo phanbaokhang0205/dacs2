@@ -36,7 +36,7 @@
                                     $qty += $item['qty'];
                                 @endphp
                             @endforeach
-                            <span>Quantity: {{ $qty }}</span>
+                            <span class="quantity_cart"><p>{{ $qty }}</p></span>
                         @endif
                     </a>
                 </li>

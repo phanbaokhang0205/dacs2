@@ -51,7 +51,7 @@
                                             value="{{ $item['qty'] }}">
                                     </td>
                                     <td>
-                                        {{ $total }}
+                                        $ {{ $total }}
                                     </td>
                                     <td>
                                         <a class="btn btn-outline-danger btn-md delete-product">
