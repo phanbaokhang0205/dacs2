@@ -24,25 +24,25 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="userName">Username:</label>
-                        <input type="text" name="userName" id="userName" class="form-control" value="{{ $user->name }}">
+                        <input type="text" name="name" id="userName" class="form-control" value="{{ $user->name }}">
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="productImage">Select Image:</label>
-                        <input type="file" name="productImage" id="productImage" class="form-control-file">
-                    </div> --}}
-                    {{-- <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input  type="password" name="password" id="password" class="form-control" style="background: rgb(197, 197, 197)" value="{{ $user->password }}" readonly>
-                    </div> --}}
                     <div class="form-group">
-                        <label for="role">Role:</label>
-                        <select name="userID" id="userID" class="form-control">
-                                <option>{{ 'admin' }}</option>
-                                <option>{{ 'user' }}</option>
+                        <label for="email">Password:</label>
+                        <input type="text" name="password" id="password" class="form-control" value="{{ $user->password }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="typeuser">Role:</label>
+                        <select name="typeuser" id="typeuser" class="form-control">
+                                <option value="admin" {{ $user->typeuser == "admin" ? 'selected' : '' }}>
+                                    Admin
+                                </option>
+                                <option value="user" {{ $user->typeuser == "user" ? 'selected' : '' }}>
+                                    User
+                                </option>
                         </select>
                     </div>
                     <div class="form-group">

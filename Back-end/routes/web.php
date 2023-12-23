@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomepageController;
@@ -39,7 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.index');
         Route::post('findProduct', [ProductController::class, 'find'])->name('product.find');
         Route::post('findBrand', [BrandController::class, 'find'])->name('brand.find');
-        Route::post('findUser', [UserController::class, 'find'])->name('user.find');
+        Route::post('findUser', [AdminUserController::class, 'find'])->name('user.find');
     });
 });
 

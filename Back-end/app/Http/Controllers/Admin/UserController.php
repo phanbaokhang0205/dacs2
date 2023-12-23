@@ -12,10 +12,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('AdminRole');
     }
-    
+
 
     public function index()
     {
@@ -37,23 +38,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $params = [
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'typeuser'=>$request->typeuser,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'typeuser' => $request->typeuser,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ];
         DB::table('users')->insert($params);
         return redirect()->route('user.index');
-
-        // $user = new User();
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
-        // $user->typeuser = $request->typeuser;
-        // $user->save();
-        // return redirect()->route('user.index');
     }
 
     /**
@@ -63,14 +56,14 @@ class UserController extends Controller
     {
         if (!is_numeric($request->search)) {
             $result = DB::table('users')
-                ->select('id', 'name', 'email','typeuser')
+                ->select('id', 'name', 'email', 'typeuser')
                 ->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like','%'.$request->search. '%')
-                ->orWhere('typeuser','like','%' .$request->search. '%')
+                ->orWhere('email', 'like', '%' . $request->search . '%')
+                ->orWhere('typeuser', 'like', '%' . $request->search . '%')
                 ->get();
         } else {
             $result = DB::table('users')
-                ->select('id', 'name', 'email','typeuser')
+                ->select('id', 'name', 'email', 'typeuser')
                 ->where('id', 'like', '%' . $request->search . '%')
                 ->get();
         }
@@ -92,7 +85,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::find($id);
-        return view('admin.user.edit', ['user'=>$user]);
+        return view('admin.user.edit', ['user' => $user]);
     }
 
     /**
@@ -101,7 +94,6 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::find($id);
-        $user->id = $request->id;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
