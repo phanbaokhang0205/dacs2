@@ -30,20 +30,23 @@ class ProductController extends Controller
      */
     public function find(Request $request)
     {
+        
         if (!is_numeric($request->search)) {
             $result = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
-                ->select('brandName', 'productCode', 'productName', 'listPrice')
+                ->select('brandName', 'productCode', 'productName', 'listPrice','productID','productImage')
                 ->orWhere('brandName', 'like', '%' . $request->search . '%')
                 ->orWhere('productCode', 'like', '%' . $request->search . '%')
                 ->orWhere('productName', 'like', '%' . $request->search . '%')
+                // ->paginate(5);
                 ->get();
         } else {
             $result = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
-                ->select('brandName', 'productCode', 'productName', 'listPrice')
+                ->select('brandName', 'productCode', 'productName', 'listPrice','productImage','productID')
                 ->where('listPrice', 'like', '%' . $request->search . '%')
                 ->orWhere('listPrice', '>', $request->search)
+                // ->paginate(5);
                 ->get();
         }
 

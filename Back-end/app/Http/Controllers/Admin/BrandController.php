@@ -13,7 +13,8 @@ class BrandController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('AdminRole');
     }
 
@@ -53,13 +54,28 @@ class BrandController extends Controller
      */
     public function store(BrandRequest $request)
     {
-        $params = [
-            'brandName' => $request->brandName,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-        ];
-        DB::table('brands')->insert($params);
-        return redirect()->route('brand.index');
+
+        DB::beginTransaction();
+        try {
+            $params = [
+                'brandName' => $request->brandName,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ];
+
+            DB::table('brands')->insert($params);
+            // Cập nhật lại các ID tăng dần
+            DB::statement('SET @new_id = 0;');
+            DB::statement('UPDATE brands SET brandID = (@new_id := @new_id + 1) ORDER BY brandID;');
+
+            // Commit thay đổi
+            DB::commit();
+            return redirect()->route('brand.index');
+        } catch (\Exception $e) {
+            // Rollback nếu có lỗi xảy ra
+            DB::rollback();
+            throw $e;
+        }
     }
 
     /**
@@ -97,9 +113,30 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    // public function destroy(string $id)
+    // {
+    //     DB::table('brands')->where('brandID', $id)->delete();
+    //     return redirect()->route('brand.index');
+    // }
+
     public function destroy(string $id)
     {
-        DB::table('brands')->where('brandID', $id)->delete();
-        return redirect()->route('brand.index');
+        // Xóa brand
+        DB::beginTransaction();
+        try {
+            DB::table('brands')->where('brandID', $id)->delete();
+
+            // Cập nhật lại các ID tăng dần
+            DB::statement('SET @new_id = 0;');
+            DB::statement('UPDATE brands SET brandID = (@new_id := @new_id + 1) ORDER BY brandID;');
+
+            // Commit thay đổi
+            DB::commit();
+            return redirect()->route('brand.index');
+        } catch (\Exception $e) {
+            // Rollback nếu có lỗi xảy ra
+            DB::rollback();
+            throw $e;
+        }
     }
 }

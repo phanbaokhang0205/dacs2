@@ -36,14 +36,18 @@
                                 <td>{{ $row->name }}</td>
                                 <td>{{ $row->email }}</td>
                                 <td>{{ $row->typeuser }}</td>
-                                <td class="d-flex gap-2 align-items-center">
-                                    <a href="{{ route('product.edit', $row->id) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
-                                    <form action="{{ route('product.destroy', $row->id) }}" class="delete"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
-                                    </form>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('product.edit', $row->id) }}" class="btn-edit"><i
+                                                class='bx bxs-edit bx-sm'></i></a>
+                                        <form action="{{ route('product.destroy', $row->id) }}" class="delete"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="Delete" class="btn-delete"><i
+                                                    class='bx bxs-tag-x bx-sm'></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

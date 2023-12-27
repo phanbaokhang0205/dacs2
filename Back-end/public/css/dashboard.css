@@ -12,13 +12,13 @@
 }
 
 body {
-    min-height: 100vh;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
 .wrapper {
     position: relative;
-    width: 100%;
+    max-width: 100%;
     display: flex;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 .main {
     width: calc(100% - 300px);
-    height: 150vh;
+    min-height: 100vh;
     background: var(--gray);
     transition: .5s;
 }
@@ -201,16 +201,8 @@ main .header #inputSearch {
     outline: none;
 }
 
-main .header .account .admin_profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-main .header .account .admin_profile button.down {
-    border: none;
-    background-color: transparent;
-    font-size: 22px;
+main .header li.nav-item.dropdown {
+    list-style: none;
 }
 
 
@@ -321,15 +313,26 @@ button.btn-delete:hover {
 .main-content-user .row-user table,
 .main-content-product .row-product table,
 .main-content-brand .row-brand table {
+    border: 20px solid #64c5b1;
+    border-collapse: collapse;
+    width: 80%;
     margin: auto;
     margin-bottom: 30px;
-    width: 80%;
-    box-shadow: 10px 7px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 20px 20px 10px 0px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    text-align: center;
 }
 .main-content .row table>thead {
     border-bottom: 2px solid #000;
 }
 
+/* user CRUD */
+.user_CRUD .form-group {
+    margin-top: 20px;
+}
+.user_CRUD input[type="submit"] {
+    margin-top: 20px;
+}
 /* ckEditoer */
 .ck-blurred {
     width: 100%;
@@ -342,4 +345,14 @@ button.btn-delete:hover {
 }
 .create_form_product img {
     height: 100%;
+}
+
+/* Pagination */
+ul.pagination li>.page-link {
+    color: #000;
+}
+
+ul.pagination li.active>.page-link {
+    background-color: #64c5b1;
+    border: 1px solid #64c5b1;
 }

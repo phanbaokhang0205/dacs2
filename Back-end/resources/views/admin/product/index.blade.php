@@ -34,7 +34,7 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr class="create_form_product align-middle text-center">
-                                <td><img src="{{ asset('img/' . $product->productImage) }}" alt="Product Image" ></td>
+                                <td><img src="{{ asset('img/' . $product->productImage) }}" alt="Product Image"></td>
                                 <td>{{ $product->productCode }}</td>
                                 <td>{{ $product->productName }}</td>
                                 <td>
@@ -42,20 +42,24 @@
                                         @if ($brand->brandID === $product->brandID)
                                             {{ $brand->brandName }}
                                         @endif
-                                    @endforeach    
+                                    @endforeach
                                 </td>
                                 <td>
                                     {{ $product->gearBox }}
                                 </td>
                                 <td>${{ $product->listPrice }}</td>
-                                <td class="d-flex gap-2 align-items-center">
-                                    <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
-                                    <form action="{{ route('product.destroy', $product->productID) }}" class="delete"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
-                                    </form>
+                                <td>
+                                    <div class="edit_del d-flex gap-2">
+                                        <a href="{{ route('product.edit', $product->productID) }}" class="btn-edit"><i
+                                                class='bx bxs-edit bx-sm'></i></a>
+                                        <form action="{{ route('product.destroy', $product->productID) }}" class="delete"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="Delete" class="btn-delete"><i
+                                                    class='bx bxs-tag-x bx-sm'></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

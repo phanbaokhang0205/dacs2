@@ -11,15 +11,15 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content main-content-brand">
         <div class="row-title">
             <span class="title">
                 List Brands
             </span>
         </div>
-        <div class="row row-brands">
+        <div class="row row-brand">
             <div class="col-sm-10">
-                <table class="table table-bordered table-sm">
+                <table class="table table-hover">
                     <thead>
                         <th>ID</th>
                         <th>Brand Name</th>
@@ -30,14 +30,18 @@
                             <tr>
                                 <td>{{ $row->brandID }}</td>
                                 <td>{{ $row->brandName }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('brand.edit', $row->brandID) }}" class="btn-edit">Edit</a>
-                                    <form action="{{ route('brand.destroy', $row->brandID) }}" class="delete"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="submit" value="Delete" class="btn-delete">
-                                    </form>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('brand.edit', $row->brandID) }}" class="btn-edit"><i
+                                                class='bx bxs-edit bx-sm'></i></a>
+                                        <form action="{{ route('brand.destroy', $row->brandID) }}" class="delete"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="Delete" class="btn-delete"><i
+                                                    class='bx bxs-tag-x bx-sm'></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

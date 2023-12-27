@@ -12,7 +12,7 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content user_CRUD">
         <div class="row-title">
             <span class="title">
                 Users
@@ -21,8 +21,8 @@
                 Add user
             </span>
         </div>
-        <div class="row row-users">
-            <div class="col-sm-10">
+        <div class="row row-user">
+            <div class="col-sm-10 m-auto">
                 <form action="{{ route('user.store') }}" method="post">
                     @csrf
                     <div class="form-group">

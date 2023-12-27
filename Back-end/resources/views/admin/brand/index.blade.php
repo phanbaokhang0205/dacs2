@@ -32,14 +32,18 @@
                             <tr>
                                 <td>{{ $brand->brandID }}</td>
                                 <td>{{ $brand->brandName }}</td>
-                                <td class="d-flex aglin-item-center">
-                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
-                                    <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
-                                    </form>
+                                <td>
+                                    <div class="edit_del d-flex gap-2">
+                                        <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit"><i
+                                                class='bx bxs-edit bx-sm'></i></a>
+                                        <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="Delete" class="btn-delete"><i
+                                                    class='bx bxs-tag-x bx-sm'></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -38,15 +38,17 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->password }}</td>
                                 <td>{{ $user->typeuser }}</td>
-                                <td class="d-flex gap-2">
-                                    <div class="edit">
-                                        <a href="{{ route('user.edit', $user->id) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
+                                <td>
+                                    <div class="eidt_del d-flex gap-2 m-auto">
+                                        <div class="edit">
+                                            <a href="{{ route('user.edit', $user->id) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
+                                        </div>
+                                        <form action="{{ route('user.destroy', $user->id) }}" class="delete" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
+                                        </form>
                                     </div>
-                                    <form action="{{ route('user.destroy', $user->id) }}" class="delete" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" value="Delete" class="btn-delete"><i class='bx bxs-tag-x bx-sm' ></i></button>
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach
