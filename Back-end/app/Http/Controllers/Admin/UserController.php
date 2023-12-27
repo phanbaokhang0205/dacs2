@@ -107,7 +107,21 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $user = User::find($id)->delete();
-        return redirect()->route('user.index');
+        DB::beginTransaction();
+        try {
+            DB::table('users')->where('id', $id)->delete();
+
+            // Cập nhật lại các ID tăng dần
+            DB::statement('SET @new_id = 0;');
+            DB::statement('UPDATE users SET id = (@new_id := @new_id + 1) ORDER BY id;');
+
+            // Commit thay đổi
+            DB::commit();
+            return redirect()->route('user.index');
+        } catch (\Exception $e) {
+            // Rollback nếu có lỗi xảy ra
+            DB::rollback();
+            throw $e;
+        }
     }
 }

@@ -20,7 +20,7 @@
         </div>
         <div class="row row-product">
             <div class="col-sm-12">
-                <table class="table table-hover">
+                <table class="table table-hover my-2">
                     <thead>
                         <th>Product Image</th>
                         <th>Brand Name</th>
@@ -30,28 +30,35 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        @foreach ($result as $row)
-                            <tr>
-                                <td><img src="{{ asset('img/' . $row->productImage) }}" style="max-height: 100px"></td>
-                                <td>{{ $row->brandName }}</td>
-                                <td>{{ $row->productCode }}</td>
-                                <td>{{ $row->productName }}</td>
-                                <td>{{ $row->listPrice }}</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('product.edit', $row->productID) }}" class="btn-edit"><i
-                                                class='bx bxs-edit bx-sm'></i></a>
-                                        <form action="{{ route('product.destroy', $row->productID) }}" class="delete"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" value="Delete" class="btn-delete"><i
-                                                    class='bx bxs-tag-x bx-sm'></i></button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
+                        @if ($result->isEmpty())
+                            <div class="alert alert-success w-50 m-auto text-center" role="alert">
+                                No products found!
+                            </div>
+                        @else
+                            @foreach ($result as $row)
+                                <tr>
+                                    <td><img src="{{ asset('img/' . $row->productImage) }}" style="max-height: 100px"></td>
+                                    <td>{{ $row->brandName }}</td>
+                                    <td>{{ $row->productCode }}</td>
+                                    <td>{{ $row->productName }}</td>
+                                    <td>{{ $row->listPrice }}</td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <a href="{{ route('product.edit', $row->productID) }}" class="btn-edit"><i
+                                                    class='bx bxs-edit bx-sm'></i></a>
+                                            <form action="{{ route('product.destroy', $row->productID) }}" class="delete"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" value="Delete" class="btn-delete"><i
+                                                        class='bx bxs-tag-x bx-sm'></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+
                     </tbody>
                 </table>
                 {{-- <div class="d-flex justify-content-center text-center">{{ $result->links() }}</div> --}}

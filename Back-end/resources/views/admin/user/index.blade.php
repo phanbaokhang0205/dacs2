@@ -25,7 +25,6 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Password</th>
                             <th>Role</th>
                             <th>Action</th>
                         </tr>
@@ -36,10 +35,9 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->password }}</td>
                                 <td>{{ $user->typeuser }}</td>
                                 <td>
-                                    <div class="eidt_del d-flex gap-2 m-auto">
+                                    <div class="eidt_del d-flex justify-content-center gap-2 m-auto">
                                         <div class="edit">
                                             <a href="{{ route('user.edit', $user->id) }}" class="btn-edit"><i class='bx bxs-edit bx-sm'></i></a>
                                         </div>

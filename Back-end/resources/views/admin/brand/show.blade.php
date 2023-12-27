@@ -28,19 +28,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>{{ $brand->brandID }}</td>
-                                <td>{{ $brand->brandName }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit">Edit</a>
-                                    <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete d-inline-block"
+                        <tr>
+                            <td>{{ $brand->brandID }}</td>
+                            <td>{{ $brand->brandName }}</td>
+                            <td>
+                                <div class="edit_del d-flex justify-content-center gap-2">
+                                    <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit"><i
+                                            class='bx bxs-edit bx-sm'></i></a>
+                                    <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete"
                                         method="POST">
                                         @csrf
-                                        <input type="hidden" name="_method" value="delete">
-                                        <input type="submit" value="Delete" class="btn-delete">
+                                        @method('DELETE')
+                                        <button type="submit" value="Delete" class="btn-delete"><i
+                                                class='bx bxs-tag-x bx-sm'></i></button>
                                     </form>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

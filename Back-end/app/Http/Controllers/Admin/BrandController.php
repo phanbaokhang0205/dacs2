@@ -27,13 +27,11 @@ class BrandController extends Controller
     public function find(Request $request)
     {
         if (!is_numeric($request->search)) {
-            $result = DB::table('brands')
-                ->select('brandID', 'brandName')
+            $result = Brand::select('brandID', 'brandName')
                 ->where('brandName', 'like', '%' . $request->search . '%')
                 ->get();
         } else {
-            $result = DB::table('brands')
-                ->select('brandID', 'brandName')
+            $result = Brand::select('brandID', 'brandName')
                 ->where('brandID', 'like', '%' . $request->search . '%')
                 ->get();
         }
@@ -63,7 +61,7 @@ class BrandController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ];
 
-            DB::table('brands')->insert($params);
+            Brand::insert($params);
             // Cập nhật lại các ID tăng dần
             DB::statement('SET @new_id = 0;');
             DB::statement('UPDATE brands SET brandID = (@new_id := @new_id + 1) ORDER BY brandID;');
@@ -83,7 +81,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand = DB::table('brands')->where('brandID', $id)->first();
+        $brand = Brand::where('brandID', $id)->first();
         return view('admin.brand.show', ['brand' => $brand]);
     }
 
@@ -92,7 +90,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = DB::table('brands')->where('brandID', $id)->first();
+        $brand = Brand::where('brandID', $id)->first();
         return view('admin.brand.edit', ['brand' => $brand]);
     }
 
@@ -106,7 +104,7 @@ class BrandController extends Controller
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ];
-        DB::table('brands')->where('brandID', $id)->update($params);
+        Brand::where('brandID', $id)->update($params);
         return redirect()->route('brand.index');
     }
 
@@ -122,9 +120,9 @@ class BrandController extends Controller
     public function destroy(string $id)
     {
         // Xóa brand
-        DB::beginTransaction();
+       DB::beginTransaction();
         try {
-            DB::table('brands')->where('brandID', $id)->delete();
+            Brand::where('brandID', $id)->delete();
 
             // Cập nhật lại các ID tăng dần
             DB::statement('SET @new_id = 0;');

@@ -33,7 +33,7 @@
                                 <td>{{ $brand->brandID }}</td>
                                 <td>{{ $brand->brandName }}</td>
                                 <td>
-                                    <div class="edit_del d-flex gap-2">
+                                    <div class="edit_del d-flex justify-content-center gap-2">
                                         <a href="{{ route('brand.edit', $brand->brandID) }}" class="btn-edit"><i
                                                 class='bx bxs-edit bx-sm'></i></a>
                                         <form action="{{ route('brand.destroy', $brand->brandID) }}" class="delete"
