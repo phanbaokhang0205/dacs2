@@ -389,32 +389,6 @@ table.thongSo tr:nth-child(odd) {
     position: relative;
 }
 
-.form-danhgia small {
-    cursor: pointer;
-    font-size: 18px;
-    border-right: 1px solid rgba(0, 0, 0, .2);
-    padding-right: 10px;
-    margin-right: 10px;
-    color: rgba(0, 0, 0, .2);
-}
-
-small:hover {
-    color: #fc2222;
-}
-
-textarea,
-input {
-    outline: none;
-    padding: 10px;
-    border: 1px solid #777676;
-}
-
-input:hover,
-textarea:hover {
-    transition: .3s ease;
-    box-shadow: 0px 5px 15px 0px #777676;
-}
-
 .gui {
     position: absolute;
     right: 20px;

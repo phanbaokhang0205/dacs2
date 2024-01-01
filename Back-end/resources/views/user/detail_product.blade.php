@@ -191,35 +191,6 @@
                     </tr>
                 </table>
             </div>
-
-            <!-- Đánh giá -->
-            <div class="row row-danhGia mt-5">
-                <div class="title">
-                    <h1>Rate</h1>
-                </div>
-                <div class="form-danhgia">
-                    <form action="" method="post">
-                        @csrf
-                        {{-- <p><strong>Your rate</strong></p>
-                        <small onclick="danhGia_s1()" id="s1" class="sao-1">&#9733; </small>
-                        <small onclick="danhGia_s2()" id="s2" class="sao-2">&#9733; &#9733;</small>
-                        <small onclick="danhGia_s3()" id="s3" class="sao-3">&#9733; &#9733; &#9733;</small>
-                        <small onclick="danhGia_s4()" id="s4" class="sao-4">&#9733; &#9733; &#9733; &#9733; </small>
-                        <small onclick="danhGia_s5()" id="s5" class="sao-5">&#9733; &#9733; &#9733; &#9733;
-                            &#9733;</small> --}}
-
-
-                        <label for="your_comment"><strong>Your rate:</strong></label>
-
-                        <textarea class="mt-3" id="your_comment" cols="10" rows="5" style="resize: none; width: 100%"
-                            placeholder="Fill in your comment..."></textarea>
-
-                        <button class="gui mt-4" type="submit" style="border-radius: 20px">
-                            <i class='bx bx-send'></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
             <!-- Sản phẩm liên quann -->
             <div class="row row-lienQuan mt-5">
                 <div class="title">
@@ -254,10 +225,30 @@
                     </div>
                 </div>
             </div>
+            <!-- Đánh giá -->
+            <div class="row row-danhGia mt-5">
+                <div class="title">
+                    <h1>Rate</h1>
+                </div>
+                <div class="form-danhgia">
+                    <form action="" method="post">
+                        @csrf
+                        <label for="your_comment"><strong>Your rate:</strong></label>
+
+                        <textarea class="mt-3" id="your_comment" cols="10" rows="5" style="resize: none; width: 100%"
+                            placeholder="Fill in your comment..."></textarea>
+
+                        <button class="gui mt-4" type="submit" style="border-radius: 20px">
+                            <i class='bx bx-send'></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
             {{-- Comments --}}
             <div class="row row-danhGia mt-5">
                 <div class="title">
-                    <h1>Commments</h1>
+                    <h1>Comments</h1>
                 </div>
                 @foreach ($users as $user)
                     @if ($user->comments != '')

@@ -166,7 +166,7 @@
                         <div class="row">
                             @if ($result->isEmpty())
                                 <div class="alert alert-danger text-center w-50 m-auto">
-                                    Products not found
+                                    Not products found !
                                 </div>
                             @else
                                 @foreach ($result as $row)

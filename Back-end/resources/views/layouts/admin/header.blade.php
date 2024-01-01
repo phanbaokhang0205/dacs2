@@ -1,16 +1,13 @@
 <div class="account">
     <div class="admin_profile">
-        <div class="name">Username</div>
-        <div class="img"><img src="" alt=""><i class='bx bxs-user-circle bx-md'></i></div>
-        <div class="opt">
-            <div class="btn-dropdown">
-                <button class="down">
-                    <i class='bx bxs-chevron-down'></i>
-                </button>
-            </div>
-            <div class="content-dropdown">
+        <ul>
+            @guest
+                @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                @endif
 
-<<<<<<< HEAD
                 @if (Route::has('register'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -40,10 +37,5 @@
                 </li>
             @endguest
         </ul>
-=======
-            </div>
-
-        </div>
->>>>>>> bc5f221fb35bbbd56602ad6de4f394d7c84bf727
     </div>
 </div>

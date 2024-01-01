@@ -60,14 +60,7 @@
 
         <!--  content -->
         <div class="container mt-5 mb-5">
-            {{-- <div class=" row">
-                @foreach ($posters as $poster)
-                <div class="ab col-md-6 col-sm-6">
-                    <img src="{{ asset('img/' .$poster->poster_photo) }}" alt="">
-                </div>
-                @endforeach
-                
-            </div> --}}
+            
             <div class=" row">
                 <div class="ab col-md-6 col-sm-6">
                     <img src="{{ asset('img/poster-1.png') }}" alt="">
@@ -228,12 +221,12 @@
 
 
         <!-- Tin tức -->
-        <div class="container tinTuc mt-5 mb-5">
+        {{-- <div class="container tinTuc mt-5 mb-5">
             <h1 class="mb-3">Tin tức</h1>
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="card">
-                        <img class="card-img-top" src="/img/tin-1.jpg" alt="Title">
+                        <img class="card-img-top" src="{{ asset('img/symtrinhlang.jpg') }}" alt="Title" width="100">
                         <div class="card-body">
                             <h5 class="card-title">SYM trình làng "tân binh" đối đầu SH125i</h5>
                             <div class="cal-view">
@@ -252,7 +245,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="card">
-                        <img class="card-img-top" src="/img/tin-2.jpg" alt="Title">
+                        <img class="card-img-top" src="{{ asset('img/bangdanhgia.jpg') }}" alt="Title" width="100">
                         <div class="card-body">
                             <h5 class="card-title">Bảng giá Honda Wave Alpha nửa cuối tháng 6/2023...
                             </h5>
@@ -289,7 +282,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </main>
 @endsection

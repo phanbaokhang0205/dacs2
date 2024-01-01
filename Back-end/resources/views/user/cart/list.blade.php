@@ -14,7 +14,7 @@
             </div>
         </div>
         @if (empty(session('cart')) || count(session('cart')) == 0)
-            <p>There are no items in your cart.</p>
+            <div class="alert alert-info w-50 m-auto text-center my-5">There are no items in your cart.</div>
         @else
             @php
                 $cart = Session::get('cart');
