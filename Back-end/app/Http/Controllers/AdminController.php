@@ -22,6 +22,7 @@ class AdminController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
         // v_quantity
         $sql = "select * from v_quantity";
         $quantity = DB::select($sql);
@@ -41,6 +42,11 @@ class AdminController extends Controller
             'userCount' => $userCount,
             // 'posters' => $newly_poster
         ]);
+=======
+        // $sql = "select * from v_quantity";
+        // $quantity = DB::select($sql);
+        return view('admin.dashboard');
+>>>>>>> bc5f221fb35bbbd56602ad6de4f394d7c84bf727
     }
 
 }

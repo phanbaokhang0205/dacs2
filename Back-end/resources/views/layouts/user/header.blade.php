@@ -22,6 +22,7 @@
                 <li>
                     <a href="{{ route('contact') }} ">Contact</a>
                 </li>
+<<<<<<< HEAD
                 {{-- Cart --}}
                 <li class="cart">
                     <a class="d-flex align-items-center gap-3" href="{{ route('listcart') }}" target="_blank">
@@ -50,21 +51,25 @@
 
             <!-- Authentication Links -->
             <ul class="profile_user">
+=======
+                
+                <!-- Authentication Links -->
+>>>>>>> bc5f221fb35bbbd56602ad6de4f394d7c84bf727
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
+                    <li>
+                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                    <li>
+                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
                     @endif
-                @else
+                    @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:rgb(252, 175, 11)" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Welcome, {{ Auth::user()->name }}
                         </a>
