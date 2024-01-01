@@ -24,6 +24,7 @@ class BrandController extends Controller
         return view('admin.brand.index', ['brands' => $brands]);
     }
 
+
     public function find(Request $request)
     {
         if (!is_numeric($request->search)) {
@@ -120,7 +121,7 @@ class BrandController extends Controller
     public function destroy(string $id)
     {
         // Xóa brand
-       DB::beginTransaction();
+        DB::beginTransaction();
         try {
             Brand::where('brandID', $id)->delete();
 

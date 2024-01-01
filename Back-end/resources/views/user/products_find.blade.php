@@ -34,7 +34,7 @@
                             <form action="{{ route('product.find') }}" method="post">
                                 @csrf
                                 <aside class="timkiem mb-3">
-                                    <input type="text" id="inputUserSearch" name="search" class=""
+                                    <input type="text" id="search" name="search" class=""
                                         placeholder="Search products ...">
                                     <button class="search" type="submit">
                                         <i class='bx bx-search-alt-2'></i>
@@ -87,7 +87,7 @@
                                 <div class="title">News</div>
                                 <ul class="menu">
                                     <li>
-                                        <a
+                                        <a target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/honda-bat-ngo-tung-khuyen-mai-cho-loat-dong-xe-ga-sh-c748a1479423.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-28/255x170/sh1--1--1687947231-77-width740height555_anh_cat_3_2.jpg"
@@ -98,7 +98,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a
+                                        <a target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/sieu-pham-moto-guzzi-v100-mandello-se-ban-tai-viet-nam-tu-thang-8-2023-c748a1480244.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/3-2023/images/2023-07-01/255x170/20230701_112405_0000-1688185481-277-width740height555_anh_cat_3_2.jpg"
@@ -109,7 +109,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a
+                                        <a  target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/bang-gia-honda-lead-dau-thang-7-2023-giam-hon-3-trieu-dong-c748a1480154.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/lead3--1--1688133669-864-width740height555_anh_cat_3_2.jpg"
@@ -120,7 +120,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a
+                                        <a  target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/xe-may-co-hiem-co-kho-tim-cua-dan-choi-sai-thanh-c748a1479864.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/adt1688066319-tp-img-4105-1388_anh_cat_3_2.jpg"
@@ -131,7 +131,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a
+                                        <a  target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/phat-me-bo-doi-2024-triumph-speed-400-va-scrambler-400-x-c748a1479596.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-29/255x170/trium1--1--1688007655-398-width740height555_anh_cat_3_2.jpg"
@@ -194,7 +194,7 @@
                     </div>
 
                     <!-- opt-page 1 2-->
-                    <div class="d-flex justify-content-center text-center">{{ $paginate->links() }}</div>
+                    {{-- <div class="d-flex justify-content-center text-center">{{ $paginate->links() }}</div> --}}
 
                 </div>
 

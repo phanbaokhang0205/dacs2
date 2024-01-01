@@ -14,24 +14,22 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $paginate = Product::paginate(6);
+        $products = Product::where('gearBox', 'motorcycle')->paginate(6);
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
         return view(
             'user.products',
             [
                 'lastestProducts' => $lastestProducts,
-                'brands' => $brands, 'products' => $products,
-                'paginate' => $paginate
+                'brands' => $brands, 
+                'products' => $products,
             ]
         );
     }
 
     public function index2()
     {
-        $products = Product::all();
-        $paginate = Product::paginate(6);
+        $products = Product::where('gearBox', 'scooter')->paginate(6);
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
         return view(
@@ -39,15 +37,13 @@ class ProductsController extends Controller
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
-                'paginate' => $paginate
             ]
         );
     }
 
     public function index3()
     {
-        $products = Product::all();
-        $paginate = Product::paginate(6);
+        $products = Product::where('gearBox', 'manual')->paginate(6);
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
         return view(
@@ -55,15 +51,13 @@ class ProductsController extends Controller
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
-                'paginate' => $paginate
             ]
         );
     }
 
     public function index4()
     {
-        $products = Product::all();
-        $paginate = Product::paginate(6);
+        $products = Product::where('gearBox', 'electric')->paginate(6);
         $lastestProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
         $brands = Brand::all();
         return view(
@@ -71,7 +65,6 @@ class ProductsController extends Controller
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
-                'paginate' => $paginate
             ]
         );
     }
@@ -83,7 +76,7 @@ class ProductsController extends Controller
         if (!is_numeric($request->search)) {
             $result_user = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
-                ->select('productID','productImage','productName', 'gearBox', 'listPrice')
+                ->select('productID', 'productImage', 'productName', 'gearBox', 'listPrice')
                 ->orWhere('productName', 'like', '%' . $request->search . '%')
                 ->orWhere('gearBox', 'like', '%' . $request->search . '%')
                 ->get();

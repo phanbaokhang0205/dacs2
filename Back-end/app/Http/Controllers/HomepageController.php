@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Poster;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,13 +21,14 @@ class HomepageController extends Controller
         $users = User::all();
         $dssp = Product::get();
 
+
         return view(
             'user.homepage',
             [
                 'lastestProducts' => $lastestProducts,
                 'brands' => $brands, 'products' => $products,
                 'users' => $users,
-                'dssp' => $dssp
+                'dssp' => $dssp,
             ]
         );
     }

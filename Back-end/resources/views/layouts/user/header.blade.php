@@ -24,7 +24,7 @@
                 </li>
                 {{-- Cart --}}
                 <li class="cart">
-                    <a class="d-flex align-items-center gap-3" href="{{ route('listcart') }}">
+                    <a class="d-flex align-items-center gap-3" href="{{ route('listcart') }}" target="_blank">
                         <i class='bx bx-cart bx-md'></i>
                         @php
                             $qty = 0;

@@ -11,7 +11,7 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content user_CRUD">
         <div class="row-title">
             <span class="title">
                 Edit Product
@@ -22,18 +22,17 @@
                 <form action="{{ route('user.update', $user->id) }}" method="post">
                     @csrf
                     @method('PUT')
-                    <div class="form-group">
-                        <label for="userName">Username:</label>
-                        <input type="text" name="name" id="userName" class="form-control" value="{{ $user->name }}">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="userName">Username:</label>
+                            <input type="text" name="name" id="userName" class="form-control" value="{{ $user->name }}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Password:</label>
-                        <input type="text" name="password" id="password" class="form-control" value="{{ $user->password }}">
-                    </div>
+                    
                     <div class="form-group">
                         <label for="typeuser">Role:</label>
                         <select name="typeuser" id="typeuser" class="form-control">

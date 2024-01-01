@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Poster;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,63 +15,32 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('AdminRole');
     }
-    
+
     public function index()
     {
+        // v_quantity
         $sql = "select * from v_quantity";
         $quantity = DB::select($sql);
-        return view('admin.dashboard',['quantity'=>$quantity]);
+
+        // quantity
+        $brandCount = Brand::count();
+        $productCount = Product::count();
+        $userCount = User::count();
+
+        // // poster
+        // $newly_poster = Poster::orderBy('created_at', 'desc')->take(2)->get();
+
+        return view('admin.dashboard', [
+            'quantity' => $quantity,
+            'brandCount' => $brandCount,
+            'productCount' => $productCount,
+            'userCount' => $userCount,
+            // 'posters' => $newly_poster
+        ]);
     }
 
-    
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

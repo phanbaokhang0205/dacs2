@@ -34,15 +34,15 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'productCode.required'=>'Vui lòng nhập mã sản phẩm!',
-            'productName.required'=>'Vui lòng nhập tên sản phẩm!',
-            'listPrice.required'=>'Vui lòng nhập giá sản phẩm!',
-            'listPrice.numeric'=>'Giá sản phẩm phải kiểu số!',
-            'discountPercent.numeric'=>'Phần trăm khấu trừ sản phẩm phải là kiểu số!',
-            'productImage.required'=>'Vui lòng chọn ảnh sản phẩm!',
-            'productImage.mimes'=>'Không phải là file ảnh!',
-            'gearBox.required'=>'Vui lòng nhập loại hộp số xe!',
-            'productImage.max'=>'Kích thước file không vượt quá 2048KB!'
+            'productCode.required'=>'Please enter product code!!',
+            'productName.required'=>'Please enter product name!!',
+            'listPrice.required'=>'Please enter product price!',
+            'listPrice.numeric'=>'Product price must be numeric!',
+            'discountPercent.numeric'=>'Product deduction percentage must be numeric!',
+            'productImage.required'=>'Please select product photo!',
+            'productImage.mimes'=>'Not an image file!',
+            'gearBox.required'=>'Please enter your vehicle\'\ transmission type!',
+            'productImage.max'=>'File size cannot exceed 2048KB!'
         ];
     }
 }

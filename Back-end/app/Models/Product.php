@@ -12,6 +12,6 @@ class Product extends Model
     protected $primaryKey = 'productID';
     protected $filltable = [
         'productID','brandID','productCode','productName',
-        'description','productImage','listPrice','discountPercent'
+        'description','productImage','listPrice','discountPercent','gearBox'
     ];
 }

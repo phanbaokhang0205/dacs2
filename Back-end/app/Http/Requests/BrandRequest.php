@@ -29,8 +29,7 @@ class BrandRequest extends FormRequest
     public function messages()
     {
         return [
-            'brandName.required'=>'Vui Lòng nhập tên hãng của sản phẩm !'
-
+            'brandName.required'=>'Please enter brand name!'
         ];
     }
 }

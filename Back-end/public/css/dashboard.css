@@ -221,8 +221,7 @@ main .main-content .row-title span {
     
 }   
 
-main .main-content .row-content .row-1,
-main .main-content .row-content .row-2 {
+main .main-content .row-content .row-1{
     width: 100%;
     display: flex;
     align-items: center;
@@ -230,29 +229,24 @@ main .main-content .row-content .row-2 {
     padding: 0 30px;
     gap: 50px;
 }
+
 .total-users i {
     color: salmon;
 }
 .total-brands i {
     color: orange;
 }
-.total-orders i {
-    color: royalblue;
-}
 .total-products i {
     color: seagreen;
 }
 .total-users {
-    border-bottom: 5px solid salmon;
+    border-bottom: 8px solid salmon;
 }
 .total-products {
-    border-bottom: 5px solid seagreen;
+    border-bottom: 8px solid seagreen;
 }
 .total-brands {
-    border-bottom: 5px solid orange;
-}
-.total-orders {
-    border-bottom: 5px solid royalblue;
+    border-bottom: 8px solid orange;
 }
 .total-users,
 .total-products,
@@ -260,32 +254,64 @@ main .main-content .row-content .row-2 {
 .total-orders {
     color: #000;
     background: rgb(252, 252, 252);
-    width: 50%;
-    height: 120px;
-    padding: 20px;
+    width: 100%;
+    min-height: 250px;
     margin: 20px 0;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 7px 25px 0 rgba(0, 0, 0, 0.08);
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 .row-content .icon i {
-    font-size: 5rem;
+    font-size: 7rem;
 }
-.row-content .content {
-    position: relative;
-    top: 20px;
-    left: 20px;
-}
-.row-content .content .amount {
-    font-size: 2.5rem;
+
+.row-content .amount {
+    font-size: 2.6rem;
     line-height: 10px;
     font-weight: bold;
 }
-.row-content .content .title {
-    font-size: 1.2rem;
+.row-content .title {
+    font-size: 1.4rem;
+}
+.row-1 > div:hover {
+    background-color: #f3f4f3;
+    cursor: pointer;
 }
 
-
+/* row-2 */
+.row-content .row-2 .quantity-card{
+    min-height: 150px;
+    margin: 20px;
+    color: #000;
+    background: rgb(252, 252, 252);
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 7px 25px 0 rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.row-content .row-2 .quantity-card:hover {
+    background-color: #f3f4f3;
+    cursor: pointer;
+}
+.row-content .row-2 .quantity-card .logo {
+    width: 150px;
+    height: 150px;
+}
+.row-content .row-2 .quantity-card .logo img {
+    margin: 20px 0;
+    width: 150px;
+}
+.row-content .row-2 .quantity-card h5 {
+    padding-bottom: 20px;
+}
 a.btn-edit {
     color: green;
 }
@@ -326,13 +352,35 @@ button.btn-delete:hover {
     border-bottom: 2px solid #000;
 }
 
-/* user CRUD */
-.user_CRUD .form-group {
+/* user CRUD, product CRUD, brand CRUD */
+.user_CRUD .form-group,
+.product_CRUD  .form-group,
+.brand_CRUD  .form-group {
     margin-top: 20px;
 }
-.user_CRUD input[type="submit"] {
+
+.user_CRUD input[type="submit"],
+.product_CRUD  input[type="submit"],
+.brand_CRUD  input[type="submit"] {
     margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #64c5b1;
+    background: #64c5b1;
+    border-radius: 20px;
 }
+.user_CRUD form,
+.product_CRUD  form,
+.brand_CRUD form {
+    border: 10px solid #64c5b1;
+    border-radius: 10px;
+    max-width: 80%;
+    background: #fff;
+    margin: 20px auto;
+    padding: 10px 20px;
+    box-shadow: 20px 20px 10px 0px rgba(0, 0, 0, 0.1);
+
+}
+
 /* ckEditoer */
 .ck-blurred {
     width: 100%;

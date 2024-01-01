@@ -60,13 +60,22 @@
 
         <!--  content -->
         <div class="container mt-5 mb-5">
+            {{-- <div class=" row">
+                @foreach ($posters as $poster)
+                <div class="ab col-md-6 col-sm-6">
+                    <img src="{{ asset('img/' .$poster->poster_photo) }}" alt="">
+                </div>
+                @endforeach
+                
+            </div> --}}
             <div class=" row">
                 <div class="ab col-md-6 col-sm-6">
                     <img src="{{ asset('img/poster-1.png') }}" alt="">
                 </div>
-                <div class="ex col-md-6 col-sm-6">
+                <div class="ab col-md-6 col-sm-6">
                     <img src="{{ asset('img/poster-2.jpg') }}" alt="">
                 </div>
+                
             </div>
         </div>
 
@@ -79,9 +88,7 @@
                     <div class="col-lg-3 col-sm-6 mt-3">
                         <div class="sp sh-mode card text-center">
                             <div class="cart-title">
-                                <div class="icon-heart">
-                                    <i class='bx bxs-heart'></i>
-                                </div>
+                                
                                 @if ($product->discountPercent > 0)
                                     <div class="sales">
                                         <p>-{{ round($product->discountPercent) }}%</p>

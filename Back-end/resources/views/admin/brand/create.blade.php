@@ -11,27 +11,28 @@
     </div>
 @endsection
 @section('content')
-    <div class="main-content">
+    <div class="main-content brand_CRUD">
         <div class="row-title">
-            <span class="title">
+            <h2 class="title">
                 Brands
-            </span>
-            <span class="subtitle">
+            </h2>
+            <h6 class="subtitle">
                 Add Brand
-            </span>
+            </h6>
         </div>
         <div class="row row-brands">
             <div class="col-sm-10">
                 <form action="{{ route('brand.store') }}" method="post">
                     @csrf
+                    {{-- Hien thi thong bao loi --}}
+                    @if ($errors->has('brandName'))
+                        <div class="alert alert-danger">{{ $errors->first('brandName') }}</div>
+                    @endif
+                    
                     <div class="form-group">
                         <label for="brandName">Brand Name</label>
                         <input type="text" name="brandName" id="brandName" class="form-control">
                     </div>
-                    {{-- Hien thi thong bao loi --}}
-                    @if ($errors->has('brandName'))
-                        <p>{{ $errors->first('brandName') }}</p>
-                    @endif
                     <div class="form-group">
                         <input type="submit" value="Create Brand">
                     </div>

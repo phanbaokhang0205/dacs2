@@ -13,9 +13,9 @@
 @section('content')
     <div class="main-content main-content-product">
         <div class="row-title">
-            <span class="title">
-                List Products
-            </span>
+            <h2 class="title">
+                Products
+            </h2>
         </div>
         <div class="row row-product">
             <div class="col-sm-12">
