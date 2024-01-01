@@ -17,12 +17,16 @@
         <div class="container content mt-5 mb-5" id="menu">
 
             <div class="shop-sidebar__mobile">
-                <label for="side__mobile-input" class="side__filter-btn" style="cursor: pointer;">
-                    <div class="icon">
-                        <i class='bx bx-filter-alt'></i>
+                <form action="{{ route('user.product.find') }}" method="post">
+                    @csrf
+                    <div class="timkiem">
+                        <input type="text" id="inputSearch" name="search" class=""
+                            placeholder="Search products ...">
+                        <button class="search" type="submit">
+                            <i class='bx bx-search-alt-2'></i>
+                        </button>
                     </div>
-                    <p style=" text-transform: uppercase; font-weight: 500;">Lọc</p>
-                </label>
+                </form>
 
             </div>
 
@@ -34,14 +38,11 @@
                             <form action="{{ route('user.product.find') }}" method="post">
                                 @csrf
                                 <aside class="timkiem mb-3">
-                                    {{-- <input type="text" placeholder="Search">
-                                    <i class='bx bx-search-alt-2'></i> --}}
                                     <input type="text" id="inputSearch" name="search" class=""
                                         placeholder="Search products ...">
                                     <button class="search" type="submit">
                                         <i class='bx bx-search-alt-2'></i>
                                     </button>
-
                                 </aside>
                             </form>
                         </aside>
@@ -112,7 +113,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a  target="_blank"
+                                        <a target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/bang-gia-honda-lead-dau-thang-7-2023-giam-hon-3-trieu-dong-c748a1480154.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/lead3--1--1688133669-864-width740height555_anh_cat_3_2.jpg"
@@ -123,7 +124,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a  target="_blank"
+                                        <a target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/xe-may-co-hiem-co-kho-tim-cua-dan-choi-sai-thanh-c748a1479864.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-30/255x170/adt1688066319-tp-img-4105-1388_anh_cat_3_2.jpg"
@@ -134,7 +135,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a  target="_blank"
+                                        <a target="_blank"
                                             href="https://www.24h.com.vn/xe-may-xe-dap/phat-me-bo-doi-2024-triumph-speed-400-va-scrambler-400-x-c748a1479596.html">
                                             <img width="90px" height="70px"
                                                 src="https://icdn.24h.com.vn/upload/2-2023/images/2023-06-29/255x170/trium1--1--1688007655-398-width740height555_anh_cat_3_2.jpg"
@@ -164,7 +165,7 @@
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
-                                <div class="col-lg-6 pb-3">
+                                <div class="col-lg-6 pb-3 col-sm-6">
                                     <div class="blade card text-center">
                                         <form action="{{ route('addcart', $product->productID) }}" method="post"
                                             class="form_cart">
@@ -211,5 +212,4 @@
     </main>
 @endsection
 @section('js')
-
 @endsection

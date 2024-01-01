@@ -17,12 +17,16 @@
         <div class="container content mt-5 mb-5" id="menu">
 
             <div class="shop-sidebar__mobile">
-                <label for="side__mobile-input" class="side__filter-btn" style="cursor: pointer;">
-                    <div class="icon">
-                        <i class='bx bx-filter-alt'></i>
+                <form action="{{ route('user.product.find') }}" method="post">
+                    @csrf
+                    <div class="timkiem">
+                        <input type="text" id="inputSearch" name="search" class=""
+                            placeholder="Search products ...">
+                        <button class="search" type="submit">
+                            <i class='bx bx-search-alt-2'></i>
+                        </button>
                     </div>
-                    <p style=" text-transform: uppercase; font-weight: 500;">Lọc</p>
-                </label>
+                </form>
 
             </div>
 
@@ -31,7 +35,7 @@
                 <div class="col-lg-3">
                     <div class="shop-sidebar__PC">
                         <aside class="timkiem mb-3">
-                            <form action="" method="post">
+                            <form action="{{ route('user.product.find') }}" method="post">
                                 <aside class="timkiem mb-3">
                                     <input type="text" placeholder="Search">
                                     <i class='bx bx-search-alt-2'></i>
@@ -159,7 +163,7 @@
                         <!-- page-1 -->
                         <div class="row">
                             @foreach ($products as $product)
-                                <div class="col-lg-6 pb-3">
+                                <div class="col-lg-6 pb-3 col-sm-6">
                                     <div class="blade card text-center">
                                       
                                         <form action="{{ route('addcart', $product->productID) }}" method="post"

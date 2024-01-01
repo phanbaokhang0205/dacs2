@@ -386,6 +386,7 @@ table.thongSo tr:nth-child(odd) {
 /*** danh gia ***/
 .form-danhgia {
     padding: 20px 40px;
+    position: relative;
 }
 
 .form-danhgia small {
@@ -414,26 +415,10 @@ textarea:hover {
     box-shadow: 0px 5px 15px 0px #777676;
 }
 
-.ten-email {
-    display: flex;
-    justify-content: space-between;
-}
-
-.ten-email input {
-    width: 100%;
-}
-
-.ten,
-.email {
-    width: 45%;
-}
-
-.luuthongtin {
-    display: flex;
-    align-items: center
-}
-
 .gui {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
     border: 1px solid rgb(252, 175, 11);
     color: #fff;
     background: rgb(252, 175, 11);

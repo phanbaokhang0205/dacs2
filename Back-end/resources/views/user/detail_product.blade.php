@@ -1,7 +1,6 @@
 @extends('layouts.user.main')
 @section('content')
     <main>
-
         <div class="container-fluid top-title">
             <img src="{{ asset('img/slide8.jpg') }}" alt="" class="img-fluid" width="100%">
             <div class="content-header">
@@ -28,7 +27,12 @@
                             <td>
                                 <b>Price:</b>
                             </td>
-                            <td style="color: red; font-size: 1.3rem;"> $ {{ $product->listPrice }}</td>
+                            <td style="color: red; font-size: 1.3rem;">
+                                @if ($product->discountPercent > 0)
+                                    <p>{{ $product->listPrice - ($product->listPrice * $product->discountPercent) / 100 }}
+                                    </p>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td><b>Gear Box:</b></td>
@@ -194,37 +198,26 @@
                     <h1>Rate</h1>
                 </div>
                 <div class="form-danhgia">
+                    <form action="" method="post">
+                        @csrf
+                        {{-- <p><strong>Your rate</strong></p>
+                        <small onclick="danhGia_s1()" id="s1" class="sao-1">&#9733; </small>
+                        <small onclick="danhGia_s2()" id="s2" class="sao-2">&#9733; &#9733;</small>
+                        <small onclick="danhGia_s3()" id="s3" class="sao-3">&#9733; &#9733; &#9733;</small>
+                        <small onclick="danhGia_s4()" id="s4" class="sao-4">&#9733; &#9733; &#9733; &#9733; </small>
+                        <small onclick="danhGia_s5()" id="s5" class="sao-5">&#9733; &#9733; &#9733; &#9733;
+                            &#9733;</small> --}}
 
-                    <p><strong>Your rate</strong></p>
-                    <small onclick="danhGia_s1()" id="s1" class="sao-1">&#9733; </small>
-                    <small onclick="danhGia_s2()" id="s2" class="sao-2">&#9733; &#9733;</small>
-                    <small onclick="danhGia_s3()" id="s3" class="sao-3">&#9733; &#9733; &#9733;</small>
-                    <small onclick="danhGia_s4()" id="s4" class="sao-4">&#9733; &#9733; &#9733; &#9733; </small>
-                    <small onclick="danhGia_s5()" id="s5" class="sao-5">&#9733; &#9733; &#9733; &#9733;
-                        &#9733;</small>
 
-                    <p class="mt-3"><strong>Your comment:</strong></p>
-                    <textarea cols="10" rows="5" style="resize: none; width: 100%"></textarea>
+                        <label for="your_comment"><strong>Your rate:</strong></label>
 
-                    <div class="ten-email mt-4 ">
-                        <div class="ten">
-                            <p><strong>Name:</strong></p>
-                            <input type="text">
-                        </div>
-                        <div class="email">
-                            <p><strong>Email:</strong></p>
-                            <input type="email">
-                        </div>
-                    </div>
+                        <textarea class="mt-3" id="your_comment" cols="10" rows="5" style="resize: none; width: 100%"
+                            placeholder="Fill in your comment..."></textarea>
 
-                    <div class="luuthongtin mt-3">
-                        <input id="luu" type="checkbox">
-                        <label style="cursor: pointer;" for="luu" class="mx-3 ">Save the information.</label>
-                    </div>
-
-                    <button class="gui mt-4">
-                        Send
-                    </button>
+                        <button class="gui mt-4" type="submit" style="border-radius: 20px">
+                            <i class='bx bx-send'></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             <!-- Sản phẩm liên quann -->
@@ -260,6 +253,31 @@
 
                     </div>
                 </div>
+            </div>
+            {{-- Comments --}}
+            <div class="row row-danhGia mt-5">
+                <div class="title">
+                    <h1>Commments</h1>
+                </div>
+                @foreach ($users as $user)
+                    @if ($user->comments != '')
+                        <div class="comments mt-3">
+                            <div class="comment-item">
+                                <div class="profile_user d-flex align-items-center">
+                                    <div class="img"><i class='bx bxs-user-circle bx-md'></i></div>
+                                    <div class="name_email">
+                                        <b>{{ $user->name }} <span style="color: gray">{{ $user->email }}</span></b>
+                                    </div>
+                                </div>
+                                <div class="user_comment mx-5">
+                                    <p>{{ $user->comments }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
+
             </div>
         </div>
 

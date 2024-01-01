@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -80,6 +81,7 @@ Route::get('/intro', function () {
     return view('user.intro');
 })->name('intro');
 Route::get('/detail_product/{id?}', function ($id) {
+    $users = User::all();
     $product = Product::find($id);
     $brands = Brand::all();
     $products = Product::where('gearBox', $product->gearBox)
@@ -89,7 +91,8 @@ Route::get('/detail_product/{id?}', function ($id) {
     return view('user.detail_product', [
         'product' => $product,
         'brands' => $brands,
-        'products' => $products
+        'products' => $products,
+        'users' => $users
     ]);
 })->name('detail_product');
 

@@ -135,6 +135,36 @@ aside.timkiem i.bx-search-alt-2 {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+.shop-sidebar__mobile .timkiem {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.shop-sidebar__mobile .timkiem input{
+    padding: 5px 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #000;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    outline: none;
+    height: 33px;
+}
+.shop-sidebar__mobile .timkiem button.search {
+    position: absolute;
+    left: 59%;
+    border: none;
+    background: transparent;
+}
+.shop-sidebar__mobile .timkiem button.search i{
+    color: #fff;
+    background: rgb(252, 175, 11);
+    font-size: 30px;
+    border: 1px solid #000;
+    padding: 0px 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 
 /*** aside-danh muc san pham ***/
 aside.danhmucsanpham,
@@ -421,5 +451,10 @@ button.muaNgay {
 
     .dsxeSo .col-lg-6 {
         width: 50%;
+    }
+}
+@media only screen and (min-width: 1023px) {
+    .shop-sidebar__mobile {
+        display: none;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -76,14 +77,15 @@ class ProductsController extends Controller
         if (!is_numeric($request->search)) {
             $result_user = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
-                ->select('productID', 'productImage', 'productName', 'gearBox', 'listPrice')
+                ->select('productID', 'productImage', 'productName', 'gearBox', 'listPrice','brandName')
                 ->orWhere('productName', 'like', '%' . $request->search . '%')
                 ->orWhere('gearBox', 'like', '%' . $request->search . '%')
+                ->orWhere('brandName', 'like', '%' . $request->search . '%')
                 ->get();
         } else {
             $result_user = DB::table('brands')
                 ->join('products', 'brands.brandID', '=', 'products.brandID')
-                ->select('productName', 'gearBox', 'listPrice')
+                ->select('productName', 'gearBox', 'listPrice','productID','productImage')
                 ->where('listPrice', 'like', '%' . $request->search . '%')
                 ->orWhere('listPrice', '>', $request->search)
                 ->get();
@@ -96,6 +98,7 @@ class ProductsController extends Controller
         ]);
     }
 
+    
 
     public function deleteProduct(Request $request)
     {
@@ -108,4 +111,6 @@ class ProductsController extends Controller
             session()->flash('success', 'Book successfully deleted.');
         }
     }
+
+    
 }
