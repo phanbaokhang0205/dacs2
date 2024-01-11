@@ -1,10 +1,11 @@
 #app {
-    background: linear-gradient(to bottom, #3ea1d3, #b8f1ff);
-}
+    background: linear-gradient(to bottom, rgb(252, 175, 11),#686868);
+    
+    }
 .card{
     backdrop-filter: blur(20px);
-    background: linear-gradient(to bottom, #3ea1d3, #b8f1ff);
+    background: linear-gradient(to top, rgb(250, 215, 140),rgb(253, 183, 32));
 }
 body{
-    background: #b8f1ff 
+    background: #686868; 
 }

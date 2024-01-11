@@ -15,10 +15,10 @@
     <div class="main-content user_CRUD">
         <div class="row-title">
             <h2 class="title">
-                Users
+                Accounts
             </h2>
             <h6 class="subtitle">
-                Add user
+                Add admin account
             </h6>
         </div>
         <div class="row row-user">
@@ -42,14 +42,12 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="typeuser">Role:</label>
-                            <select name="typeuser" id="typeuser" class="form-control">
+                            <input type="typeuser" id="typeuser" class="form-control" style="background: lightgrey;" value="Admin" readonly>
+                            {{-- <select name="typeuser" id="typeuser" class="form-control">
                                 <option value="admin">
                                     Admin
                                 </option>
-                                <option value="user">
-                                    User
-                                </option>
-                            </select>
+                            </select> --}}
                         </div>
                     </div>
                     <div class="form-group">

@@ -81,7 +81,7 @@ class CartController extends Controller
                 Session::put('cart', $cart);
             } else {
                 $cart[$key]['qty'] = $quantity;
-                $total = $cart[$key]['cost'] * $cart[$key]['qty'];
+                $total = $cart[$key]['cost'] * $cart[$key]['qty'] * 23000;
                 $cart[$key]['total'] = $total;
                 Session::put('cart', $cart);
             }

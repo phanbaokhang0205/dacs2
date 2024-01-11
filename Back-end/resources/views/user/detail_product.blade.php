@@ -29,8 +29,10 @@
                             </td>
                             <td style="color: red; font-size: 1.3rem;">
                                 @if ($product->discountPercent > 0)
-                                    <p>{{ $product->listPrice - ($product->listPrice * $product->discountPercent) / 100 }}
+                                    <p>$ {{ $product->listPrice - ($product->listPrice * $product->discountPercent) / 100 }} 
                                     </p>
+                                @else
+                                    <p>$ {{ $product->listPrice }} </p>
                                 @endif
                             </td>
                         </tr>
@@ -201,10 +203,8 @@
                         @foreach ($products as $item)
                             @if ($product->gearBox === $item->gearBox)
                                 <div class="col-lg-4">
+                                    
                                     <div class="vespa card text-center">
-                                        <div class="icon-heart">
-                                            <i class='bx bxs-heart'></i>
-                                        </div>
                                         <img class="card-img-top" src="{{ asset('img/' . $item->productImage) }}"
                                             alt="Title" style="width: 100%; height: 250px;">
                                         <div class="card-body">
@@ -231,13 +231,15 @@
                     <h1>Rate</h1>
                 </div>
                 <div class="form-danhgia">
-                    <form action="" method="post">
+                    <form action="{{ route('user.comment') }}" method="post">
                         @csrf
                         <label for="your_comment"><strong>Your rate:</strong></label>
 
-                        <textarea class="mt-3" id="your_comment" cols="10" rows="5" style="resize: none; width: 100%"
-                            placeholder="Fill in your comment..."></textarea>
-
+                        <textarea name="comments" class="mt-3 p-3" id="your_comment" cols="10" rows="5" style="resize: none; width: 100%"
+                            placeholder="Fill in your comment..." ></textarea>
+                            <input class="d-none" type="text" name="name" value="{{ Auth::user()->name }}"><br>
+                            <input class="d-none" type="text" name="email" value="{{ Auth::user()->email }}"><br>
+                            
                         <button class="gui mt-4" type="submit" style="border-radius: 20px">
                             <i class='bx bx-send'></i>
                         </button>

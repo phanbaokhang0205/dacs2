@@ -129,7 +129,7 @@
 
         <!-- Xe so -->
 
-        <div id="xe_1" class="xeSo container">
+        <div id="xe_1" class="xeSo container my-3">
             <div class="row">
                 @foreach ($products as $product)
                     @if ($product->gearBox === 'motorcycle')

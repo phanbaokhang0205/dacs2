@@ -37,12 +37,12 @@ Route::group(['prefix' => 'admin'], function () {
             'brand' => 'BrandController',
             'product' => 'ProductController',
             'user' => 'UserController',
-            // 'poster' => 'PosterController'
+            
         ]);
         Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-        Route::post('findProduct', [ProductController::class, 'find'])->name('product.find');
-        Route::post('findBrand', [BrandController::class, 'find'])->name('brand.find');
-        Route::post('findUser', [AdminUserController::class, 'find'])->name('user.find');
+        Route::post('/findProduct', [ProductController::class, 'find'])->name('product.find');
+        Route::post('/findBrand', [BrandController::class, 'find'])->name('brand.find');
+        Route::post('/findUser', [AdminUserController::class, 'find'])->name('user.find');
 
         
     });
@@ -81,13 +81,14 @@ Route::get('/intro', function () {
     return view('user.intro');
 })->name('intro');
 Route::get('/detail_product/{id?}', function ($id) {
-    $users = User::all();
+    $users = User::orderBy('updated_at','desc')->get();
     $product = Product::find($id);
     $brands = Brand::all();
     $products = Product::where('gearBox', $product->gearBox)
         ->whereNotIn('productID', [$id])
         ->take(3)
         ->get();
+        
     return view('user.detail_product', [
         'product' => $product,
         'brands' => $brands,
@@ -95,6 +96,9 @@ Route::get('/detail_product/{id?}', function ($id) {
         'users' => $users
     ]);
 })->name('detail_product');
+
+Route::post('/user_comment', [ProductsController::class, 'storeComment'])->name('user.comment');
+
 
 // Products
 Route::get('/scooter', [ProductsController::class, 'index2'])->name('scooter');

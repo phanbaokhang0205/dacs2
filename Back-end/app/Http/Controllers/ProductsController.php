@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
@@ -69,6 +70,18 @@ class ProductsController extends Controller
             ]
         );
     }
+
+    public function storeComment(Request $request)
+    {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->comments = $request->comments;
+        $user->save();
+        return redirect()->route('products');
+    }
+    
 
     public function findUserProduct(Request $request)
     {

@@ -3,8 +3,8 @@
 
         <div class="menu">
             <ul>
-                <li>
-                    <a href="{{ route('admin.index') }}">
+                <li class="m-auto" style="padding: 24px 0px">
+                    <a class="icon_admin" href="{{ route('admin.index') }}">
                         <span class="icon">
                             <i class='bx bx-car'></i>
                         </span>

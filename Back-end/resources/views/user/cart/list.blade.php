@@ -44,14 +44,14 @@
                                     <td><img src="{{ asset('img/' . $item['img']) }}" width="100"></td>
                                     <td>{{ $item['name'] }}</td>
                                     <td>
-                                        $ {{ $cost }}
+                                        $ {{ $cost  }}
                                     </td>
                                     <td>
                                         <input class="input_qty" type="text" name="newqty[{{ $key }}]"
                                             value="{{ $item['qty'] }}">
                                     </td>
                                     <td>
-                                        $ {{ $total }}
+                                        {{ $total }} VND
                                     </td>
                                     <td>
                                         <a class="btn btn-outline-danger btn-md delete-product">
@@ -71,6 +71,7 @@
                 <div class="btn-update">
                     <input type="submit" value="Update Cart">
                 </div>
+                
             </form>
         @endif
     </main>

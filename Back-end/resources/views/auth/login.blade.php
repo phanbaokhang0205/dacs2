@@ -4,8 +4,8 @@
 <link href="{{ asset('css/custom-login.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row">
-        <div class="col-md-6" style="width: 50%; padding-top:5%;">
-            <div class="card">
+        <div class="col-md-6 m-auto" style="width: 50%; padding-top:5%;">
+            <div class="card ">
                 <div class="card-header text-center text-muted">
                     <h1>{{ __('Login') }}</h1>
                 </div>
@@ -55,12 +55,12 @@
 
                         <div class="row mb-2 offset-md-2">
                             <div class="">
-                                <button type="submit" class="btn btn-info text-muted">
+                                <button type="submit" class="btn btn-warning text-muted">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link text-dark" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif
@@ -69,9 +69,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6" style="width: 50%;">
-            <img src="{{ asset('img/svg.avif') }}" alt="" width="100%" height="100%">
         </div>
     </div>    
 </div>
